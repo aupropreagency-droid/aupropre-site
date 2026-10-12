@@ -394,9 +394,9 @@
   .derriere-texte a:hover{background-size:0 2px}
   .signature{font-family:var(--hand);font-size:34px;color:var(--bic);display:inline-block;transform:rotate(-3deg);margin-top:6px}
 
-  /* POURQUOI AUPROPRE : une phrase par écran, au scroll */
-  .recit{height:calc(5 * 100vh + 100vh);position:relative;padding:0}
-  .recit-sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;padding:96px var(--pad) 28px}
+  /* POURQUOI AUPROPRE : une phrase par écran, au clic */
+  .recit{position:relative;padding:0}
+  .recit-sticky{position:relative;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;padding:96px var(--pad) 28px}
   .recit-feuille{position:relative;width:min(1180px,100%);height:100%;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 0 0 1px var(--trait),0 40px 80px -50px rgba(20,20,60,.45)}
   .recit-note{position:absolute;top:28px;left:clamp(28px,6vw,90px);color:#5FD3FF;transform:rotate(-2deg);font-size:26px;z-index:2}
   .etape-r{position:absolute;inset:0;padding:clamp(70px,9vh,110px) clamp(28px,6vw,90px) 60px;display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateY(40px);transition:opacity .2s ease-in,transform .3s ease-in;pointer-events:none}
@@ -433,9 +433,25 @@
   /* Le stylo écrit « je réserve » */
   .ecrit{position:relative;display:inline-block;margin-top:10px;align-self:flex-start}
   .ecrit-txt{font-family:var(--hand);font-weight:700;font-size:clamp(52px,7vw,104px);color:#38BDFF;line-height:1;display:inline-block;clip-path:inset(-20% calc((1 - var(--w,0)) * 100%) -20% 0);transform:rotate(-3deg)}
-  .stylo{position:absolute;width:clamp(150px,15vw,210px);top:62%;left:calc(var(--w,0) * 100% - 4px);transform:rotate(-28deg);transform-origin:0 50%;opacity:calc(var(--sv,0));filter:drop-shadow(0 10px 10px rgba(0,0,0,.15))}
+  .stylo{position:absolute;width:clamp(150px,15vw,210px);top:62%;left:calc(var(--w,0) * 100% - 4px);transform:rotate(-28deg);transform-origin:0 50%;opacity:0;filter:drop-shadow(0 10px 10px rgba(0,0,0,.15))}
 
-  .recit-points{position:absolute;right:26px;top:50%;transform:translateY(-50%);display:grid;gap:10px}
+  @property --w{syntax:"<number>";inherits:true;initial-value:0}
+  .etape-stylo{--w:0}
+  .etape-stylo.actif{--w:1;transition:opacity .5s cubic-bezier(.2,.8,.2,1) .2s,transform .65s cubic-bezier(.2,.8,.2,1) .2s,--w 1.3s cubic-bezier(.5,0,.3,1) .6s}
+  .etape-stylo.actif .stylo{animation:stylo-vis 1.5s .55s both}
+  @keyframes stylo-vis{0%{opacity:0}12%{opacity:1}85%{opacity:1}100%{opacity:0}}
+  .recit-feuille{cursor:pointer}
+  .recit-feuille a,.recit-feuille button{cursor:pointer}
+  .recit-nav{position:absolute;right:clamp(28px,6vw,90px);bottom:28px;display:flex;align-items:center;gap:12px;z-index:3}
+  .r-compte{font-size:14px;color:#8D90A0;font-variant-numeric:tabular-nums;min-width:30px;text-align:center}
+  .r-prec{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:#F4F4F0;font-size:18px}
+  .r-prec:hover{background:rgba(255,255,255,.16)}
+  .r-prec[disabled]{opacity:.3;cursor:default}
+  .r-suite{min-height:44px}
+  .r-defile .tactile{display:none}
+  @media (hover:none){.r-defile .souris{display:none}.r-defile .tactile{display:inline}}
+  .recit-points{position:absolute;right:20px;top:50%;transform:translateY(-50%);display:grid;gap:0}
+  .recit-points button{width:28px;height:28px;border:0;background:none;padding:0;display:grid;place-items:center}
   .recit-points i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18);transition:background .3s,transform .3s}
   .recit-points i.on{background:#38BDFF;transform:scale(1.3)}
 
@@ -623,11 +639,12 @@
   @media (max-width:960px){
     .constat .wrap,.faq .wrap,.derriere .wrap{grid-template-columns:1fr}
     .derriere-tete{position:static}
-    .recit{height:calc(5 * 100vh + 100vh)}
+    .recit-nav{right:18px;bottom:18px;gap:8px}
+    .recit-feuille{cursor:auto}
     .recit-sticky{padding:84px 12px 16px}
     .etape-r{padding:70px 26px 40px}
     .recit-note{left:26px;top:22px;font-size:22px}
-    .recit-points{right:10px}
+    .recit-points{display:none}
     .postits{gap:10px 14px}
     .pi{width:132px;min-height:96px;padding:18px 12px 12px;font-size:20px}
     .r-grand{font-size:clamp(32px,9vw,52px)}
@@ -690,7 +707,8 @@
     .recit-sticky{position:static;height:auto;padding:110px var(--pad) 40px}
     .recit-feuille{height:auto;padding:80px 0 40px}
     .etape-r{position:static;opacity:1;transform:none;padding-top:24px;padding-bottom:24px}
-    .stylo,.recit-points,.r-defile{display:none}
+    .stylo,.recit-points,.r-defile,.recit-nav{display:none}
+    .recit-feuille{cursor:auto}
     .pi{opacity:1;transform:rotate(var(--r))}
     .ecrit-txt{clip-path:none}
     *{animation:none !important;transition:none !important}
@@ -1070,7 +1088,7 @@
 
         <div class="etape-r etape-ouverture" data-i="0">
           <p class="r-titre">Pourquoi<br>AuPropre&nbsp;?</p>
-          <span class="r-defile">fais défiler</span>
+          <span class="r-defile"><span class="souris">clique pour la suite</span><span class="tactile">touche pour la suite</span></span>
         </div>
 
         <div class="etape-r" data-i="1">
@@ -1100,7 +1118,8 @@
           <div class="r-cta"><a href="#contact" class="btn btn-bic js-wa"><span class="wa-pastille" aria-hidden="true"></span>Parle-moi de ton projet</a><span class="signature">— AuPropre</span></div>
         </div>
 
-        <div class="recit-points" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="recit-points"><button type="button" aria-label="Étape 1"><i></i></button><button type="button" aria-label="Étape 2"><i></i></button><button type="button" aria-label="Étape 3"><i></i></button><button type="button" aria-label="Étape 4"><i></i></button><button type="button" aria-label="Étape 5"><i></i></button></div>
+        <div class="recit-nav"><button type="button" class="r-prec" aria-label="Étape précédente">←</button><span class="r-compte" aria-live="polite">1/5</span><button type="button" class="btn btn-bic r-suite">La suite →</button></div>
       </div>
     </div>
   </section>
@@ -1210,59 +1229,46 @@
     scene.style.setProperty('--n',clamp((p-.82)/.1));
     document.getElementById('ap').style.setProperty('--soul',clamp((p-.82)/.12));
   }
-  // Récit « pourquoi AuPropre » : une phrase par écran, gomme puis stylo
+  // Récit « pourquoi AuPropre » : une phrase par écran, au clic
   const recit=document.getElementById('derriere');
   const etapesR=[...recit.querySelectorAll('.etape-r')];
   const pointsR=[...recit.querySelectorAll('.recit-points i')];
   const gommeR=recit.querySelector('.etape-gomme');
   const styloR=recit.querySelector('.etape-stylo');
-  function rendreRecit(){
-    if(reduit.matches) return;
-    const total=recit.offsetHeight-innerHeight;
-    const p=clamp((scrollY-recit.offsetTop)/total);
+  // Le visiteur avance au clic (ou au doigt, ou aux flèches), à son rythme
+  const suiteR=recit.querySelector('.r-suite'), precR=recit.querySelector('.r-prec'), compteR=recit.querySelector('.r-compte');
+  const boutonsPts=[...recit.querySelectorAll('.recit-points button')];
+  let etapeR=0;
+  function montrerEtape(i){
     const n=etapesR.length;
-    const pos=Math.min(n-1e-6,p*n);
-    const idx=Math.floor(pos), local=pos-idx;
-    etapesR.forEach((e,i)=>{e.classList.toggle('actif',i===idx);e.classList.toggle('passe',i<idx)});
-    pointsR.forEach((d,i)=>d.classList.toggle('on',i===idx));
-    const iG=etapesR.indexOf(gommeR), iS=etapesR.indexOf(styloR);
-    recit.classList.toggle('ouverture',idx===0);
-    const w=idx===iS?clamp((local-.2)/.55):(idx>iS?1:0);
-    styloR.style.setProperty('--w',w);
-    styloR.style.setProperty('--sv',idx===iS&&local>.1&&local<.9?1:0);
+    etapeR=(i+n)%n;
+    etapesR.forEach((e,k)=>{e.classList.toggle('actif',k===etapeR);e.classList.toggle('passe',k<etapeR);e.setAttribute('aria-hidden',k!==etapeR)});
+    pointsR.forEach((d,k)=>d.classList.toggle('on',k===etapeR));
+    boutonsPts.forEach((b,k)=>b.setAttribute('aria-current',k===etapeR?'step':'false'));
+    recit.classList.toggle('ouverture',etapeR===0);
+    compteR.textContent=(etapeR+1)+'/'+n;
+    precR.disabled=etapeR===0;
+    suiteR.textContent=etapeR===n-1?'Recommencer ↺':'La suite →';
   }
-  // RÉCIT : un geste (molette, trackpad, flèches) = une étape. Au doigt, scroll natif (étapes espacées d'un écran).
-  (function(){
-    const N=etapesR.length;
-    const posEtape=i=>i===0?0:i+.85;               // où chaque étape est entièrement jouée
-    const yEtape=i=>recit.offsetTop+posEtape(i)/N*(recit.offsetHeight-innerHeight);
-    // prochaine étape dans le sens du geste (-1 = aucune : on laisse sortir de la section)
-    const cibleDe=dir=>{const m=8;if(dir>0){for(let i=0;i<N;i++)if(yEtape(i)>scrollY+m)return i}else{for(let i=N-1;i>=0;i--)if(yEtape(i)<scrollY-m)return i}return -1};
-    const dansRecit=()=>scrollY>=yEtape(0)-innerHeight*.6&&scrollY<=yEtape(N-1)+4;
-    let verrou=false,dernier=0,fin=0;
-    function aller(dir){
-      const cible=cibleDe(dir);
-      if(cible<0) return false;          // on sort de la section : scroll normal
-      verrou=true;fin=performance.now()+700;
-      scrollTo({top:yEtape(cible),behavior:'smooth'});
-      return true;
-    }
-    function libre(){return !verrou||(performance.now()>fin&&performance.now()-dernier>160)}
-    addEventListener('wheel',e=>{
-      if(reduit.matches||!dansRecit()||Math.abs(e.deltaY)<2) return;
-      const dir=e.deltaY>0?1:-1;
-      if(cibleDe(dir)<0) return;
-      e.preventDefault();
-      const t=performance.now(), pause=t-dernier>160; dernier=t;
-      if(!verrou||(t>fin&&pause)) aller(dir);
-    },{passive:false});
-    addEventListener('keydown',e=>{
-      if(reduit.matches||!dansRecit()||e.target.closest('input,textarea,dialog')) return;
-      const dir={ArrowDown:1,PageDown:1,' ':1,ArrowUp:-1,PageUp:-1}[e.key];
-      if(!dir) return;
-      if(libre()&&aller(dir)) e.preventDefault(); else if(verrou&&performance.now()<fin) e.preventDefault();
+  function rendreRecit(){}
+  if(!reduit.matches){
+    montrerEtape(0);
+    suiteR.addEventListener('click',e=>{e.stopPropagation();montrerEtape(etapeR+1)});
+    precR.addEventListener('click',e=>{e.stopPropagation();if(etapeR>0)montrerEtape(etapeR-1)});
+    boutonsPts.forEach((b,k)=>b.addEventListener('click',e=>{e.stopPropagation();montrerEtape(k)}));
+    const feuille=recit.querySelector('.recit-feuille');
+    feuille.addEventListener('click',e=>{if(e.target.closest('a,button'))return;if(etapeR<etapesR.length-1)montrerEtape(etapeR+1)});
+    let x0=null,y0=null;
+    feuille.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+    feuille.addEventListener('touchend',e=>{
+      if(x0===null)return; const dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; x0=null;
+      if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.3){ if(dx<0&&etapeR<etapesR.length-1)montrerEtape(etapeR+1); else if(dx>0&&etapeR>0)montrerEtape(etapeR-1); }
+    },{passive:true});
+    recit.addEventListener('keydown',e=>{
+      if(e.key==='ArrowRight'){montrerEtape(Math.min(etapeR+1,etapesR.length-1));e.preventDefault()}
+      if(e.key==='ArrowLeft'){montrerEtape(Math.max(etapeR-1,0));e.preventDefault()}
     });
-  })();
+  }
   // MÉTHODE : la ligne avance avec le scroll, sans jamais le bloquer
   const parcours=document.getElementById('parcours');
   const etapesP=[...parcours.querySelectorAll('.etape')];
