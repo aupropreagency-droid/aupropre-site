@@ -603,10 +603,24 @@
     .hero-cta .btn-ghost:hover{background:none;color:var(--bic)}
     .feuille{aspect-ratio:auto;height:46svh;max-height:none;transform:none}
     .progression{margin-top:10px;font-size:18px}
-    .tel{width:min(230px,60%)}
+    /* le téléphone se règle sur la hauteur de la feuille : il tient en entier */
+    .tel-zone{align-items:center;justify-content:flex-end;padding:0 7% 0 0}
+    .tel{height:90%;width:auto;margin-bottom:0;border-radius:26px;padding:6px;transform:translateY(calc((1 - var(--t,0)) * 120%))}
+    .tel-ecran{border-radius:21px}
+    .tel-encoche{width:46px;height:13px;top:6px}
+    .ts-barre{padding:24px 11px 7px;font-size:9.5px}
+    .ts-barre i{width:12px;height:12px}
+    .ts-visuel{height:24%;margin:0 9px;border-radius:12px}
+    .ts-visuel svg{width:20px;height:20px;left:9px;bottom:8px}
+    .ts-visuel span{font-size:7px;padding:3px 6px;right:8px;bottom:8px}
+    .ts-texte{padding:9px 11px 0}
+    .ts-texte small{font-size:7px}
+    .ts-texte strong{font-size:14px;margin:3px 0 8px}
+    .gp-btn{font-size:8.5px;padding:7px}
+    .ts-etapes{padding:8px 9px 10px;gap:4px}
     .ts-etapes .ts-etape:nth-child(n+3){display:none}
-    .ts-texte strong{font-size:17px}
-    .ts-visuel{height:22%}
+    .ts-etape{font-size:8px;padding:5px 7px}
+    .ts-etape i{width:12px;height:12px}
     .offres-grille,.extras{grid-template-columns:1fr}
     .inclus{grid-template-columns:1fr}
     .inclus ul{grid-template-columns:1fr 1fr}
@@ -643,7 +657,11 @@
     .aa-ligne .fl{display:none}
     .brouillon{inset:16px 10px 16px 20px;font-size:19px}
     .postit{width:118px;font-size:17px;bottom:4px}
-    .note-propre{left:20px;top:3%;font-size:26px}
+    .note-propre{left:12px;top:40%;font-size:22px}
+  }
+  @media (max-width:720px) and (max-height:780px){
+    .feuille{height:36svh}
+    .hero-lead{font-size:15px;margin:10px 0 14px}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation:none !important;transition:none !important}
