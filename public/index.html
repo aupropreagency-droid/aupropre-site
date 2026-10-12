@@ -396,7 +396,8 @@
 
   /* POURQUOI AUPROPRE : une note courte, épinglée */
   .mot{padding:0 0 clamp(70px,9vw,120px)}
-  .mot-note{position:relative;max-width:820px;margin:0 auto;border-radius:var(--r-md);box-shadow:0 0 0 1px var(--trait),0 30px 60px -40px rgba(20,20,60,.35);padding:clamp(34px,5vw,56px) clamp(24px,5vw,60px) clamp(28px,4vw,44px);transform:rotate(-.6deg)}
+  .mot-titre{max-width:820px;margin:0 auto 22px;font-family:var(--hand);font-size:clamp(30px,3vw,40px);line-height:1;color:var(--bic);transform:rotate(-2deg)}
+  .mot-note{position:relative;max-width:820px;margin:0 auto;border-radius:var(--r-md);box-shadow:0 0 0 1px var(--trait),0 30px 60px -40px rgba(20,20,60,.35);padding:clamp(34px,5vw,56px) clamp(24px,5vw,60px) clamp(22px,3vw,32px);transform:rotate(-.6deg)}
   .mot-note::before{content:"";position:absolute;top:-12px;left:50%;width:86px;height:24px;margin-left:-43px;background:rgba(0,71,255,.14);transform:rotate(-2deg)}
   .mot-note p{font-size:clamp(18px,1.7vw,22px);line-height:1.5;letter-spacing:-.01em;color:#2A2C33}
   .mot-note p+p{margin-top:14px}
@@ -875,10 +876,10 @@
 
   <section class="mot" id="pourquoi" aria-label="Pourquoi AuPropre">
     <div class="wrap">
+      <p class="mot-titre">pourquoi AuPropre&nbsp;?</p>
       <div class="mot-note seyes">
         <p class="mot-constat"><strong>Autour de moi, plein de talents se lancent.</strong> Le travail est là, mais l'image en ligne ne suit pas&nbsp;: stories à la une, tarifs en capture d'écran, «&nbsp;envoie-moi un DM&nbsp;».</p>
         <p class="mot-idee">AuPropre est né de là&nbsp;: faire passer les gens de <s>«&nbsp;c'est qui lui&nbsp;?&nbsp;»</s> à <span class="main">je réserve</span> ou <span class="main">j'achète.</span></p>
-        <p class="mot-solution">Je fais tout moi-même, du design au code, logo et textes compris, et c'est moi que tu as sur WhatsApp du début à la fin.</p>
         <span class="mot-signature">— AuPropre</span>
       </div>
     </div>
