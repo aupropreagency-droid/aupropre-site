@@ -395,7 +395,7 @@
   .signature{font-family:var(--hand);font-size:34px;color:var(--bic);display:inline-block;transform:rotate(-3deg);margin-top:6px}
 
   /* POURQUOI AUPROPRE : une phrase par écran, au scroll */
-  .recit{height:calc(5 * 60vh + 100vh);position:relative;padding:0}
+  .recit{height:calc(5 * 100vh + 100vh);position:relative;padding:0}
   .recit-sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;padding:96px var(--pad) 28px}
   .recit-feuille{position:relative;width:min(1180px,100%);height:100%;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 0 0 1px var(--trait),0 40px 80px -50px rgba(20,20,60,.45)}
   .recit-note{position:absolute;top:28px;left:clamp(28px,6vw,90px);color:#5FD3FF;transform:rotate(-2deg);font-size:26px;z-index:2}
@@ -618,7 +618,7 @@
   @media (max-width:960px){
     .constat .wrap,.faq .wrap,.derriere .wrap{grid-template-columns:1fr}
     .derriere-tete{position:static}
-    .recit{height:calc(5 * 55vh + 100vh)}
+    .recit{height:calc(5 * 100vh + 100vh)}
     .recit-sticky{padding:84px 12px 16px}
     .etape-r{padding:70px 26px 40px}
     .recit-note{left:26px;top:22px;font-size:22px}
@@ -1228,6 +1228,38 @@
     styloR.style.setProperty('--w',w);
     styloR.style.setProperty('--sv',idx===iS&&local>.1&&local<.9?1:0);
   }
+  // RÉCIT : un geste (molette, trackpad, flèches) = une étape. Au doigt, scroll natif (étapes espacées d'un écran).
+  (function(){
+    const N=etapesR.length;
+    const posEtape=i=>i===0?0:i+.85;               // où chaque étape est entièrement jouée
+    const yEtape=i=>recit.offsetTop+posEtape(i)/N*(recit.offsetHeight-innerHeight);
+    // prochaine étape dans le sens du geste (-1 = aucune : on laisse sortir de la section)
+    const cibleDe=dir=>{const m=8;if(dir>0){for(let i=0;i<N;i++)if(yEtape(i)>scrollY+m)return i}else{for(let i=N-1;i>=0;i--)if(yEtape(i)<scrollY-m)return i}return -1};
+    const dansRecit=()=>scrollY>=yEtape(0)-innerHeight*.6&&scrollY<=yEtape(N-1)+4;
+    let verrou=false,dernier=0,fin=0;
+    function aller(dir){
+      const cible=cibleDe(dir);
+      if(cible<0) return false;          // on sort de la section : scroll normal
+      verrou=true;fin=performance.now()+700;
+      scrollTo({top:yEtape(cible),behavior:'smooth'});
+      return true;
+    }
+    function libre(){return !verrou||(performance.now()>fin&&performance.now()-dernier>160)}
+    addEventListener('wheel',e=>{
+      if(reduit.matches||!dansRecit()||Math.abs(e.deltaY)<2) return;
+      const dir=e.deltaY>0?1:-1;
+      if(cibleDe(dir)<0) return;
+      e.preventDefault();
+      const t=performance.now(), pause=t-dernier>160; dernier=t;
+      if(!verrou||(t>fin&&pause)) aller(dir);
+    },{passive:false});
+    addEventListener('keydown',e=>{
+      if(reduit.matches||!dansRecit()||e.target.closest('input,textarea,dialog')) return;
+      const dir={ArrowDown:1,PageDown:1,' ':1,ArrowUp:-1,PageUp:-1}[e.key];
+      if(!dir) return;
+      if(libre()&&aller(dir)) e.preventDefault(); else if(verrou&&performance.now()<fin) e.preventDefault();
+    });
+  })();
   // MÉTHODE : la ligne avance avec le scroll, sans jamais le bloquer
   const parcours=document.getElementById('parcours');
   const etapesP=[...parcours.querySelectorAll('.etape')];
