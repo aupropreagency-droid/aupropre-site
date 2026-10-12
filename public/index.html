@@ -418,12 +418,11 @@
   .r-cta .signature{margin-top:0}
   .etape-fin .r-grand{font-size:clamp(34px,4.6vw,68px)}
   .etape-fin .r-sous{margin-top:16px}
-  /* La gomme efface le brouillon */
+  /* Le brouillon barré */
   .griffon{position:relative;margin-top:34px;max-width:780px}
-  .griffon-mots{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:var(--hand);font-size:clamp(26px,3vw,42px);color:#C9CBD3;clip-path:inset(0 0 0 calc(var(--g,0) * 100%));transform:rotate(-1.5deg)}
+  .griffon-mots{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:var(--hand);font-size:clamp(26px,3vw,42px);color:#C9CBD3;transform:rotate(-1.5deg)}
   .griffon-mots span{position:relative}
   .griffon-mots span::after{content:"";position:absolute;left:-4%;right:-4%;top:55%;height:3px;background:#38BDFF;border-radius:2px;transform:rotate(-3deg)}
-  .gomme{position:absolute;top:50%;width:clamp(84px,9vw,120px);left:calc(var(--g,0) * 100% - 40px);transform:translateY(-50%) rotate(calc(-12deg + var(--g,0) * 8deg));opacity:calc(var(--gv,0));filter:drop-shadow(0 10px 12px rgba(0,0,0,.18))}
 
   /* Le stylo écrit « je réserve » */
   .ecrit{position:relative;display:inline-block;margin-top:10px;align-self:flex-start}
@@ -683,7 +682,7 @@
     .recit-sticky{position:static;height:auto;padding:110px var(--pad) 40px}
     .recit-feuille{height:auto;padding:80px 0 40px}
     .etape-r{position:static;opacity:1;transform:none;padding-top:24px;padding-bottom:24px}
-    .gomme,.stylo,.recit-points,.r-defile{display:none}
+    .stylo,.recit-points,.r-defile{display:none}
     .griffon-mots{clip-path:none}
     .ecrit-txt{clip-path:none}
     *{animation:none !important;transition:none !important}
@@ -1075,7 +1074,6 @@
           <p class="r-grand">…et une image en ligne qui ne suit pas.</p>
           <div class="griffon">
             <div class="griffon-mots"><span>stories à la une</span><span>tarifs en capture d'écran</span><span>«&nbsp;envoie-moi un DM&nbsp;»</span></div>
-            <svg class="gomme" viewBox="0 0 120 64" aria-hidden="true"><rect x="2" y="6" width="116" height="52" rx="8" fill="#fff" stroke="#C9CBD3" stroke-width="2.5"/><rect x="58" y="6" width="60" height="52" rx="0" fill="#0047FF"/><rect x="58" y="6" width="60" height="52" rx="8" fill="none" stroke="#14141A" stroke-width="2.5"/><path d="M58 6v52" stroke="#14141A" stroke-width="2.5"/><text x="88" y="38" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="13" fill="#fff">GOMME</text></svg>
           </div>
         </div>
 
@@ -1221,9 +1219,6 @@
     pointsR.forEach((d,i)=>d.classList.toggle('on',i===idx));
     const iG=etapesR.indexOf(gommeR), iS=etapesR.indexOf(styloR);
     recit.classList.toggle('ouverture',idx===0);
-    const g=idx===iG?clamp((local-.25)/.6):(idx>iG?1:0);
-    gommeR.style.setProperty('--g',g);
-    gommeR.style.setProperty('--gv',idx===iG&&local>.15&&local<.95?1:0);
     const w=idx===iS?clamp((local-.2)/.55):(idx>iS?1:0);
     styloR.style.setProperty('--w',w);
     styloR.style.setProperty('--sv',idx===iS&&local>.1&&local<.9?1:0);
