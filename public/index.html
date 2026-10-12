@@ -418,11 +418,17 @@
   .r-cta .signature{margin-top:0}
   .etape-fin .r-grand{font-size:clamp(34px,4.6vw,68px)}
   .etape-fin .r-sous{margin-top:16px}
-  /* Le brouillon barré */
+  /* Le brouillon : trois post-its en vrac */
   .griffon{position:relative;margin-top:34px;max-width:780px}
-  .griffon-mots{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:var(--hand);font-size:clamp(26px,3vw,42px);color:#C9CBD3;transform:rotate(-1.5deg)}
-  .griffon-mots span{position:relative}
-  .griffon-mots span::after{content:"";position:absolute;left:-4%;right:-4%;top:55%;height:3px;background:#38BDFF;border-radius:2px;transform:rotate(-3deg)}
+  .postits{display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px 26px}
+  .pi{--r:-5deg;position:relative;display:block;width:clamp(150px,15vw,200px);min-height:clamp(112px,10.5vw,140px);padding:22px 18px 18px;background:#FFE76A;color:#3a3200;font-family:var(--hand);font-size:clamp(23px,2.4vw,31px);line-height:1.05;box-shadow:0 18px 26px -14px rgba(0,0,0,.7);opacity:0;transform:translateY(-22px) rotate(calc(var(--r) * 2)) scale(1.08);transition:opacity .25s,transform .25s}
+  .pi::before{content:"";position:absolute;top:-9px;left:50%;width:64px;height:20px;margin-left:-32px;background:rgba(255,255,255,.35);transform:rotate(-3deg)}
+  .pi:nth-child(2){--r:4deg;background:#FFF0A0;margin-top:22px}
+  .pi:nth-child(3){--r:-7deg;background:#FFDF7A;margin-top:-4px;margin-left:-14px}
+  .etape-r.actif .pi{opacity:1;transform:rotate(var(--r));transition:opacity .35s ease-out,transform .55s cubic-bezier(.2,1.4,.4,1)}
+  .etape-r.actif .pi:nth-child(1){transition-delay:.45s}
+  .etape-r.actif .pi:nth-child(2){transition-delay:.75s}
+  .etape-r.actif .pi:nth-child(3){transition-delay:1.05s}
 
   /* Le stylo écrit « je réserve » */
   .ecrit{position:relative;display:inline-block;margin-top:10px;align-self:flex-start}
@@ -622,6 +628,8 @@
     .etape-r{padding:70px 26px 40px}
     .recit-note{left:26px;top:22px;font-size:22px}
     .recit-points{right:10px}
+    .postits{gap:10px 14px}
+    .pi{width:132px;min-height:96px;padding:18px 12px 12px;font-size:20px}
     .r-grand{font-size:clamp(32px,9vw,52px)}
     .scene{height:180vh}
     .scene-sticky{padding-top:84px;align-items:flex-start}
@@ -683,7 +691,7 @@
     .recit-feuille{height:auto;padding:80px 0 40px}
     .etape-r{position:static;opacity:1;transform:none;padding-top:24px;padding-bottom:24px}
     .stylo,.recit-points,.r-defile{display:none}
-    .griffon-mots{clip-path:none}
+    .pi{opacity:1;transform:rotate(var(--r))}
     .ecrit-txt{clip-path:none}
     *{animation:none !important;transition:none !important}
     .scene{height:auto;--t:1;--n:1;--p:1}
@@ -1073,7 +1081,7 @@
         <div class="etape-r etape-gomme" data-i="2">
           <p class="r-grand">…et une image en ligne qui ne suit pas.</p>
           <div class="griffon">
-            <div class="griffon-mots"><span>stories à la une</span><span>tarifs en capture d'écran</span><span>«&nbsp;envoie-moi un DM&nbsp;»</span></div>
+            <div class="postits"><span class="pi">stories à la une</span><span class="pi">tarifs en capture d'écran</span><span class="pi">«&nbsp;envoie-moi un DM&nbsp;»</span></div>
           </div>
         </div>
 
