@@ -394,66 +394,17 @@
   .derriere-texte a:hover{background-size:0 2px}
   .signature{font-family:var(--hand);font-size:34px;color:var(--bic);display:inline-block;transform:rotate(-3deg);margin-top:6px}
 
-  /* POURQUOI AUPROPRE : une phrase par écran, au clic */
-  .recit{position:relative;padding:0}
-  .recit-sticky{position:relative;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;padding:96px var(--pad) 28px}
-  .recit-feuille{position:relative;width:min(1180px,100%);height:100%;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 0 0 1px var(--trait),0 40px 80px -50px rgba(20,20,60,.45)}
-  .recit-note{position:absolute;top:28px;left:clamp(28px,6vw,90px);color:#5FD3FF;transform:rotate(-2deg);font-size:26px;z-index:2}
-  .etape-r{position:absolute;inset:0;padding:clamp(70px,9vh,110px) clamp(28px,6vw,90px) 60px;display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateY(40px);transition:opacity .2s ease-in,transform .3s ease-in;pointer-events:none}
-  .etape-r.actif{opacity:1;transform:none;pointer-events:auto;transition:opacity .5s cubic-bezier(.2,.8,.2,1) .2s,transform .65s cubic-bezier(.2,.8,.2,1) .2s}
-  .etape-r.passe{opacity:0;transform:translateY(-30px)}
-  .r-grand{font-weight:800;font-size:clamp(36px,5.6vw,84px);line-height:.98;letter-spacing:-.05em;max-width:15ch;font-variation-settings:"opsz" 96}
-  .r-sous{font-size:clamp(19px,1.9vw,26px);line-height:1.4;letter-spacing:-.015em;color:#A6A8B3;max-width:32em;margin-top:24px}
-  .r-sous a{color:#5FD3FF;text-decoration:none;background:linear-gradient(#5FD3FF,#5FD3FF) 0 100%/100% 2px no-repeat}
-  .r-sous s{text-decoration-color:#38BDFF;text-decoration-thickness:3px}
-  .recit .signature{font-family:var(--hand);font-size:clamp(28px,2.8vw,38px);color:#5FD3FF;transform:rotate(-3deg);display:inline-block;margin-top:22px;white-space:nowrap}
-
-  .r-titre{font-weight:800;font-size:clamp(64px,10.5vw,170px);line-height:.86;letter-spacing:-.06em;color:#F4F4F0;font-variation-settings:"opsz" 96}
-  .r-defile{font-family:var(--hand);font-size:26px;color:#5FD3FF;margin-top:28px;transform:rotate(-2deg);display:inline-block;align-self:flex-start}
-  .recit-note{transition:opacity .4s}
-  .recit.ouverture .recit-note{opacity:0}
-  .r-aparte{font-size:clamp(15px,1.3vw,18px);color:#8D90A0;max-width:40em;margin-top:18px;line-height:1.5}
-  .r-aparte a{color:#5FD3FF;text-decoration:none;background:linear-gradient(#5FD3FF,#5FD3FF) 0 100%/100% 1.5px no-repeat}
-  .r-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:28px}
-  .r-cta .signature{margin-top:0}
-  .etape-fin .r-grand{font-size:clamp(34px,4.6vw,68px)}
-  .etape-fin .r-sous{margin-top:16px}
-  /* Le brouillon : trois post-its en vrac */
-  .griffon{position:relative;margin-top:34px;max-width:780px}
-  .postits{display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px 26px}
-  .pi{--r:-5deg;position:relative;display:block;width:clamp(150px,15vw,200px);min-height:clamp(112px,10.5vw,140px);padding:22px 18px 18px;background:#FFE76A;color:#3a3200;font-family:var(--hand);font-size:clamp(23px,2.4vw,31px);line-height:1.05;box-shadow:0 18px 26px -14px rgba(0,0,0,.7);opacity:0;transform:translateY(-22px) rotate(calc(var(--r) * 2)) scale(1.08);transition:opacity .25s,transform .25s}
-  .pi::before{content:"";position:absolute;top:-9px;left:50%;width:64px;height:20px;margin-left:-32px;background:rgba(255,255,255,.35);transform:rotate(-3deg)}
-  .pi:nth-child(2){--r:4deg;background:#FFF0A0;margin-top:22px}
-  .pi:nth-child(3){--r:-7deg;background:#FFDF7A;margin-top:-4px;margin-left:-14px}
-  .etape-r.actif .pi{opacity:1;transform:rotate(var(--r));transition:opacity .35s ease-out,transform .55s cubic-bezier(.2,1.4,.4,1)}
-  .etape-r.actif .pi:nth-child(1){transition-delay:.45s}
-  .etape-r.actif .pi:nth-child(2){transition-delay:.75s}
-  .etape-r.actif .pi:nth-child(3){transition-delay:1.05s}
-
-  /* Le stylo écrit « je réserve » */
-  .ecrit{position:relative;display:inline-block;margin-top:10px;align-self:flex-start}
-  .ecrit-txt{font-family:var(--hand);font-weight:700;font-size:clamp(52px,7vw,104px);color:#38BDFF;line-height:1;display:inline-block;clip-path:inset(-20% calc((1 - var(--w,0)) * 100%) -20% 0);transform:rotate(-3deg)}
-  .stylo{position:absolute;width:clamp(150px,15vw,210px);top:62%;left:calc(var(--w,0) * 100% - 4px);transform:rotate(-28deg);transform-origin:0 50%;opacity:0;filter:drop-shadow(0 10px 10px rgba(0,0,0,.15))}
-
-  @property --w{syntax:"<number>";inherits:true;initial-value:0}
-  .etape-stylo{--w:0}
-  .etape-stylo.actif{--w:1;transition:opacity .5s cubic-bezier(.2,.8,.2,1) .2s,transform .65s cubic-bezier(.2,.8,.2,1) .2s,--w 1.3s cubic-bezier(.5,0,.3,1) .6s}
-  .etape-stylo.actif .stylo{animation:stylo-vis 1.5s .55s both}
-  @keyframes stylo-vis{0%{opacity:0}12%{opacity:1}85%{opacity:1}100%{opacity:0}}
-  .recit-feuille{cursor:pointer}
-  .recit-feuille a,.recit-feuille button{cursor:pointer}
-  .recit-nav{position:absolute;right:clamp(28px,6vw,90px);bottom:28px;display:flex;align-items:center;gap:12px;z-index:3}
-  .r-compte{font-size:14px;color:#8D90A0;font-variant-numeric:tabular-nums;min-width:30px;text-align:center}
-  .r-prec{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:#F4F4F0;font-size:18px}
-  .r-prec:hover{background:rgba(255,255,255,.16)}
-  .r-prec[disabled]{opacity:.3;cursor:default}
-  .r-suite{min-height:44px}
-  .r-defile .tactile{display:none}
-  @media (hover:none){.r-defile .souris{display:none}.r-defile .tactile{display:inline}}
-  .recit-points{position:absolute;right:20px;top:50%;transform:translateY(-50%);display:grid;gap:0}
-  .recit-points button{width:28px;height:28px;border:0;background:none;padding:0;display:grid;place-items:center}
-  .recit-points i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18);transition:background .3s,transform .3s}
-  .recit-points i.on{background:#38BDFF;transform:scale(1.3)}
+  /* POURQUOI AUPROPRE : une note courte, épinglée */
+  .mot{padding:0 0 clamp(70px,9vw,120px)}
+  .mot-note{position:relative;max-width:820px;margin:0 auto;border-radius:var(--r-md);box-shadow:0 0 0 1px var(--trait),0 30px 60px -40px rgba(20,20,60,.35);padding:clamp(34px,5vw,56px) clamp(24px,5vw,60px) clamp(28px,4vw,44px);transform:rotate(-.6deg)}
+  .mot-note::before{content:"";position:absolute;top:-12px;left:50%;width:86px;height:24px;margin-left:-43px;background:rgba(0,71,255,.14);transform:rotate(-2deg)}
+  .mot-note p{font-size:clamp(18px,1.7vw,22px);line-height:1.5;letter-spacing:-.01em;color:#2A2C33}
+  .mot-note p+p{margin-top:14px}
+  .mot-note strong{color:var(--encre)}
+  .mot-idee{color:var(--encre)!important;font-weight:600}
+  .mot-idee s{text-decoration-color:var(--bic);text-decoration-thickness:2.5px;color:var(--gris);font-weight:500}
+  .mot-idee .main{font-family:var(--hand);font-weight:700;font-size:1.45em;color:var(--bic);line-height:1;white-space:nowrap}
+  .mot-signature{display:block;margin-top:18px;text-align:right;font-family:var(--hand);font-size:clamp(26px,2.4vw,32px);color:var(--bic);transform:rotate(-3deg)}
 
   /* PANNEAU DE CONTACT : une étape douce avant WhatsApp */
   .panneau{border:0;padding:clamp(26px,3.4vw,40px);width:min(560px,calc(100% - 24px));border-radius:var(--r-lg);background:#fff;color:var(--encre);box-shadow:0 40px 90px -30px rgba(20,20,60,.5);margin:auto;overflow:visible}
@@ -639,15 +590,6 @@
   @media (max-width:960px){
     .constat .wrap,.faq .wrap,.derriere .wrap{grid-template-columns:1fr}
     .derriere-tete{position:static}
-    .recit-nav{right:18px;bottom:18px;gap:8px}
-    .recit-feuille{cursor:auto}
-    .recit-sticky{padding:84px 12px 16px}
-    .etape-r{padding:70px 26px 40px}
-    .recit-note{left:26px;top:22px;font-size:22px}
-    .recit-points{display:none}
-    .postits{gap:10px 14px}
-    .pi{width:132px;min-height:96px;padding:18px 12px 12px;font-size:20px}
-    .r-grand{font-size:clamp(32px,9vw,52px)}
     .scene{height:180vh}
     .scene-sticky{padding-top:84px;align-items:flex-start}
     .scene-grid{grid-template-columns:1fr;gap:14px}
@@ -703,14 +645,6 @@
     .note-propre{left:20px;top:3%;font-size:26px}
   }
   @media (prefers-reduced-motion:reduce){
-    .recit{height:auto}
-    .recit-sticky{position:static;height:auto;padding:110px var(--pad) 40px}
-    .recit-feuille{height:auto;padding:80px 0 40px}
-    .etape-r{position:static;opacity:1;transform:none;padding-top:24px;padding-bottom:24px}
-    .stylo,.recit-points,.r-defile,.recit-nav{display:none}
-    .recit-feuille{cursor:auto}
-    .pi{opacity:1;transform:rotate(var(--r))}
-    .ecrit-txt{clip-path:none}
     *{animation:none !important;transition:none !important}
     .scene{height:auto;--t:1;--n:1;--p:1}
     .scene-sticky{position:static;height:auto;padding:120px 0 70px}
@@ -939,6 +873,17 @@
     </div>
   </section>
 
+  <section class="mot" id="pourquoi" aria-label="Pourquoi AuPropre">
+    <div class="wrap">
+      <div class="mot-note seyes">
+        <p class="mot-constat"><strong>Autour de moi, plein de talents se lancent.</strong> Le travail est là, mais l'image en ligne ne suit pas&nbsp;: stories à la une, tarifs en capture d'écran, «&nbsp;envoie-moi un DM&nbsp;».</p>
+        <p class="mot-idee">AuPropre est né de là&nbsp;: faire passer les gens de <s>«&nbsp;c'est qui lui&nbsp;?&nbsp;»</s> à <span class="main">je réserve</span> ou <span class="main">j'achète.</span></p>
+        <p class="mot-solution">Je fais tout moi-même, du design au code, logo et textes compris, et c'est moi que tu as sur WhatsApp du début à la fin.</p>
+        <span class="mot-signature">— AuPropre</span>
+      </div>
+    </div>
+  </section>
+
   <section class="offres" id="offres">
     <div class="wrap">
       <div class="offres-tete">
@@ -1081,48 +1026,6 @@
     </div>
   </section>
 
-  <section class="recit" id="derriere" aria-label="Pourquoi AuPropre">
-    <div class="recit-sticky">
-      <div class="recit-feuille seyes-nuit">
-        <span class="note recit-note">pourquoi AuPropre&nbsp;?</span>
-
-        <div class="etape-r etape-ouverture" data-i="0">
-          <p class="r-titre">Pourquoi<br>AuPropre&nbsp;?</p>
-          <span class="r-defile"><span class="souris">clique pour la suite</span><span class="tactile">touche pour la suite</span></span>
-        </div>
-
-        <div class="etape-r" data-i="1">
-          <p class="r-grand">Autour de moi, tout le monde lance son truc.</p>
-          <p class="r-sous">Et chez tous, même scène&nbsp;: un talent de ouf…</p>
-        </div>
-
-        <div class="etape-r etape-gomme" data-i="2">
-          <p class="r-grand">…et une image en ligne qui ne suit pas.</p>
-          <div class="griffon">
-            <div class="postits"><span class="pi">stories à la une</span><span class="pi">tarifs en capture d'écran</span><span class="pi">«&nbsp;envoie-moi un DM&nbsp;»</span></div>
-          </div>
-        </div>
-
-        <div class="etape-r etape-stylo" data-i="3">
-          <p class="r-grand">Une image pro, c'est pas du luxe.</p>
-          <p class="r-sous">C'est ce qui fait passer les gens de <s>«&nbsp;c'est qui lui&nbsp;?&nbsp;»</s> à</p>
-          <div class="ecrit"><span class="ecrit-txt">je réserve.</span>
-            <svg class="stylo" viewBox="0 0 220 40" aria-hidden="true"><path d="M8 20 L34 12 L34 28 Z" fill="#f2d7a6" stroke="#14141A" stroke-width="2"/><path d="M8 20 L16 17.6 L16 22.4 Z" fill="#0047FF"/><rect x="34" y="11" width="130" height="18" rx="3" fill="#EEF2FA" stroke="#14141A" stroke-width="2"/><rect x="40" y="18" width="110" height="4" rx="2" fill="#0047FF" opacity=".75"/><rect x="160" y="9" width="54" height="22" rx="5" fill="#0047FF" stroke="#14141A" stroke-width="2"/><rect x="168" y="3" width="34" height="8" rx="3" fill="#0047FF" stroke="#14141A" stroke-width="2"/></svg>
-          </div>
-        </div>
-
-        <div class="etape-r etape-fin" data-i="4">
-          <p class="r-grand">Alors j'ai commencé par eux.</p>
-          <p class="r-sous">Une coiffeuse, un vidéaste, un studio de motion design. Je fais tout moi-même&nbsp;: le design, le code, les animations, le logo et les textes. Pas de template, pas de sous-traitance, et c'est moi que tu as sur WhatsApp du début à la fin.</p>
-          <p class="r-aparte">Pour la vidéo, je bosse avec <a href="https://upflowmotion.fr" target="_blank" rel="noopener">UPFLOW</a>, un studio de motion design qui fait comprendre ton projet en 30 secondes. Moi, je le rends réservable en deux clics.</p>
-          <div class="r-cta"><a href="#contact" class="btn btn-bic js-wa"><span class="wa-pastille" aria-hidden="true"></span>Parle-moi de ton projet</a><span class="signature">— AuPropre</span></div>
-        </div>
-
-        <div class="recit-points"><button type="button" aria-label="Étape 1"><i></i></button><button type="button" aria-label="Étape 2"><i></i></button><button type="button" aria-label="Étape 3"><i></i></button><button type="button" aria-label="Étape 4"><i></i></button><button type="button" aria-label="Étape 5"><i></i></button></div>
-        <div class="recit-nav"><button type="button" class="r-prec" aria-label="Étape précédente">←</button><span class="r-compte" aria-live="polite">1/5</span><button type="button" class="btn btn-bic r-suite">La suite →</button></div>
-      </div>
-    </div>
-  </section>
 
   <section class="faq" id="faq">
     <div class="wrap">
@@ -1229,46 +1132,6 @@
     scene.style.setProperty('--n',clamp((p-.82)/.1));
     document.getElementById('ap').style.setProperty('--soul',clamp((p-.82)/.12));
   }
-  // Récit « pourquoi AuPropre » : une phrase par écran, au clic
-  const recit=document.getElementById('derriere');
-  const etapesR=[...recit.querySelectorAll('.etape-r')];
-  const pointsR=[...recit.querySelectorAll('.recit-points i')];
-  const gommeR=recit.querySelector('.etape-gomme');
-  const styloR=recit.querySelector('.etape-stylo');
-  // Le visiteur avance au clic (ou au doigt, ou aux flèches), à son rythme
-  const suiteR=recit.querySelector('.r-suite'), precR=recit.querySelector('.r-prec'), compteR=recit.querySelector('.r-compte');
-  const boutonsPts=[...recit.querySelectorAll('.recit-points button')];
-  let etapeR=0;
-  function montrerEtape(i){
-    const n=etapesR.length;
-    etapeR=(i+n)%n;
-    etapesR.forEach((e,k)=>{e.classList.toggle('actif',k===etapeR);e.classList.toggle('passe',k<etapeR);e.setAttribute('aria-hidden',k!==etapeR)});
-    pointsR.forEach((d,k)=>d.classList.toggle('on',k===etapeR));
-    boutonsPts.forEach((b,k)=>b.setAttribute('aria-current',k===etapeR?'step':'false'));
-    recit.classList.toggle('ouverture',etapeR===0);
-    compteR.textContent=(etapeR+1)+'/'+n;
-    precR.disabled=etapeR===0;
-    suiteR.textContent=etapeR===n-1?'Recommencer ↺':'La suite →';
-  }
-  function rendreRecit(){}
-  if(!reduit.matches){
-    montrerEtape(0);
-    suiteR.addEventListener('click',e=>{e.stopPropagation();montrerEtape(etapeR+1)});
-    precR.addEventListener('click',e=>{e.stopPropagation();if(etapeR>0)montrerEtape(etapeR-1)});
-    boutonsPts.forEach((b,k)=>b.addEventListener('click',e=>{e.stopPropagation();montrerEtape(k)}));
-    const feuille=recit.querySelector('.recit-feuille');
-    feuille.addEventListener('click',e=>{if(e.target.closest('a,button'))return;if(etapeR<etapesR.length-1)montrerEtape(etapeR+1)});
-    let x0=null,y0=null;
-    feuille.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
-    feuille.addEventListener('touchend',e=>{
-      if(x0===null)return; const dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; x0=null;
-      if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.3){ if(dx<0&&etapeR<etapesR.length-1)montrerEtape(etapeR+1); else if(dx>0&&etapeR>0)montrerEtape(etapeR-1); }
-    },{passive:true});
-    recit.addEventListener('keydown',e=>{
-      if(e.key==='ArrowRight'){montrerEtape(Math.min(etapeR+1,etapesR.length-1));e.preventDefault()}
-      if(e.key==='ArrowLeft'){montrerEtape(Math.max(etapeR-1,0));e.preventDefault()}
-    });
-  }
   // MÉTHODE : la ligne avance avec le scroll, sans jamais le bloquer
   const parcours=document.getElementById('parcours');
   const etapesP=[...parcours.querySelectorAll('.etape')];
@@ -1319,9 +1182,9 @@
     cartes.forEach((c,i)=>{const d=Math.abs(c.offsetLeft+c.offsetWidth/2-centre);if(d<best){best=d;idx=i}});
     pointsC.forEach((p,i)=>p.classList.toggle('on',i===idx));
   },{passive:true});
-  // Barre de contact : visible après l'accueil, cachée pendant le récit, le contact final et le panneau
+  // Barre de contact : visible après l'accueil, cachée sur le contact final et le panneau
   const barre=document.getElementById('barre-contact');
-  const zonesCachees=[document.getElementById('derriere'),document.getElementById('contact')];
+  const zonesCachees=[document.getElementById('contact')];
   function rendreBarre(){
     const apresAccueil=scrollY>scene.offsetTop+scene.offsetHeight-innerHeight*.6;
     const dansZone=zonesCachees.some(z=>{const r=z.getBoundingClientRect();return r.top<innerHeight*.9&&r.bottom>innerHeight*.1});
@@ -1331,9 +1194,9 @@
     barre.querySelector('a').tabIndex=ok?0:-1;
   }
   let attente=false;
-  addEventListener('scroll',()=>{if(!attente){attente=true;requestAnimationFrame(()=>{rendre();rendreRecit();rendreParcours();rendreBarre();attente=false})}},{passive:true});
-  addEventListener('resize',()=>{rendre();rendreRecit();caleRail();rendreParcours()});
-  rendre();rendreRecit();rendreParcours();
+  addEventListener('scroll',()=>{if(!attente){attente=true;requestAnimationFrame(()=>{rendre();rendreParcours();rendreBarre();attente=false})}},{passive:true});
+  addEventListener('resize',()=>{rendre();caleRail();rendreParcours()});
+  rendre();rendreParcours();
 
   // CONTACT : panneau de choix, puis WhatsApp avec un message pré-rempli
   // Remplace le numéro (format international, sans + ni espaces), ex. 33612345678
