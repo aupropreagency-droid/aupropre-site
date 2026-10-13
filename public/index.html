@@ -89,6 +89,28 @@
   .btn-ghost{background:transparent;color:var(--encre);box-shadow:inset 0 0 0 1.5px var(--encre)}
   .btn-ghost:hover{background:var(--encre);color:var(--papier)}
   .btn-sm{padding:12px 18px;font-size:14px}
+  .btn-blanc{background:#fff;color:var(--bic);box-shadow:0 10px 24px -12px rgba(0,30,120,.55)}
+  .btn-blanc:hover{transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(0,30,120,.6)}
+  .pastille-video{display:flex;width:fit-content;align-items:center;gap:10px;margin-bottom:18px;padding:6px 14px 6px 6px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--trait),0 8px 20px -14px rgba(0,60,200,.45);text-decoration:none;color:var(--encre);font:600 14px/1.2 var(--sans);transition:transform .2s,box-shadow .2s}
+  .pastille-video:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1.5px var(--bic),0 10px 24px -14px rgba(0,60,200,.55)}
+  .pv-new{background:var(--grad);color:#fff;font-size:12px;letter-spacing:.02em;padding:6px 10px;border-radius:999px;white-space:nowrap}
+  .pv-new::after{content:" ✦"}
+  .pv-fl{color:var(--bic);transition:transform .2s}
+  .pastille-video:hover .pv-fl{transform:translateX(3px)}
+  .pv-court{display:none}
+  .offre.offre-video .marque-video{background:rgba(255,255,255,.16);color:#fff}
+  .offre.offre-video .marque-video span{color:#fff}
+  .pastille-video{position:relative;animation:pvHalo 3.2s ease-out infinite}
+  .pv-new{position:relative;overflow:hidden;background:linear-gradient(115deg,#0044FD,#027FFF 40%,#00CCFF 60%,#0044FD);background-size:220% 100%;animation:pvFond 4s ease-in-out infinite alternate}
+  .pv-new::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.65) 50%,transparent 70%);transform:translateX(-120%);animation:pvReflet 3.2s ease-in-out infinite}
+  .pv-fl{display:inline-block;animation:pvFleche 3.2s ease-in-out infinite}
+  @keyframes pvHalo{0%{box-shadow:inset 0 0 0 1px var(--trait),0 0 0 0 rgba(2,127,255,.35)}60%,100%{box-shadow:inset 0 0 0 1px var(--trait),0 0 0 10px rgba(2,127,255,0)}}
+  @keyframes pvFond{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+  @keyframes pvReflet{0%,55%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+  @keyframes pvFleche{0%,55%,100%{transform:translateX(0)}70%{transform:translateX(4px)}85%{transform:translateX(0)}}
+  .pastille-video:hover{animation:none}
+  @media (prefers-reduced-motion:reduce){.pastille-video,.pv-new,.pv-new::before,.pv-fl{animation:none}.pv-new::before{display:none}}
+  @media (max-width:560px){.pastille-video{margin-top:14px;font-size:13px;gap:8px}.pv-long{display:none}.pv-court{display:inline}.pv-new{font-size:11px;padding:5px 9px}}
   .wa-pastille{width:8px;height:8px;border-radius:50%;background:#3DDC84;box-shadow:0 0 0 3px rgba(61,220,132,.25)}
 
   /* Motifs du logo : étoile et curseur */
@@ -181,7 +203,15 @@
   .offres{background:var(--papier-2)}
   .offres-tete{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
   .offres-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .offre-video{background:var(--grad);color:#fff}
+  .offre-video{background:linear-gradient(115deg,#0044FD,#027FFF 30%,#00CCFF 50%,#027FFF 70%,#0044FD);background-size:260% 260%;color:#fff;animation:ovFond 14s ease-in-out infinite alternate;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+  .offre-video::after{content:"";position:absolute;inset:-20% -40%;background:linear-gradient(100deg,transparent 42%,rgba(255,255,255,.2) 50%,transparent 58%);transform:translateX(-70%);animation:ovReflet 8s ease-in-out infinite;pointer-events:none}
+  .offre-video:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(0,70,255,.7)}
+  .ov-etoile{position:absolute;top:30px;right:30px;width:34px;height:34px;background:#fff;-webkit-mask:var(--etoile) center/contain no-repeat;mask:var(--etoile) center/contain no-repeat;opacity:.9;animation:ovEtoile 6s ease-in-out infinite;pointer-events:none}
+  .ov-etoile.e2{top:22px;right:76px;width:14px;height:14px;opacity:.6;animation-delay:-3s}
+  @keyframes ovFond{0%{background-position:0% 40%}100%{background-position:100% 60%}}
+  @keyframes ovReflet{0%,62%{transform:translateX(-70%)}100%{transform:translateX(70%)}}
+  @keyframes ovEtoile{0%,100%{transform:rotate(0) scale(1)}50%{transform:rotate(90deg) scale(.78)}}
+  @media (prefers-reduced-motion:reduce){.offre-video,.offre-video::after,.ov-etoile{animation:none}.offre-video::after{display:none}}
   .offre-video .pour{color:#fff;opacity:.9}
   .offre-video .desc{opacity:.9}
   .offre.offre-video li::before{background:#fff}
@@ -727,6 +757,7 @@
     <div class="scene-sticky">
       <div class="wrap scene-grid">
         <div class="scene-texte">
+          <a href="#offres" class="pastille-video" id="pastille-video"><span class="pv-new">Nouveau</span><span class="pv-txt"><span class="pv-long">Site + vidéo motion design avec UPFLOW</span><span class="pv-court">Site + vidéo avec UPFLOW</span></span><span class="pv-fl" aria-hidden="true">→</span></a>
           <span class="hero-kicker">agence web, partout en France</span>
           <h1>Ton talent, <span class="nw">mis <span class="ap" id="ap">au propre.<svg class="etoile etoile-h1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z" fill="url(#g-ap)"/></svg></span></span></h1>
           <p class="hero-lead">On transforme tes stories, ton Canva et ton Linktree en <strong>un site à toi</strong>, qui donne confiance et fait réserver. Pour les créatifs, coachs et indépendants de la culture urbaine.</p>
@@ -931,7 +962,7 @@
       <div class="offres-switch" role="tablist" aria-label="Choisis ton offre">
         <button type="button" role="tab" aria-selected="true" data-o="portfolio">Je démarche<span>Portfolio</span></button>
         <button type="button" role="tab" aria-selected="false" data-o="vitrine">J'ai un agenda<span>Vitrine</span></button>
-        <button type="button" role="tab" aria-selected="false" data-o="video">Avec vidéo<span>Site + Vidéo</span></button>
+        <button type="button" role="tab" aria-selected="false" data-o="video">Je lance<span>Site + Vidéo</span></button>
       </div>
       <div class="offres-grille" data-offre="portfolio">
         <article class="offre offre-portfolio">
@@ -983,16 +1014,18 @@
         </article>
 
         <article class="offre offre-video">
-          <span class="pour">pour marquer les esprits</span>
+          <span class="ov-etoile" aria-hidden="true"></span><span class="ov-etoile e2" aria-hidden="true"></span>
+          <span class="pour">pour ceux qui lancent</span>
           <h3>Site + Vidéo</h3>
-          <p class="desc">Ton site Portfolio ou Vitrine, ouvert par une vidéo motion design de 30&nbsp;secondes, réalisée par notre studio partenaire UPFLOW.</p>
+          <p class="desc">Pour les marques, artistes, DJ, organisateurs de soirées et coachs qui préparent un lancement et veulent qu'on s'en souvienne.</p>
           <ul>
             <li>Tout le contenu de l'offre Portfolio ou Vitrine</li>
-            <li>Une vidéo de 30&nbsp;s&nbsp;: motion design, 3D et sound design</li>
+            <li>Une vidéo de 30&nbsp;s signée UPFLOW, notre studio partenaire&nbsp;: motion design, 3D et sound design</li>
             <li>Intégrée en haut de ton site, dès l'ouverture</li>
             <li>Un seul interlocuteur pour le site et la vidéo</li>
             <li>Vidéo explicative de 60&nbsp;s&nbsp;: sur demande</li>
           </ul>
+          <p class="marque marque-video"><span>Un drop, une sortie, un event&nbsp;?</span> La vidéo annonce ton lancement dès l'ouverture du site.</p>
           <div class="prix">
             <span class="lancement">Prix de lancement · 5 premiers clients</span>
             <strong><small>dès</small> 540&nbsp;€</strong>
@@ -1002,7 +1035,7 @@
           </div>
           <div class="pied">
             <span class="collab">aupropre × UPFLOW</span>
-            <a href="#contact" class="btn btn-ghost btn-sm js-wa" data-choix="video">Démarrer mon projet</a>
+            <a href="#contact" class="btn btn-blanc btn-sm js-wa" data-choix="video">Démarrer mon site + vidéo</a>
           </div>
         </article>
       </div>
@@ -1229,6 +1262,11 @@
   // VERSION MOBILE
   // Offres : interrupteur Portfolio / Vitrine
   const grilleO=document.querySelector('.offres-grille');
+  // Pastille de l'accueil : ouvre directement l'offre Site + Vidéo (onglet mobile)
+  document.getElementById('pastille-video').addEventListener('click',()=>{
+    grilleO.dataset.offre='video';
+    document.querySelectorAll('.offres-switch button').forEach(x=>x.setAttribute('aria-selected',x.dataset.o==='video'));
+  });
   document.querySelectorAll('.offres-switch button').forEach(b=>b.addEventListener('click',()=>{
     grilleO.dataset.offre=b.dataset.o;
     document.querySelectorAll('.offres-switch button').forEach(x=>x.setAttribute('aria-selected',x===b));
