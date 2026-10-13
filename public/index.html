@@ -180,14 +180,27 @@
   /* OFFRES */
   .offres{background:var(--papier-2)}
   .offres-tete{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
-  .offres-grille{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .offres-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .offre-video{background:var(--grad);color:#fff}
+  .offre-video .pour{color:#fff;opacity:.9}
+  .offre-video .desc{opacity:.9}
+  .offre.offre-video li::before{background:#fff}
+  .offre-video .lancement{background:#fff!important;color:var(--bic)!important}
+  .offre-video .pied{border-top-color:rgba(255,255,255,.3)}
+  .offre-video .pied .collab{opacity:1;font-size:14px}
+  .offre-video .btn-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #fff}
+  .offre-video .btn-ghost:hover{background:#fff;color:var(--bic)}
+  .prix strong small{font-size:.4em;font-weight:700;letter-spacing:0;margin-right:4px}
+  .prix .detail{font-size:15px;font-weight:500}
+  .prix .detail b{font-weight:800}
+  @media (max-width:1180px) and (min-width:721px){.offres-grille{grid-template-columns:1fr 1fr}.offre-video{grid-column:1/-1;min-height:0}}
   .offre{border-radius:var(--r-lg);padding:clamp(28px,3.4vw,44px);display:flex;flex-direction:column;min-height:560px;position:relative;overflow:hidden}
   .offre-portfolio{background:var(--encre);color:var(--papier)}
   .offre-vitrine{background:#fff;box-shadow:inset 0 0 0 1px var(--trait)}
   .offre .pour{font-family:var(--hand);font-size:24px;line-height:1.1}
   .offre-portfolio .pour{color:#5FD3FF}
   .offre-vitrine .pour{color:var(--bic)}
-  .offre h3{font-size:clamp(40px,4.6vw,60px);font-weight:800;letter-spacing:-.05em;line-height:.95;margin:10px 0 16px;font-variation-settings:"opsz" 96}
+  .offre h3{white-space:nowrap;font-size:clamp(36px,3vw,46px);font-weight:800;letter-spacing:-.05em;line-height:.95;margin:10px 0 16px;font-variation-settings:"opsz" 96}
   .offre .desc{font-size:17px;opacity:.78;max-width:28em}
   .offre ul{list-style:none;margin:28px 0 32px;display:grid;gap:12px;font-size:16px}
   .offre li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
@@ -214,11 +227,11 @@
   .inclus ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:10px 28px;font-size:15px;font-weight:500}
   .inclus li{display:grid;grid-template-columns:18px 1fr;gap:8px}
   .inclus li::before{content:"";width:13px;height:13px;margin-top:4px;background:var(--grad);-webkit-mask:var(--etoile) center/contain no-repeat;mask:var(--etoile) center/contain no-repeat}
-  .extras{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;margin-top:20px}
+  .extras{display:grid;grid-template-columns:1fr;gap:20px;margin-top:20px}
   .extra{border-radius:var(--r-md);padding:28px 30px;display:flex;gap:24px;align-items:center;justify-content:space-between}
   .extra-video{background:var(--grad);color:#fff}
   .extra-suivi{background:#fff;box-shadow:inset 0 0 0 1px var(--trait);flex-direction:column;align-items:flex-start;gap:12px}
-  .extra-suivi .suivi-liste{list-style:none;display:grid;gap:6px;font-size:14.5px}
+  .extra-suivi .suivi-liste{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;font-size:14.5px}
   .extra-suivi .suivi-liste li{display:grid;grid-template-columns:18px 1fr;gap:8px}
   .extra-suivi .suivi-liste li::before{content:"";width:12px;height:12px;margin-top:4px;background:var(--grad);-webkit-mask:var(--etoile) center/contain no-repeat;mask:var(--etoile) center/contain no-repeat}
   .extra .tarif{font-weight:800;letter-spacing:-.02em}
@@ -549,12 +562,15 @@
     .real-tete{margin-bottom:28px}
 
     /* Offres : une à la fois */
-    .offres-switch{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#fff;border-radius:999px;padding:6px;box-shadow:inset 0 0 0 1px var(--trait);margin-bottom:16px}
+    .offres-switch{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;background:#fff;border-radius:999px;padding:6px;box-shadow:inset 0 0 0 1px var(--trait);margin-bottom:16px}
     .offres-switch button{border:0;background:transparent;border-radius:999px;min-height:52px;padding:8px 10px;font:600 15px/1.1 var(--sans);color:var(--gris);cursor:pointer;transition:background .25s,color .25s}
     .offres-switch button span{display:block;font-family:var(--hand);font-weight:500;font-size:17px;margin-top:2px}
     .offres-switch button[aria-selected="true"]{background:var(--encre);color:#fff}
     .offres-switch button[aria-selected="true"] span{color:var(--cyan)}
-    .offres-grille[data-offre="portfolio"] .offre-vitrine,.offres-grille[data-offre="vitrine"] .offre-portfolio{display:none}
+    .offres-grille .offre{display:none}
+    .offres-grille[data-offre="portfolio"] .offre-portfolio,.offres-grille[data-offre="vitrine"] .offre-vitrine,.offres-grille[data-offre="video"] .offre-video{display:flex}
+    .offres-switch button{font-size:13.5px;padding:8px 4px}
+    .extra-suivi .suivi-liste{grid-template-columns:1fr}
     .offres-tete{margin-bottom:28px}
 
     /* Barre de contact fixe en bas */
@@ -908,13 +924,14 @@
   <section class="offres" id="offres">
     <div class="wrap">
       <div class="offres-tete">
-        <h2>Deux offres, selon ce que tu vends.</h2>
+        <h2>Trois offres, selon ce que tu vends.</h2>
         <p class="intro" style="max-width:24em">Tu vends à des marques et des clubs, ou au public&nbsp;? On part de là, pas d'un template.</p>
       </div>
 
       <div class="offres-switch" role="tablist" aria-label="Choisis ton offre">
         <button type="button" role="tab" aria-selected="true" data-o="portfolio">Je démarche<span>Portfolio</span></button>
         <button type="button" role="tab" aria-selected="false" data-o="vitrine">J'ai un agenda<span>Vitrine</span></button>
+        <button type="button" role="tab" aria-selected="false" data-o="video">Avec vidéo<span>Site + Vidéo</span></button>
       </div>
       <div class="offres-grille" data-offre="portfolio">
         <article class="offre offre-portfolio">
@@ -964,10 +981,34 @@
             <a href="#contact" class="btn btn-bic btn-sm js-wa" data-choix="vitrine">Démarrer ma vitrine</a>
           </div>
         </article>
+
+        <article class="offre offre-video">
+          <span class="pour">pour marquer les esprits</span>
+          <h3>Site + Vidéo</h3>
+          <p class="desc">Ton site Portfolio ou Vitrine, ouvert par une vidéo motion design de 30&nbsp;secondes, réalisée par notre studio partenaire UPFLOW.</p>
+          <ul>
+            <li>Tout le contenu de l'offre Portfolio ou Vitrine</li>
+            <li>Une vidéo de 30&nbsp;s&nbsp;: motion design, 3D et sound design</li>
+            <li>Intégrée en haut de ton site, dès l'ouverture</li>
+            <li>Un seul interlocuteur pour le site et la vidéo</li>
+            <li>Vidéo explicative de 60&nbsp;s&nbsp;: sur demande</li>
+          </ul>
+          <div class="prix">
+            <span class="lancement">Prix de lancement · 5 premiers clients</span>
+            <strong><small>dès</small> 540&nbsp;€</strong>
+            <span class="detail">Portfolio + vidéo&nbsp;: <b>540&nbsp;€</b><br>Vitrine + vidéo&nbsp;: <b>740&nbsp;€</b></span>
+            <span class="ensuite">puis <b>29&nbsp;€/mois</b> de suivi, sans engagement</span>
+            <span class="apres">100&nbsp;€ de moins que séparément · 640&nbsp;€ et 840&nbsp;€ après les 5 premiers clients</span>
+          </div>
+          <div class="pied">
+            <span class="collab">aupropre × UPFLOW</span>
+            <a href="#contact" class="btn btn-ghost btn-sm js-wa" data-choix="video">Démarrer mon projet</a>
+          </div>
+        </article>
       </div>
 
       <div class="inclus">
-        <p class="inclus-titre">Dans les deux offres</p>
+        <p class="inclus-titre">Dans les trois offres</p>
         <ul>
           <li>Un logo créé pour toi</li>
           <li>Tous les textes rédigés, dans ton ton</li>
@@ -979,15 +1020,6 @@
       </div>
 
       <div class="extras">
-        <div class="extra extra-video">
-          <div>
-            <h4>Pack site + vidéo motion design</h4>
-            <p>Une vidéo de 30 secondes (motion design, 3D et sound design) intégrée en haut de ton site, réalisée par notre studio partenaire UPFLOW.</p>
-            <p class="tarif">Portfolio + vidéo&nbsp;: 540&nbsp;€ · Vitrine + vidéo&nbsp;: 740&nbsp;€</p>
-            <p class="mini mini-clair">100&nbsp;€ de moins que séparément. Vidéo explicative de 60&nbsp;secondes&nbsp;: sur demande.</p>
-          </div>
-          <span class="collab">aupropre × UPFLOW</span>
-        </div>
         <div class="extra extra-suivi">
           <div>
             <h4>Le suivi : 29&nbsp;€/mois, sans engagement</h4>
