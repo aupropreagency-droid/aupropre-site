@@ -593,13 +593,12 @@
 
     /* Offres : une à la fois */
     .offres-switch{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;background:#fff;border-radius:999px;padding:6px;box-shadow:inset 0 0 0 1px var(--trait);margin-bottom:16px}
-    .offres-switch button{border:0;background:transparent;border-radius:999px;min-height:52px;padding:8px 10px;font:600 15px/1.1 var(--sans);color:var(--gris);cursor:pointer;transition:background .25s,color .25s}
-    .offres-switch button span{display:block;font-family:var(--hand);font-weight:500;font-size:17px;margin-top:2px}
+    .offres-switch button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:0;background:transparent;border-radius:999px;min-height:76px;padding:8px 5px;font:600 13.5px/1.2 var(--sans);color:var(--gris);text-align:center;cursor:pointer;transition:background .25s,color .25s}
+    .offres-switch button span{display:block;font-family:var(--hand);font-weight:500;font-size:17px;line-height:1.05;margin:0}
     .offres-switch button[aria-selected="true"]{background:var(--encre);color:#fff}
     .offres-switch button[aria-selected="true"] span{color:var(--cyan)}
     .offres-grille .offre{display:none}
     .offres-grille[data-offre="portfolio"] .offre-portfolio,.offres-grille[data-offre="vitrine"] .offre-vitrine,.offres-grille[data-offre="video"] .offre-video{display:flex}
-    .offres-switch button{font-size:13.5px;padding:8px 4px}
     .extra-suivi .suivi-liste{grid-template-columns:1fr}
     .offres-tete{margin-bottom:28px}
 
