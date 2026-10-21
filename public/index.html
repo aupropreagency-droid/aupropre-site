@@ -1587,9 +1587,9 @@
     cartes.forEach((c,i)=>{const d=Math.abs(c.offsetLeft+c.offsetWidth/2-centre);if(d<best){best=d;idx=i}});
     pointsC.forEach((p,i)=>p.classList.toggle('on',i===idx));
   },{passive:true});
-  // Barre de contact : visible après l'accueil, cachée sur le contact final et le panneau
+  // Barre de contact : visible après l'accueil, cachée pendant les offres, sur le contact final et le panneau
   const barre=document.getElementById('barre-contact');
-  const zonesCachees=[document.getElementById('contact')];
+  const zonesCachees=[document.getElementById('offres'),document.getElementById('contact')];
   function rendreBarre(){
     const apresAccueil=scrollY>scene.offsetTop+scene.offsetHeight-innerHeight*.6;
     const dansZone=zonesCachees.some(z=>{const r=z.getBoundingClientRect();return r.top<innerHeight*.9&&r.bottom>innerHeight*.1});
