@@ -934,7 +934,7 @@
   @keyframes dsPlay{60%{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
   .ds-prog{position:absolute;left:14px;right:52px;bottom:14px;height:4px;border-radius:4px;background:rgba(255,255,255,.35);overflow:hidden}
   .ds-prog i{display:block;height:100%;width:0;background:#fff}
-  .demo.joue[data-step="3"] .ds-prog i{animation:dsProg 6s linear forwards}
+  .demo.joue[data-step="3"] .ds-prog i{animation:dsProg 7s linear forwards}
   @keyframes dsProg{to{width:100%}}
   .ds-dur{position:absolute;right:14px;bottom:8px;font:700 11px var(--sans);color:#fff}
   .ds-page{display:grid;gap:12px;transition:opacity .25s}
@@ -1516,13 +1516,12 @@
     const demo=document.getElementById('demo');if(!demo)return;
     const tabs=[...demo.querySelectorAll('.demo-tab')];
     const leg=demo.querySelector('.ds-legende');
-    const durees={1:7200,2:5200,3:6200};
+    const durees={1:7200,2:7200,3:7200};
     const voir=demo.querySelector('.demo-voir'),offres={1:'portfolio',2:'vitrine',3:'video'},noms={1:'Landing page',2:'Site vitrine',3:'Site + Vidéo'};
     voir.addEventListener('click',e=>{e.preventDefault();allerOffre(voir.dataset.vaOffre)});
     let step=1,timer=null,cTimer=null,visible=false;
     function contact(){clearInterval(cTimer);let c=0;demo.dataset.contact=0;
-      if(step===1&&!reduit.matches)cTimer=setInterval(()=>{c=(c+1)%3;demo.dataset.contact=c},2400);
-      else demo.dataset.contact=step===1?0:2;}
+      if(visible&&!reduit.matches)cTimer=setInterval(()=>{c=(c+1)%3;demo.dataset.contact=c},2400);}
     function aller(n,auto){
       step=n;demo.dataset.step=n;demo.style.setProperty('--duree',durees[n]+'ms');
       tabs.forEach(t=>t.setAttribute('aria-selected',t.dataset.step==n));
