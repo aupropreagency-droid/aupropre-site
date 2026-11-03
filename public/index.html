@@ -22,7 +22,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "AuPropre", "description": "Sites sur mesure pour les créatifs et indépendants qui veulent donner de la valeur à leur travail : landing pages, sites vitrines, sites avec vidéo. Partout en France.", "url": "https://aupropreagency.fr/", "image": "https://aupropreagency.fr/og.png", "email": "aupropre.agency@gmail.com", "areaServed": "FR", "sameAs": ["https://www.instagram.com/aupropre.agency/"], "priceRange": "390 € – 840 € ; suivi : 29 €/mois"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 <style>
   :root{
     --papier:#F7F8F6;
@@ -190,7 +190,8 @@
 
   /* RÉALISATIONS */
   .projets{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,28px)}
-  .projet{text-decoration:none;color:inherit;display:block}
+  .projet{position:relative;display:block}
+  .projet-lien{display:block;color:inherit;text-decoration:none}
   .projet-img{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:var(--papier-2);box-shadow:0 0 0 1px var(--trait)}
   .projet-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
   .projet:hover .projet-img img{transform:scale(1.035)}
@@ -317,41 +318,40 @@
     .illu{margin:2px 0 12px}
   }
 
-  /* ACCUEIL : texte à gauche, montage des réalisations à droite */
-  .hero{text-align:left}
-  .hero .wrap.hero-grille{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
-  .hero h1{font-size:clamp(50px,6.6vw,104px)}
-  .hero-garantie{display:flex;align-items:center;gap:12px;margin-top:22px;font-size:15.5px;line-height:1.4;color:var(--gris);max-width:36em}
+  /* ACCUEIL : texte centré, les avis suivent dans un bandeau bleu */
+  .hero{text-align:center}
+  .hero-garantie{display:flex;align-items:center;gap:12px;width:fit-content;max-width:36em;margin:22px auto 0;font-size:15.5px;line-height:1.4;text-align:left;color:var(--gris)}
   .hero-garantie b{color:var(--encre);font-weight:700}
   .hg-ico{flex:none;width:30px;height:30px;border-radius:50%;background:#E8EEFF;position:relative}
   .hg-ico::after{content:"";position:absolute;left:11px;top:7px;width:7px;height:13px;border:solid var(--bic);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
-  .hero .hero-promesse{font-size:clamp(22px,2.3vw,30px);line-height:1.25;letter-spacing:-.02em;font-weight:600;color:var(--encre);max-width:18em;margin-top:30px}
-  .hero-cta{justify-content:flex-start}
-  /* AVIS : carrousel des avis Google, à droite du texte (sous les boutons sur mobile) */
-  .avis-hero{position:relative;min-width:0}
-  .avis-titre{display:flex;align-items:center;gap:8px;margin:0 0 14px;font:500 28px/1 var(--hand);letter-spacing:0;color:var(--bic)}
-  .etoile-n{width:15px;height:15px;background:var(--grad);-webkit-mask:var(--etoile) center/contain no-repeat;mask:var(--etoile) center/contain no-repeat}
-  .avis-piste{position:relative;display:flex;align-items:flex-start;gap:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;scroll-behavior:smooth;transition:height .35s var(--ease)}
+  .hero .hero-promesse{font-size:clamp(22px,2.3vw,30px);line-height:1.25;letter-spacing:-.02em;font-weight:600;color:var(--encre);max-width:18em;margin:30px auto 0}
+  /* AVIS : bandeau bleu sous le hero, un avis à la fois (inspiré du site de Marie) */
+  .avis-bandeau{padding:clamp(52px,7vw,96px) 0;background:linear-gradient(160deg,#0047FF 0%,#0036D9 100%);color:#fff;text-align:center;overflow-x:clip}
+  .avis-bandeau :focus-visible{outline-color:#fff}
+  .avis-titre{margin:0 0 clamp(16px,2.6vw,26px);font:500 clamp(26px,2.6vw,32px)/1 var(--hand);font-variation-settings:normal;letter-spacing:0;color:#CFE0FF}
+  .avis-carrousel{max-width:880px;margin:0 auto}
+  .avis-piste{position:relative;display:flex;align-items:flex-start;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;scroll-behavior:smooth;transition:height .35s var(--ease)}
   .avis-piste::-webkit-scrollbar{display:none}
-  .avis-slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;display:flex;flex-direction:column;padding:26px 28px 14px;border-radius:var(--r-lg);background:#fff;box-shadow:inset 0 0 0 1px var(--trait)}
-  .etoiles{color:#E8A317;letter-spacing:.1em;font-size:18px;line-height:1}
-  .avis-slide blockquote{margin-top:14px}
-  .avis-texte{font-size:17px;line-height:1.55;color:var(--encre)}
-  .avis-auteur{display:block;margin-top:16px;font-style:normal;font-weight:600;font-size:15px;color:var(--encre)}
-  .avis-auteur small{display:block;margin-top:2px;font-size:14px;font-weight:400;color:var(--gris)}
-  .avis-lien{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;min-height:44px;padding-top:6px;font-size:15px;font-weight:600;color:var(--bic);text-decoration:none}
-  .avis-lien:hover{text-decoration:underline;text-underline-offset:3px}
-  .avis-points{display:flex;justify-content:center;margin-top:4px}
+  .avis-slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;display:flex;flex-direction:column;align-items:center;padding:0 clamp(0px,2vw,24px)}
+  .avis-guill{display:block;height:44px;font:italic 400 84px/1 "Instrument Serif",Georgia,serif;color:#9DBBFF}
+  .avis-slide blockquote{margin:0}
+  .avis-texte{font:italic 400 clamp(23px,2.9vw,34px)/1.3 "Instrument Serif",Georgia,serif;color:#fff}
+  .avis-auteur{display:block;margin-top:22px;font-style:normal;font-size:17px;font-weight:700;color:#fff}
+  .avis-auteur small{display:block;margin-top:3px;font-size:16px;font-weight:400;color:#CFE0FF}
+  .avis-lien{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;padding:0 4px;font-size:16px;font-weight:600;color:#fff;text-decoration:underline;text-underline-offset:4px}
+  .avis-points{display:flex;justify-content:center;margin-top:6px}
   .avis-points button{display:grid;place-items:center;width:44px;height:44px;border:0;background:none;cursor:pointer}
-  .avis-points button::before{content:"";width:8px;height:8px;border-radius:99px;background:#C9CCD4;transition:width .3s var(--ease),background .3s}
-  .avis-points button[aria-current="true"]::before{width:24px;background:var(--grad)}
-  .avis-global{font-size:16px;color:var(--encre);text-align:center}
-  .avis-global a{display:inline-block;margin:-13px -8px;padding:13px 8px;color:var(--bic)}
-  .avis-note{margin-top:4px;font-size:14px;color:var(--gris);text-align:center}
-  @media (max-width:980px){
-    .hero .wrap.hero-grille{grid-template-columns:1fr}
-    .avis-hero{max-width:560px;width:100%;margin:10px auto 0}
-  }
+  .avis-points button::before{content:"";width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.4);transition:width .3s var(--ease),background .3s}
+  .avis-points button[aria-current="true"]::before{width:26px;background:#fff}
+  .etoiles{color:#E8A317;letter-spacing:.1em;line-height:1}
+  .avis-global{margin-top:12px;font-size:16px;color:#fff}
+  .avis-global .etoiles{color:#FFC94D}
+  .avis-global a{display:inline-block;margin:-13px 0;padding:13px 8px;color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  .avis-note{margin-top:6px;font-size:16px;color:#CFE0FF}
+  /* Lien réalisation → avis, et avis → réalisation */
+  .projet-avis{position:absolute;left:14px;top:14px;z-index:2;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 15px;border-radius:999px;background:#fff;color:var(--encre);font:600 15px var(--sans);text-decoration:none;box-shadow:0 8px 20px -10px rgba(0,0,40,.5)}
+  .projet:target .projet-img{animation:surligne 2.6s ease-out}
+  @keyframes surligne{0%,45%{box-shadow:0 0 0 4px var(--bic)}100%{box-shadow:0 0 0 1px var(--trait)}}
   @media (prefers-reduced-motion:reduce){.avis-piste{scroll-behavior:auto;transition:none}}
 
   /* OFFRES : onglets + grand panneau, une offre à la fois */
@@ -607,8 +607,7 @@
     .btn,.btn-sm,.voir-tout,.inclus,.inclus b,.sm-titre span,.sm-liste b,.etape .etape-toi,.projet h3 span,.faq-liste summary .n,.eyebrow b{font-size:16px}
     .pilule .logo{min-height:44px}
     .po-prix strong small{font-size:16px}
-    .avis-texte,.avis-auteur,.avis-auteur small,.avis-lien,.avis-note{font-size:16px}
-    .avis-slide{padding:20px 20px 8px}
+    .avis-note,.projet-avis{font-size:16px}
   }
 </style>
 </head>
@@ -642,26 +641,31 @@
         </div>
         <p class="hero-garantie"><span class="hg-ico" aria-hidden="true"></span><span>Tu vois ton site en ligne et tu le testes <b>avant de payer le solde.</b></span></p>
       </div>
-      <div class="avis-hero" role="region" aria-roledescription="carrousel" aria-label="Avis de mes clients sur Google">
-        <h2 class="avis-titre">Ils m'ont fait confiance. <span class="etoile-n" aria-hidden="true"></span></h2>
+    </div>
+  </section>
+
+  <section class="avis-bandeau" id="avis" aria-label="Avis de mes clients sur Google">
+    <div class="wrap">
+      <h2 class="avis-titre">Ils m'ont fait confiance.</h2>
+      <div class="avis-carrousel" role="region" aria-roledescription="carrousel" aria-label="Avis de mes clients">
         <div class="avis-piste" tabindex="0" aria-label="Avis, fais glisser pour changer">
           <div class="avis-slide" role="group" aria-roledescription="avis" aria-label="Avis de Marie Graugnard">
-            <span class="etoiles" role="img" aria-label="5 sur 5">★★★★★</span>
-            <blockquote><p class="avis-texte">« Au propre à vraiment fait un super travail avec mon site! Il est tellement plus lisible, fluide et en même temps il me ressemble. Je recommande vivement!!!<br>Merci Au propre 👌🏽 »</p></blockquote>
-            <cite class="avis-auteur">Marie Graugnard<small>doula à Paris · avis Google, novembre 2026</small></cite>
-            <a class="avis-lien" href="https://mariegraugnard.fr/" target="_blank" rel="noopener">Voir son site ↗</a>
+            <span class="avis-guill" aria-hidden="true">“</span>
+            <blockquote><p class="avis-texte">Au propre à vraiment fait un super travail avec mon site! Il est tellement plus lisible, fluide et en même temps il me ressemble. Je recommande vivement!!!<br>Merci Au propre</p></blockquote>
+            <cite class="avis-auteur">Marie Graugnard<small>Marie, doula · avis Google, novembre 2026</small></cite>
+            <a class="avis-lien" href="#r-marie">Voir sa réalisation ↓</a>
           </div>
           <div class="avis-slide" role="group" aria-roledescription="avis" aria-label="Avis de 12amadou, SHOTBY12">
-            <span class="etoiles" role="img" aria-label="5 sur 5">★★★★★</span>
-            <blockquote><p class="avis-texte">« AuPropre m'a créé mon site shotby12.fr et le résultat est top. Ils ont compris direct mon univers : mes stories d'événements sportifs, mes reels 12's POV, tout est mis en avant comme je voulais. Le site est rapide, propre sur mobile, et les clients peuvent me demander un devis directement sur WhatsApp. En plus ils sont réactifs : quand j'ai voulu changer mes tarifs, c'était en ligne dans la journée. Je recommande ! »</p></blockquote>
+            <span class="avis-guill" aria-hidden="true">“</span>
+            <blockquote><p class="avis-texte">AuPropre m'a créé mon site shotby12.fr et le résultat est top. Ils ont compris direct mon univers : mes stories d'événements sportifs, mes reels 12's POV, tout est mis en avant comme je voulais. Le site est rapide, propre sur mobile, et les clients peuvent me demander un devis directement sur WhatsApp. […]</p></blockquote>
             <cite class="avis-auteur">12amadou<small>SHOTBY12 · avis Google, octobre 2026</small></cite>
-            <a class="avis-lien" href="https://shotby12.fr" target="_blank" rel="noopener">Voir son site ↗</a>
+            <a class="avis-lien" href="#r-shotby12">Voir sa réalisation ↓</a>
           </div>
           <div class="avis-slide" role="group" aria-roledescription="avis" aria-label="Avis d'UPFLOW">
-            <span class="etoiles" role="img" aria-label="5 sur 5">★★★★★</span>
-            <blockquote><p class="avis-texte">« Franchement, super expérience avec Au Propre ! Ils m’ont accompagné pour la création de mon site et le résultat est top 🔥 Équipe sympa, à l’écoute et toujours dispo pour échanger. Merci à eux pour le taf, je recommande fort ! 💪 »</p></blockquote>
-            <cite class="avis-auteur">UPFLOW<small>studio de motion design · avis Google, octobre 2026</small></cite>
-            <a class="avis-lien" href="https://upflowmotion.fr/" target="_blank" rel="noopener">Voir son site ↗</a>
+            <span class="avis-guill" aria-hidden="true">“</span>
+            <blockquote><p class="avis-texte">Franchement, super expérience avec Au Propre ! Ils m’ont accompagné pour la création de mon site et le résultat est top. Équipe sympa, à l’écoute et toujours dispo pour échanger. Merci à eux pour le taf, je recommande fort !</p></blockquote>
+            <cite class="avis-auteur">UPFLOW<small>studio partenaire · avis Google, octobre 2026</small></cite>
+            <a class="avis-lien" href="#r-upflow">Voir sa réalisation ↓</a>
           </div>
         </div>
         <div class="avis-points" role="group" aria-label="Choisir un avis">
@@ -669,9 +673,9 @@
           <button type="button" aria-label="Avis de 12amadou, SHOTBY12" aria-current="false"></button>
           <button type="button" aria-label="Avis d'UPFLOW" aria-current="false"></button>
         </div>
-        <p class="avis-global"><span class="etoiles" role="img" aria-label="5 sur 5">★★★★★</span> <b>5,0</b> sur Google · <a href="https://share.google/OItOEcAhwrpKja05Y" target="_blank" rel="noopener">3 avis</a></p>
-        <p class="avis-note">Avis recopiés tels quels depuis ma fiche Google. Google ne les vérifie pas.</p>
       </div>
+      <p class="avis-global"><span class="etoiles" role="img" aria-label="5 sur 5">★★★★★</span> <b>5,0</b> · <a href="https://share.google/OItOEcAhwrpKja05Y" target="_blank" rel="noopener">Voir les 3 avis Google →</a> <a href="https://g.page/r/Cc22LDRF46vwEAE/review" target="_blank" rel="noopener">Laisser un avis</a></p>
+      <p class="avis-note">Avis recopiés depuis ma fiche Google, sans les emojis ; celui de 12amadou est raccourci ([…]). Google ne les vérifie pas.</p>
     </div>
   </section>
 
@@ -793,23 +797,34 @@
         <h2>Des sites déjà au propre.</h2>
       </div>
       <div class="projets">
-        <a class="projet rv" href="https://mariegraugnard.fr/" target="_blank" rel="noopener">
+        <div class="projet rv" id="r-marie">
+          <a class="projet-lien" href="https://mariegraugnard.fr/" target="_blank" rel="noopener">
           <div class="projet-img"><img src="images/marie-doula.webp" alt="Le site de Marie Graugnard, doula à Paris" width="960" height="720" loading="lazy" decoding="async"></div>
           <h3>Marie, doula <span>Voir le site ↗</span></h3>
-          <p>Site vitrine · d'un vieux Wix à un site qui rassure</p>        </a>
-        <a class="projet rv" href="https://glossy-ponytail.mouvementvisible.workers.dev/" target="_blank" rel="noopener">
+          <p>Site vitrine · d'un vieux Wix à un site qui rassure</p>          </a>
+          <a class="projet-avis" href="#avis" data-i="0"><span class="etoiles" aria-hidden="true">★</span> Avis Google</a>
+        </div>
+        <div class="projet rv" id="r-glossy">
+          <a class="projet-lien" href="https://glossy-ponytail.mouvementvisible.workers.dev/" target="_blank" rel="noopener">
           <div class="projet-img"><img src="images/glossy-ponytail.webp" alt="Le site de Glossy Ponytail, coiffeuse" width="960" height="720" loading="lazy" decoding="async"></div>
           <h3>Glossy Ponytail <span>Voir le site ↗</span></h3>
           <p>Landing page · réservation et acompte en ligne</p>
-        </a>
-        <a class="projet rv" href="https://shotby12.fr" target="_blank" rel="noopener">
+          </a>
+        </div>
+        <div class="projet rv" id="r-shotby12">
+          <a class="projet-lien" href="https://shotby12.fr" target="_blank" rel="noopener">
           <div class="projet-img"><img src="images/shotby12.webp" alt="Le site de SHOTBY12, vidéaste, social media manager" width="960" height="720" loading="lazy" decoding="async"></div>
           <h3>SHOTBY12 <span>Voir le site ↗</span></h3>
-          <p>Landing page · ses stories devenues un service</p>        </a>
-        <a class="projet rv" href="https://upflowmotion.fr/" target="_blank" rel="noopener">
+          <p>Landing page · ses stories devenues un service</p>          </a>
+          <a class="projet-avis" href="#avis" data-i="1"><span class="etoiles" aria-hidden="true">★</span> Avis Google</a>
+        </div>
+        <div class="projet rv" id="r-upflow">
+          <a class="projet-lien" href="https://upflowmotion.fr/" target="_blank" rel="noopener">
           <div class="projet-img"><img src="images/upflow.webp" alt="Le site d'UPFLOW, studio de motion design" width="960" height="720" loading="lazy" decoding="async"></div>
           <h3>UPFLOW <span>Voir le site ↗</span></h3>
-          <p>Landing page · studio partenaire</p>        </a>
+          <p>Landing page · studio partenaire</p>          </a>
+          <a class="projet-avis" href="#avis" data-i="2"><span class="etoiles" aria-hidden="true">★</span> Avis Google</a>
+        </div>
       </div>
     </div>
   </section>
@@ -962,14 +977,16 @@
   if(piste){
     const slidesA=[...piste.children];
     const pointsA=[...document.querySelectorAll('.avis-points button')];
-    const procheA=()=>{let best=0,d=1e9;slidesA.forEach((s,k)=>{const x=Math.abs(s.offsetLeft-piste.offsetLeft-piste.scrollLeft);if(x<d){d=x;best=k}});return best};
-    const allerA=i=>{i=Math.max(0,Math.min(slidesA.length-1,i));piste.scrollTo({left:slidesA[i].offsetLeft-piste.offsetLeft,behavior:reduit.matches?'auto':'smooth'})};
+    const procheA=()=>{let best=0,d=1e9;slidesA.forEach((s,k)=>{const x=Math.abs(s.offsetLeft-piste.scrollLeft);if(x<d){d=x;best=k}});return best};
+    const allerA=i=>{i=Math.max(0,Math.min(slidesA.length-1,i));piste.scrollTo({left:slidesA[i].offsetLeft,behavior:reduit.matches?'auto':'smooth'})};
     const marquerA=i=>pointsA.forEach((p,k)=>p.setAttribute('aria-current',k===i));
     // la hauteur du carrousel suit celle de l'avis affiché (sans JavaScript : la plus grande)
     const hauteurA=()=>{piste.style.height=slidesA[procheA()].offsetHeight+'px'};
     let tA;piste.addEventListener('scroll',()=>{cancelAnimationFrame(tA);tA=requestAnimationFrame(()=>{const i=procheA();marquerA(i);hauteurA()})},{passive:true});
     addEventListener('resize',hauteurA);hauteurA();if(document.fonts)document.fonts.ready.then(hauteurA);
     pointsA.forEach((p,k)=>p.addEventListener('click',()=>allerA(k)));
+    // le badge « Avis Google » d'une réalisation ouvre l'avis correspondant
+    document.querySelectorAll('.projet-avis').forEach(a=>a.addEventListener('click',()=>{const i=Number(a.dataset.i);piste.scrollTo({left:slidesA[i].offsetLeft,behavior:'auto'});marquerA(i);hauteurA()}));
     piste.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();allerA(procheA()+1)}if(e.key==='ArrowLeft'){e.preventDefault();allerA(procheA()-1)}});
   }
   const clamp=v=>Math.max(0,Math.min(1,v));
