@@ -51,8 +51,6 @@
   .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
   section{padding:clamp(80px,11vw,150px) 0}
   :focus-visible{outline:2px solid var(--bic);outline-offset:3px;border-radius:6px}
-  .panneaux-offres:focus:not(:focus-visible){outline:none}
-  @media (max-width:760px){.panneaux-offres:focus,.panneaux-offres:focus-visible{outline:none}}
 
   /* TYPO */
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--hand);font-size:24px;line-height:1;color:var(--bic)}
@@ -109,63 +107,9 @@
 
   /* OFFRES */
   .offres{padding-top:clamp(40px,6vw,80px)}
-  .offres-grille{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:18px;align-items:stretch}
-  .offre{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:var(--r-lg);padding:30px 28px 28px;box-shadow:0 0 0 1px var(--trait);transition:transform .35s var(--ease),box-shadow .35s}
-  .offre:hover{transform:translateY(-4px);box-shadow:0 0 0 1px var(--trait),0 30px 50px -36px rgba(20,20,60,.45)}
-  .offre .pour{font-family:var(--hand);font-size:22px;line-height:1;color:var(--bic)}
-  .offre h3{font-size:clamp(30px,2.7vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1;margin-top:8px}
-  .offre .desc{color:var(--gris);font-size:15.5px;margin-top:10px;min-height:3.1em}
-  .prix{margin-top:22px;padding-top:20px;border-top:1px solid var(--trait)}
-  .prix .lancement{display:inline-block;font:600 11.5px var(--sans);letter-spacing:.02em;padding:5px 10px;border-radius:999px;background:#EEF2FF;color:var(--bic)}
-  .prix strong{display:block;font-size:clamp(44px,4.2vw,56px);font-weight:800;letter-spacing:-.05em;line-height:1;margin-top:10px}
-  .prix strong small{font-size:.38em;font-weight:700;letter-spacing:0;margin-right:4px}
-  .prix .apres{display:block;font-size:13px;color:var(--gris);margin-top:6px}
-  .offre ul{list-style:none;display:grid;gap:11px;margin:22px 0 26px}
-  .offre li{position:relative;padding-left:24px;font-size:15px;line-height:1.45}
-  .offre li::before{content:"";position:absolute;left:0;top:.28em;width:13px;height:13px;background:var(--grad);-webkit-mask:var(--etoile) center/contain no-repeat;mask:var(--etoile) center/contain no-repeat}
-  .offre .btn{margin-top:auto;align-self:flex-start}
 
-  /* Site + Vidéo : la carte vedette */
-  .offre.vedette{background:var(--grad);color:#fff;box-shadow:0 40px 70px -40px rgba(0,70,255,.7);transform:translateY(-14px)}
-  .offre.vedette:hover{transform:translateY(-18px);box-shadow:0 50px 80px -40px rgba(0,70,255,.8)}
-  .offre.vedette .pour{color:#fff;opacity:.9}
-  .offre.vedette .desc,.offre.vedette .prix .apres{color:rgba(255,255,255,.82)}
-  .offre.vedette .prix{border-color:rgba(255,255,255,.25)}
-  .offre.vedette .prix .lancement{background:#fff;color:var(--bic)}
-  .offre.vedette li::before{background:#fff}
-  .badge-upflow{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font:700 12px var(--sans);letter-spacing:.02em;background:var(--encre);color:#fff;padding:7px 14px;border-radius:999px;white-space:nowrap}
-  .ecran-video{position:relative;margin-top:18px;aspect-ratio:16/8.4;border-radius:16px;background:rgba(5,20,90,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);overflow:hidden}
-  .ecran-video::before{content:"";position:absolute;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(0,204,255,.7),rgba(0,204,255,0) 70%);top:-30%;right:-10%;animation:derive 7s ease-in-out infinite alternate}
-  .ev-play{position:absolute;left:50%;top:44%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.55);animation:pulse 2.4s ease-out infinite}
-  .ev-play::after{content:"";position:absolute;left:19px;top:14px;border-left:15px solid var(--bic);border-top:10px solid transparent;border-bottom:10px solid transparent}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}70%,100%{box-shadow:0 0 0 16px rgba(255,255,255,0)}}
-  .ev-barre{position:absolute;left:14px;right:56px;bottom:14px;height:4px;border-radius:4px;background:rgba(255,255,255,.3);overflow:hidden}
-  .ev-barre i{display:block;height:100%;width:100%;background:#fff;transform-origin:left;animation:lecture 8s linear infinite}
-  @keyframes lecture{from{transform:scaleX(0)}}
-  .ev-duree{position:absolute;right:14px;bottom:8px;font:700 11px var(--sans)}
-  .ev-label{position:absolute;left:14px;top:12px;font:600 11px var(--sans);letter-spacing:.06em;text-transform:uppercase;opacity:.85}
 
-  .inclus{margin-top:26px;text-align:center;color:var(--gris);font-size:15px}
-  .inclus b{color:var(--encre);font-weight:600}
-
-  /* SUIVI : interrupteur dans chaque offre + module repliable */
-  .po-texte .po-pied{flex-direction:column;flex-wrap:nowrap;align-items:stretch;justify-content:flex-start;gap:14px}
-  .po-texte .po-pied .btn{align-self:flex-start}
-  .avec-suivi{display:block;max-height:0;opacity:0;overflow:hidden;font:600 13.5px var(--sans);color:var(--bic);transition:max-height .35s var(--ease),opacity .3s,margin .35s}
-  body.suivi-on .avec-suivi{max-height:40px;opacity:1;margin-top:6px}
-  .opt-suivi{position:relative;display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:16px;background:var(--papier);box-shadow:inset 0 0 0 1px var(--trait);cursor:pointer;transition:box-shadow .25s,background .25s}
-  .opt-suivi:hover{box-shadow:inset 0 0 0 1.5px var(--encre)}
-  .opt-suivi input{position:absolute;opacity:0;width:1px;height:1px}
-  .sw{flex:none;position:relative;width:42px;height:24px;border-radius:99px;background:#D3D6DE;transition:background .25s}
-  .sw::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s var(--ease)}
-  .opt-suivi input:checked+.sw{background:var(--grad)}
-  .opt-suivi input:checked+.sw::after{transform:translateX(18px)}
-  .opt-suivi input:focus-visible+.sw{outline:2px solid var(--bic);outline-offset:3px}
-  body.suivi-on .opt-suivi{background:#EEF2FF;box-shadow:inset 0 0 0 1.5px var(--bic)}
-  .os-txt{font-size:15px;line-height:1.3}
-  .os-txt b{font-weight:700}
-  .os-txt small{display:block;font-size:12.5px;color:var(--gris);margin-top:3px}
-  .os-txt a{color:var(--bic)}
+  /* SUIVI : module repliable */
   .suivi-module{margin-top:20px;background:#fff;border-radius:var(--r-lg);box-shadow:0 0 0 1px var(--trait)}
   .suivi-module summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:20px 24px}
   .suivi-module summary::-webkit-details-marker{display:none}
@@ -186,7 +130,7 @@
   .sm-liste span{display:block;font-size:13.5px;color:var(--gris);margin-top:4px;line-height:1.45}
   .sm-sans{margin-top:16px;font-size:14px;color:var(--gris)}
   @media (max-width:980px){.sm-liste{grid-template-columns:1fr 1fr}.sm-corps{padding:0 20px 22px}}
-  @media (max-width:560px){.sm-liste{grid-template-columns:1fr}.suivi-module summary{padding:16px 18px}.po-texte .po-pied .btn{align-self:stretch}}
+  @media (max-width:560px){.sm-liste{grid-template-columns:1fr}.suivi-module summary{padding:16px 18px}}
 
   /* RÉALISATIONS */
   .projets{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,28px)}
@@ -354,178 +298,39 @@
   @keyframes surligne{0%,45%{box-shadow:0 0 0 4px var(--bic)}100%{box-shadow:0 0 0 1px var(--trait)}}
   @media (prefers-reduced-motion:reduce){.avis-piste{scroll-behavior:auto;transition:none}}
 
-  /* OFFRES : onglets + grand panneau, une offre à la fois */
-  .onglets-offres{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:#fff;padding:6px;border-radius:999px;box-shadow:0 0 0 1px var(--trait);max-width:760px;margin:0 auto 22px}
-  .onglets-offres button{display:flex;flex-direction:column;align-items:center;gap:2px;border:0;cursor:pointer;background:transparent;border-radius:999px;padding:12px 10px;font-family:var(--sans);color:var(--gris);transition:background .3s,color .3s}
-  .onglets-offres button b{font-size:16px;font-weight:700;letter-spacing:-.02em}
-  .onglets-offres button span{font-family:var(--hand);font-size:18px;line-height:1}
-  .onglets-offres button:hover{color:var(--encre)}
-  .onglets-offres button[aria-current="true"]{background:var(--encre);color:#fff}
-  .onglets-offres button[aria-current="true"] span{color:var(--cyan)}
-  .onglets-offres button.t-video[aria-current="true"]{background:var(--grad)}
-  .onglets-offres button.t-video[aria-current="true"] span{color:#fff}
-  .onglets-offres button.t-video b::after{content:" ✦";color:var(--bic)}
-  .onglets-offres button.t-video[aria-current="true"] b::after{color:#fff}
-  .panneau-offre{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:calc(var(--r-lg) + 6px);box-shadow:0 0 0 1px var(--trait),0 40px 70px -50px rgba(20,20,60,.4);overflow:hidden}
-  .carrousel-offres{position:relative}
-  .panneaux-offres{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;padding:4px 2px 40px;margin:-4px -2px -40px;cursor:grab}
-  .panneaux-offres::-webkit-scrollbar{display:none}
-  .panneaux-offres.drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;user-select:none}
-  .panneau-offre{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;transition:opacity .4s,transform .4s var(--ease)}
-  .panneau-offre:not(.actif){opacity:.45;transform:scale(.97)}
-  .fleche{position:absolute;top:calc(50% - 40px);z-index:2;width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;background:#fff;color:var(--encre);font:600 20px var(--sans);box-shadow:0 0 0 1px var(--trait),0 16px 30px -18px rgba(20,20,60,.5);transition:transform .25s var(--ease),opacity .25s}
-  .fleche:hover{transform:scale(1.06)}
-  .fleche:disabled{opacity:0;pointer-events:none}
-  .fleche.prec{left:-26px}.fleche.suiv{right:-26px}
-  .glisse{display:none;text-align:center;font-family:var(--hand);font-size:22px;color:var(--bic);margin-top:10px}
-  @keyframes apparait{from{opacity:0;transform:translateY(10px)}}
-  .po-visuel{position:relative;display:grid;place-items:center;min-height:380px;background:var(--papier-2);overflow:hidden}
-  .po-video .po-visuel{background:var(--grad)}
-  .po-video .po-visuel::before{content:"";position:absolute;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.35),rgba(255,255,255,0) 70%);top:-20%;right:-15%;animation:derive 8s ease-in-out infinite alternate}
-  .po-visuel .badge-upflow{position:absolute;top:18px;left:18px;transform:none}
-  .il-scale{transform:scale(1.7);display:grid;place-items:center;width:240px}
-  .il-scale.il-video{position:relative;height:150px}
-  .po-texte{padding:clamp(28px,4vw,52px);display:flex;flex-direction:column}
-  .po-texte .pour{font-family:var(--hand);font-size:24px;line-height:1;color:var(--bic)}
-  .po-texte h3{font-size:clamp(34px,3.6vw,50px);font-weight:800;letter-spacing:-.05em;line-height:1;margin-top:8px}
-  .po-texte .desc{color:var(--gris);margin-top:14px;max-width:30em}
-  .po-texte ul{list-style:none;display:grid;gap:11px;margin:24px 0 0}
-  .po-texte li{position:relative;padding-left:26px;font-size:15.5px;line-height:1.45}
-  .po-texte li::before{content:"";position:absolute;left:0;top:.25em;width:14px;height:14px;background:var(--grad);-webkit-mask:var(--etoile) center/contain no-repeat;mask:var(--etoile) center/contain no-repeat}
-  .po-pied{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-top:auto;padding-top:26px;border-top:1px solid var(--trait)}
-  .po-texte ul+.po-pied{margin-top:30px}
-  .po-prix strong{display:block;font-size:clamp(44px,4.4vw,60px);font-weight:800;letter-spacing:-.05em;line-height:1}
-  .po-prix strong small{font-size:.36em;font-weight:700;letter-spacing:0;margin-right:5px}
-  .po-prix span{display:block;font-size:13px;color:var(--gris);margin-top:6px}
-  @media (max-width:1240px){.fleche.prec{left:6px}.fleche.suiv{right:6px}}
-  @media (max-width:860px){
-    .panneau-offre{grid-template-columns:1fr}
-    .po-visuel{min-height:230px}
-    .il-scale{transform:scale(1.25)}
-  }
-  @media (max-width:560px){
-    .onglets-offres{border-radius:22px}
-    .onglets-offres button{border-radius:17px;padding:10px 4px}
-    .onglets-offres button b{font-size:13.5px}
-    .onglets-offres button span{font-size:15px}
-    .onglets-offres button.t-video b::after{content:""}
-    .po-visuel{min-height:200px}
-    .il-scale{transform:scale(1.05)}
-    .po-pied .btn{width:100%}
-    .po-visuel .badge-upflow{display:none}
-    .panneau-offre{flex-basis:88%}
-    .panneaux-offres{gap:12px;margin:-4px calc(var(--pad)*-1) -40px;padding:4px var(--pad) 40px;scroll-padding:0 var(--pad)}
-    .fleche{display:none}
-    .glisse{display:block}
-  }
-  .po-prix .acompte{display:block;font-size:13.5px;color:var(--gris);margin-top:6px}
+  /* OFFRES : 3 cartes alignées sur ordinateur, empilées sur mobile */
+  .offres{--coche:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12.5l5 5L20 6.5' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+  .offres-commun{margin-bottom:clamp(22px,3vw,34px);padding:clamp(22px,3vw,32px);border-radius:var(--r-lg);background:#fff;box-shadow:0 0 0 1px var(--trait)}
+  .oc-titre{font-size:clamp(24px,2.4vw,30px);font-weight:800;letter-spacing:-.035em;line-height:1.1}
+  .oc-liste{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 40px;margin-top:18px}
+  .hors-prix{max-width:56em;margin:clamp(24px,3vw,34px) auto 0;font-size:16px;line-height:1.5;text-align:center;color:var(--gris)}
+  .hors-prix b{color:var(--encre)}
+  .hors-prix a{color:var(--bic)}
+  @media (max-width:760px){.oc-liste{grid-template-columns:1fr}}
+  .cartes-offres{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px);align-items:stretch}
+  .carte-offre{display:flex;flex-direction:column;overflow:hidden;background:#fff;border-radius:var(--r-lg);box-shadow:0 0 0 1px var(--trait);transition:transform .35s var(--ease),box-shadow .35s}
+  .carte-offre:hover{transform:translateY(-4px);box-shadow:0 0 0 1px var(--trait),0 30px 50px -36px rgba(20,20,60,.45)}
+  .carte-offre::before{content:"";flex:none;height:6px;background:#E3E6EC}
+  .carte-video::before{background:var(--grad)}
+  .po-texte{flex:1;display:flex;flex-direction:column;padding:clamp(22px,2.4vw,30px)}
+  .po-texte .pour{font-family:var(--hand);font-size:22px;line-height:1;color:var(--bic)}
+  .po-texte h3{margin-top:8px;font-size:clamp(30px,2.7vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1}
+  .po-texte .desc{margin-top:12px;font-size:16px;color:var(--gris)}
+  .po-sous{margin-top:16px;font-size:16px;font-weight:700;color:var(--encre)}
+  .po-texte ul{list-style:none;display:grid;gap:11px;margin:10px 0 18px}
+  .po-texte li,.oc-liste li{position:relative;padding-left:30px;font-size:16px;line-height:1.45}
+  .po-texte li::before,.oc-liste li::before{content:"";position:absolute;left:0;top:.15em;width:19px;height:19px;background:var(--grad);-webkit-mask:var(--coche) center/contain no-repeat;mask:var(--coche) center/contain no-repeat}
+  .po-delai{margin:0 0 20px;padding:10px 14px;border-radius:14px;background:var(--papier);font-size:16px;line-height:1.4;color:var(--gris)}
+  .po-delai b{color:var(--encre);font-weight:700}
+  .po-pied{margin-top:auto;padding-top:20px;border-top:1px solid var(--trait)}
+  .po-prix strong{display:block;font-size:clamp(44px,4vw,56px);font-weight:800;letter-spacing:-.05em;line-height:1}
+  .po-prix strong small{margin-right:5px;font-size:16px;font-weight:700;letter-spacing:0}
+  .po-prix span{display:block;margin-top:6px;font-size:16px;color:var(--gris)}
+  .po-prix .acompte{margin-top:8px}
   .po-prix .acompte b{color:var(--encre);font-weight:700}
-  .carte.vedette .po-prix .acompte b{color:inherit}
-  /* MOBILE : cartes compactes qui tiennent dans l'écran + volet de détail */
-  .voir-tout,.points-offres{display:none}
-  @media (max-width:760px){
-    .onglets-offres,.glisse{display:none!important}
-    .po-visuel{min-height:128px}
-    .po-visuel .il-scale{transform:scale(.82)}
-    .po-texte{padding:18px 18px 18px}
-    .po-texte .pour{font-size:19px}
-    .po-texte h3{font-size:30px;margin-top:4px}
-    .po-texte .desc{font-size:15px;margin-top:8px}
-    .po-texte ul,.po-texte .opt-suivi,.po-texte .avec-suivi{display:none!important}
-    .voir-tout{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:12px;border:0;background:none;padding:6px 0;cursor:pointer;font:600 14.5px var(--sans);color:var(--bic)}
-    .voir-tout span{transition:transform .25s var(--ease)}
-    .voir-tout:active span{transform:translateX(4px)}
-    .po-texte .po-pied{display:grid;grid-template-columns:1fr;align-items:center;gap:12px;margin-top:14px;padding-top:14px}
-    .po-texte ul+.po-pied,.voir-tout+.po-pied{margin-top:12px}
-    .po-prix strong{font-size:34px}
-    .po-prix{display:block}
-    .po-prix>span:not(.avec-suivi){display:block;margin-top:4px}
-    .avec-suivi{font-size:12px}
-    .opt-suivi{justify-self:end;padding:8px 12px;gap:10px;border-radius:14px}
-    .opt-suivi small{display:none}
-    .os-txt{font-size:14px;white-space:nowrap}
-    .po-texte .po-pied .btn{grid-column:1/-1;align-self:stretch;justify-content:center}
-    .points-offres{display:flex;justify-content:center;align-items:center;gap:7px;margin-top:16px}
-    .points-offres i{width:7px;height:7px;border-radius:99px;background:#C9CCD4;transition:width .3s var(--ease),background .3s}
-    .points-offres i.on{width:22px;background:var(--grad)}
-    .points-offres span{margin-left:10px;font-family:var(--hand);font-size:20px;color:var(--bic)}
-  }
-  @media (max-width:380px){
-    .po-prix strong{font-size:29px}
-    .opt-suivi{padding:7px 10px;gap:8px}
-    .sw{width:36px;height:21px}.sw::after{width:15px;height:15px}
-    .opt-suivi input:checked+.sw::after{transform:translateX(15px)}
-    .os-txt{font-size:12.5px}
-    .po-texte li{font-size:14px}
-  }
-  .volet{border:0;padding:12px 20px 24px;margin:auto 0 0;width:100%;max-width:100%;border-radius:26px 26px 0 0;background:#fff;color:var(--encre);box-shadow:0 -20px 60px -20px rgba(20,20,60,.4)}
-  .volet::backdrop{background:rgba(20,20,26,.45);backdrop-filter:blur(3px)}
-  .volet[open]{animation:monteBas .4s var(--ease)}
-  .volet-poignee{width:44px;height:5px;border-radius:5px;background:#D5D8DE;margin:0 auto 14px}
-  .volet-ferme{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:0;background:var(--papier-2);font-size:22px;cursor:pointer;color:var(--encre)}
-  .volet-pour{font-family:var(--hand);font-size:20px;color:var(--bic)}
-  .volet h3{font-size:30px;font-weight:800;letter-spacing:-.045em;line-height:1;margin-top:2px}
-  .volet ul{list-style:none;display:grid;gap:10px;margin:18px 0 0}
-  .volet li{position:relative;padding-left:24px;font-size:15px;line-height:1.45}
-  .volet li::before{content:"";position:absolute;left:0;top:.25em;width:13px;height:13px;background:var(--grad);-webkit-mask:var(--etoile) center/contain no-repeat;mask:var(--etoile) center/contain no-repeat}
-  .volet-info{margin-top:16px;font-size:13.5px;color:var(--gris)}
-  .volet-pied{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px;padding-top:16px;border-top:1px solid var(--trait)}
-  .volet-pied strong{font-size:30px;font-weight:800;letter-spacing:-.04em;white-space:nowrap}
-  .volet-pied strong small{font-size:.4em;margin-right:3px}
-  .volet-pied .btn{flex:1}
-  .volet-suivi{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;border-radius:16px;background:#EEF2FF;color:var(--encre);text-decoration:none;font-size:14px;line-height:1.4}
-  .volet-suivi b{color:var(--bic)}
-  .vs-etoile{flex:none;width:28px;height:28px;border-radius:50%;background:var(--grad);position:relative}
-  .vs-etoile::after{content:"";position:absolute;inset:8px;background:#fff;-webkit-mask:var(--etoile) center/contain no-repeat;mask:var(--etoile) center/contain no-repeat}
-  .vs-fl{margin-left:auto;color:var(--bic);font-weight:600}
-  @keyframes monteBas{from{transform:translateY(100%)}to{transform:none}}
-  /* Illustrations animées des cartes (jouent seulement quand la carte est à l'écran) */
-  .illu-offre{position:relative;flex:1;min-height:150px;margin:22px 0 22px;border-radius:18px;background:var(--papier);display:grid;place-items:center;overflow:hidden}
-  .carte.vedette .illu-offre{background:rgba(5,20,90,.22);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
-  /* Landing : une seule page qui défile, le bouton WhatsApp qui appelle */
-  .il-tel{position:relative;width:78px;height:132px;border-radius:16px;background:#0d0d10;padding:4px;margin-top:22px;box-shadow:0 20px 30px -18px rgba(20,20,60,.5)}
-  .il-page{height:100%;border-radius:12px;background:#fff;overflow:hidden;display:flex;flex-direction:column;gap:6px;padding:8px 7px;animation:defile 6s ease-in-out infinite}
-  .il-page i{display:block;height:6px;border-radius:3px;background:#E3E6EC;flex:none}
-  .il-page i.h{height:26px;background:var(--grad);border-radius:6px}
-  .il-page i.c{height:18px;background:#EEF1F6;border-radius:5px}
-  @keyframes defile{0%,15%{transform:translateY(0)}50%,65%{transform:translateY(-58px)}100%{transform:translateY(0)}}
-  .il-wa{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);font:700 7.5px var(--sans);color:#fff;background:#1FAF5A;padding:4px 7px;border-radius:99px;white-space:nowrap;animation:appel 2s ease-in-out infinite}
-  @keyframes appel{0%,100%{box-shadow:0 0 0 0 rgba(31,175,90,.5)}60%{box-shadow:0 0 0 7px rgba(31,175,90,0)}}
-  /* Vitrine : les onglets s'enchaînent, la page change */
-  .il-nav{width:min(230px,82%);border-radius:10px;background:#fff;overflow:hidden;box-shadow:0 18px 30px -20px rgba(20,20,60,.45),0 0 0 1px rgba(20,20,26,.06)}
-  .il-bar{display:flex;gap:4px;padding:6px 8px;background:#F1F2F4}
-  .il-bar i{width:6px;height:6px;border-radius:50%;background:#D5D7DD}
-  .il-onglets{position:relative;display:grid;grid-template-columns:repeat(4,1fr);padding:5px 6px;border-bottom:1px solid #EEF0F3}
-  .il-onglets span{position:relative;z-index:1;font:600 7.5px var(--sans);color:#62656F;text-align:center;padding:3px 0}
-  .il-curseur{position:absolute;left:6px;top:5px;width:calc((100% - 12px)/4);height:calc(100% - 10px);border-radius:99px;background:var(--encre);opacity:.1;animation:onglet 10s steps(1) infinite}
-  @keyframes onglet{0%{transform:translateX(0)}25%{transform:translateX(100%)}50%{transform:translateX(200%)}75%{transform:translateX(300%)}}
-  .il-pages{position:relative;height:66px}
-  .il-pages>div{position:absolute;inset:8px;display:grid;gap:5px;align-content:start;opacity:0;animation:page 10s infinite}
-  .il-pages .p2{animation-delay:2.5s}.il-pages .p3{animation-delay:5s}.il-pages .p4{animation-delay:7.5s}
-  @keyframes page{0%,22%{opacity:1}26%,100%{opacity:0}}
-  .il-pages i{display:block;height:6px;border-radius:3px;background:#E3E6EC}
-  .il-pages i.h{height:22px;background:var(--grad);border-radius:5px}
-  .il-pages i.c{height:12px;background:#EEF1F6}
-  .il-pages .p2{grid-template-columns:repeat(3,1fr)}
-  .il-pages i.c3{height:38px;background:#EEF1F6;border-radius:5px}
-  .il-pages i.r{width:28px;height:28px;border-radius:50%;background:var(--grad)}
-  .il-pages i.w{height:16px;width:60%;background:#1FAF5A;border-radius:99px}
-  /* Site + Vidéo : la vidéo joue sur le site et sur les réseaux */
-  .il-video .il-nav{width:min(210px,70%);margin-right:46px}
-  .il-film{position:relative;height:58px;margin:7px;border-radius:7px;background:var(--grad)}
-  .il-play{position:absolute;left:50%;top:44%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:#fff;animation:pulse 2.4s ease-out infinite}
-  .il-play::after{content:"";position:absolute;left:8px;top:6px;border-left:8px solid var(--bic);border-top:5px solid transparent;border-bottom:5px solid transparent}
-  .il-prog{position:absolute;left:7px;right:7px;bottom:6px;height:3px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}
-  .il-prog i{display:block;height:100%;background:#fff;transform-origin:left;animation:lecture 6s linear infinite}
-  .il-video .il-nav>i.l{display:block;height:5px;border-radius:3px;background:#E3E6EC;margin:0 7px 5px}
-  .il-video .il-nav>i.l.c{width:55%;margin-bottom:8px}
-  .il-reseau{position:absolute;right:calc(50% - 125px);bottom:12px;width:52px;aspect-ratio:9/16;border-radius:11px;background:var(--grad);border:3px solid #0d0d10;transform:rotate(6deg);animation:penche 5s ease-in-out infinite alternate;box-shadow:0 16px 24px -14px rgba(0,0,0,.5)}
-  .il-reseau small{position:absolute;left:0;right:0;bottom:5px;text-align:center;font:600 6.5px var(--sans);color:#fff}
-  @keyframes penche{to{transform:rotate(2deg) translateY(-5px)}}
-
+  .po-pied .btn{width:100%;margin-top:18px;white-space:normal;text-align:center;line-height:1.2}
   @media (max-width:980px){
-  }
-  @media (max-width:560px){
+    .cartes-offres{grid-template-columns:1fr;max-width:560px;margin:0 auto;gap:22px}
   }
 
   /* PANNEAU DE CONTACT : une étape douce avant WhatsApp */
@@ -599,14 +404,13 @@
 
   /* MOBILE : texte 16 px minimum, cibles tactiles 44 px minimum */
   @media (max-width:760px){
-    .po-texte .desc,.po-texte li,.po-prix .acompte,.po-prix>span:not(.avec-suivi),.volet li,.volet-info,.volet-suivi,.projet p,.hero-garantie,.faq-plus,.sm-liste span,.sm-sans,.choix-btn span,.bulle-label,.panneau-pied,.pied-haut,.insta{font-size:16px}
-    .btn-sm,.voir-tout,.insta,.pied-haut a,.panneau-libre{min-height:44px}
+    .projet p,.hero-garantie,.faq-plus,.sm-liste span,.sm-sans,.choix-btn span,.bulle-label,.panneau-pied,.pied-haut,.insta{font-size:16px}
+    .btn-sm,.insta,.pied-haut a,.panneau-libre{min-height:44px}
     .pied-haut a,.insta,.panneau-libre{display:inline-flex;align-items:center}
-    .volet-ferme,.panneau-ferme{width:44px;height:44px}
+    .panneau-ferme{width:44px;height:44px}
     .pied-haut nav{gap:0 22px}
-    .btn,.btn-sm,.voir-tout,.inclus,.inclus b,.sm-titre span,.sm-liste b,.etape .etape-toi,.projet h3 span,.faq-liste summary .n,.eyebrow b{font-size:16px}
+    .btn,.btn-sm,.sm-titre span,.sm-liste b,.etape .etape-toi,.projet h3 span,.faq-liste summary .n,.eyebrow b{font-size:16px}
     .pilule .logo{min-height:44px}
-    .po-prix strong small{font-size:16px}
     .avis-note,.projet-avis{font-size:16px}
   }
 </style>
@@ -686,93 +490,82 @@
         <h2>Trois offres,<br>selon ton projet.</h2>
       </div>
 
-      <div class="selecteur rv">
-        <div class="onglets-offres" role="group" aria-label="Choisis une offre">
-          <button type="button" id="t-landing" data-p="p-landing" aria-current="true"><b>Landing page</b><span>une page</span></button>
-          <button type="button" id="t-vitrine" data-p="p-vitrine" aria-current="false"><b>Site vitrine</b><span>plusieurs pages</span></button>
-          <button type="button" id="t-video" data-p="p-video" aria-current="false" class="t-video"><b>Site + Vidéo</b><span>avec UPFLOW</span></button>
-        </div>
+      <div class="offres-commun rv">
+        <h3 class="oc-titre">Dans chaque offre</h3>
+        <ul class="oc-liste">
+          <li>Je rédige tes textes</li>
+          <li>Un logo simple : ton nom et un symbole</li>
+          <li>Un design sur mesure, adapté au téléphone</li>
+          <li>Ton contact au choix : WhatsApp, appel, e-mail, formulaire ou réservation</li>
+          <li>Ton nom de domaine (1re&nbsp;année comprise) et la mise en ligne</li>
+          <li>Ta fiche Google, si tu reçois des clients sur place</li>
+          <li>Tu testes avant de payer le solde, je retouche jusqu'à ce que ça te plaise</li>
+          <li>Le site, le logo et les textes t'appartiennent une fois payés</li>
+        </ul>
+      </div>
 
-        <div class="carrousel-offres">
-        <button type="button" class="fleche prec" aria-label="Offre précédente">←</button>
-        <div class="panneaux-offres" tabindex="0" aria-label="Offres, fais glisser pour changer">
-          <div class="panneau-offre" id="p-landing" role="group" aria-roledescription="offre" aria-label="Landing page">
-            <div class="po-visuel" aria-hidden="true"><div class="il-scale">
-              <div class="il-tel"><div class="il-page"><i class="h"></i><i></i><i class="c"></i><i></i><i class="c"></i><i></i><i class="h"></i><i></i></div><span class="il-wa">WhatsApp</span></div>
-            </div></div>
+      <div class="cartes-offres rv">
+          <article class="carte-offre" aria-label="Landing page">
             <div class="po-texte">
               <span class="pour">ton site en une seule page</span>
               <h3>Landing page</h3>
               <p class="desc">Tout l'essentiel sur une page, pour convaincre vite et être contacté. Idéal pour te lancer ou présenter une offre.</p>
+              <p class="po-sous">Sur ta page&nbsp;:</p>
               <ul>
-                <li>Accroche, services ou projets, avis, infos pratiques</li>
-                <li>Contact ou réservation en ligne, au choix</li>
-                <li>Textes rédigés pour toi et logo simple</li>
-                <li>En ligne en 1&nbsp;semaine</li>
+                <li>Un titre et une présentation de ton activité</li>
+                <li>Tes services ou tes projets</li>
+                <li>Tes avis clients et/ou réalisations, si tu en as</li>
+                <li>Tes infos pratiques et ton bouton de contact</li>
               </ul>
-              <button type="button" class="voir-tout">Tout ce qui est inclus <span aria-hidden="true">→</span></button>
+              <p class="po-delai">En ligne en <b>1&nbsp;semaine</b></p>
               <div class="po-pied">
                 <div class="po-prix"><strong>390&nbsp;€</strong><span class="acompte"><b>78&nbsp;€ pour démarrer</b>, le reste quand ton site te plaît</span></div>
                 <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20une%20landing%20page%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre" data-offre="portfolio"><span class="wa" aria-hidden="true"></span>Démarrer ma landing page</a>
               </div>
             </div>
-          </div>
+          </article>
 
-          <div class="panneau-offre" id="p-vitrine" role="group" aria-roledescription="offre" aria-label="Site vitrine">
-            <div class="po-visuel" aria-hidden="true"><div class="il-scale">
-              <div class="il-nav"><div class="il-bar"><i></i><i></i><i></i></div><div class="il-onglets"><span>Accueil</span><span>Services</span><span>À propos</span><span>Contact</span><b class="il-curseur"></b></div><div class="il-pages"><div class="p1"><i class="h"></i><i></i><i class="c"></i></div><div class="p2"><i class="c3"></i><i class="c3"></i><i class="c3"></i></div><div class="p3"><i class="r"></i><i></i><i></i></div><div class="p4"><i></i><i class="w"></i></div></div></div>
-            </div></div>
+          <article class="carte-offre" aria-label="Site vitrine">
             <div class="po-texte">
               <span class="pour">ton activité, page par page</span>
               <h3>Site vitrine</h3>
               <p class="desc">Quand une page ne suffit plus&nbsp;: un site complet pour tout présenter et inspirer confiance dès la première visite.</p>
+              <p class="po-sous">Sur ton site&nbsp;:</p>
               <ul>
-                <li><span><b>Ton offre mise au propre</b>&nbsp;: formules, prix, étapes</span></li>
                 <li>Accueil, services, réalisations, à propos et contact</li>
-                <li>Une page par service, et ta fiche Google si tu reçois sur place</li>
-                <li>En ligne en 2&nbsp;semaines</li>
+                <li>Une page par service</li>
+                <li>Ton offre mise en forme&nbsp;: formules, prix «&nbsp;à partir de&nbsp;», étapes</li>
               </ul>
-              <button type="button" class="voir-tout">Tout ce qui est inclus <span aria-hidden="true">→</span></button>
+              <p class="po-delai">En ligne en <b>2&nbsp;semaines</b></p>
               <div class="po-pied">
                 <div class="po-prix"><strong>590&nbsp;€</strong><span class="acompte"><b>118&nbsp;€ pour démarrer</b>, le reste quand ton site te plaît</span></div>
                 <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20vitrine%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre" data-offre="vitrine"><span class="wa" aria-hidden="true"></span>Démarrer mon site vitrine</a>
               </div>
             </div>
-          </div>
-          <div class="panneau-offre po-video" id="p-video" role="group" aria-roledescription="offre" aria-label="Site + Vidéo">
-            <div class="po-visuel" aria-hidden="true">
-              <span class="badge-upflow">avec UPFLOW, studio motion design</span>
-              <div class="il-scale il-video">
-                <div class="il-nav"><div class="il-bar"><i></i><i></i><i></i></div><div class="il-film"><span class="il-play"></span><span class="il-prog"><i></i></span></div><i class="l"></i><i class="l c"></i></div>
-                <div class="il-reseau"><span class="il-play"></span><small>réseaux</small></div>
-              </div>
-            </div>
+          </article>
+
+          <article class="carte-offre carte-video" aria-label="Site + Vidéo">
             <div class="po-texte">
               <span class="pour">le site et la vidéo, ensemble</span>
               <h3>Site + Vidéo</h3>
-              <p class="desc">Ton site, et une vidéo motion design de 30&nbsp;s qui explique ton offre mieux qu'un long texte. Pour les services qu'il faut faire comprendre.</p>
+              <p class="desc">Ton site, et une vidéo animée (motion design) de 30&nbsp;secondes qui explique ton offre mieux qu'un long texte. Pour les services qu'il faut faire comprendre.</p>
+              <p class="po-sous">Avec ton site&nbsp;:</p>
               <ul>
                 <li>Ta landing page ou ton site vitrine, au choix</li>
-                <li>Une vidéo de 30&nbsp;s signée UPFLOW, mon studio partenaire</li>
-                <li>Pour ton site ou tes réseaux (un format au choix)</li>
-                <li>Le site et la vidéo pensés ensemble, dans le même univers</li>
-                <li>En ligne en 2&nbsp;semaines (landing) ou 3&nbsp;semaines (vitrine)</li>
+                <li>Une vidéo animée de 30&nbsp;secondes, faite par UPFLOW, mon studio partenaire</li>
+                <li>Pour ton site ou tes réseaux sociaux (un format au choix)</li>
+                <li>Le site et la vidéo dans le même univers</li>
               </ul>
-              <button type="button" class="voir-tout">Tout ce qui est inclus <span aria-hidden="true">→</span></button>
+              <p class="po-delai">En ligne en <b>2&nbsp;semaines</b> (landing) ou <b>3&nbsp;semaines</b> (vitrine)</p>
               <div class="po-pied">
                 <div class="po-prix"><strong><small>dès</small>640&nbsp;€</strong><span>Landing + vidéo 640&nbsp;€ · Vitrine + vidéo 840&nbsp;€</span><span class="acompte"><b>Dès 128&nbsp;€ pour démarrer</b>, le reste quand ton site et ta vidéo te plaisent</span></div>
                 <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20avec%20une%20vid%C3%A9o%20de%20pr%C3%A9sentation%20UPFLOW.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-bic cta-offre" data-offre="video"><span class="wa" aria-hidden="true"></span>Démarrer mon site + vidéo</a>
               </div>
             </div>
-          </div>
-
-        </div>
-        <button type="button" class="fleche suiv" aria-label="Offre suivante">→</button>
-        </div>
-        <div class="points-offres" aria-hidden="true"><i></i><i></i><i></i><span>fais glisser</span></div>
+          </article>
       </div>
 
-      <p class="inclus rv"><b>Inclus partout&nbsp;:</b> textes rédigés pour toi, logo simple, design sur mesure, version mobile, contact ou réservation au choix, mise en ligne sur ton nom de domaine.</p>
+      <p class="hors-prix rv"><b>Pas compris dans ces prix&nbsp;:</b> le <a href="#suivi">suivi après la mise en ligne</a> (hébergement, changements, sauvegardes et bilan&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement), l'abonnement d'un outil de réservation si tu en choisis un, et les nouvelles pages après la validation, sur devis.</p>
 
       <details class="suivi-module rv" id="suivi">
         <summary><span class="sm-etoile" aria-hidden="true"></span><span class="sm-titre"><b>Le suivi, c'est quoi&nbsp;?</b><span>29&nbsp;€/mois · 1er mois offert · sans engagement</span></span><span class="sm-plus" aria-hidden="true"></span></summary>
@@ -925,16 +718,6 @@
   </div>
 </footer>
 
-<dialog class="volet" id="volet" aria-labelledby="volet-titre">
-  <div class="volet-poignee" aria-hidden="true"></div>
-  <button type="button" class="volet-ferme" aria-label="Fermer">×</button>
-  <span class="volet-pour" id="volet-pour"></span>
-  <h3 id="volet-titre"></h3>
-  <ul id="volet-liste"></ul>
-  <a href="#suivi" class="volet-suivi" id="volet-suivi"><span class="vs-etoile" aria-hidden="true"></span><span><b>Suivi possible</b> après la mise en ligne&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement.</span><span class="vs-fl" aria-hidden="true">→</span></a>
-  <p class="volet-info">Inclus partout&nbsp;: textes rédigés pour toi, logo simple, design sur mesure, version mobile. Paiement en deux fois.</p>
-  <div class="volet-pied"><strong id="volet-prix"></strong><a id="volet-cta" class="btn btn-bic" target="_blank" rel="noopener"><span class="wa" aria-hidden="true"></span>Démarrer</a></div>
-</dialog>
 
 <dialog class="panneau" id="panneau" aria-labelledby="panneau-titre">
   <div class="panneau-ferme-zone"><button type="button" class="panneau-ferme" id="panneau-ferme" aria-label="Fermer">×</button></div>
@@ -1028,30 +811,6 @@
   addEventListener('resize',()=>{caleRail();rendreParcours()});
   rendreParcours();
 
-  // OFFRES : on fait glisser (doigt, trackpad ou souris) ; onglets et flèches suivent
-  const rail=document.querySelector('.panneaux-offres');
-  const panneauxO=[...rail.querySelectorAll('.panneau-offre')];
-  const ongletsO=[...document.querySelectorAll('.onglets-offres button')];
-  const prec=document.querySelector('.fleche.prec'),suiv=document.querySelector('.fleche.suiv');
-  let actif=0;
-  const gauche=p=>p.getBoundingClientRect().left-rail.getBoundingClientRect().left+rail.scrollLeft;
-  const posDe=p=>gauche(p)-(rail.clientWidth-p.clientWidth)/2;
-  function aller(i,doux=true){i=Math.max(0,Math.min(panneauxO.length-1,i));rail.scrollTo({left:posDe(panneauxO[i]),behavior:doux&&!reduit.matches?'smooth':'auto'})}
-  function marquer(i){actif=i;panneauxO.forEach((p,k)=>p.classList.toggle('actif',k===i));ongletsO.forEach((o,k)=>o.setAttribute('aria-current',k===i));prec.disabled=i===0;suiv.disabled=i===panneauxO.length-1;document.querySelectorAll('.points-offres i').forEach((x,k)=>x.classList.toggle('on',k===i))}
-  function proche(){const c=rail.scrollLeft+rail.clientWidth/2;let best=0,d=1e9;panneauxO.forEach((p,k)=>{const x=Math.abs(gauche(p)+p.clientWidth/2-c);if(x<d){d=x;best=k}});return best}
-  let tAttente;rail.addEventListener('scroll',()=>{cancelAnimationFrame(tAttente);tAttente=requestAnimationFrame(()=>{const i=proche();if(i!==actif)marquer(i)})},{passive:true});
-  ongletsO.forEach((o,k)=>o.addEventListener('click',()=>aller(k)));
-  prec.addEventListener('click',()=>aller(actif-1));suiv.addEventListener('click',()=>aller(actif+1));
-  rail.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();aller(actif+1)}if(e.key==='ArrowLeft'){e.preventDefault();aller(actif-1)}});
-  // Glisser à la souris sur ordinateur
-  let x0=null,s0=0,bouge=false;
-  rail.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.target.closest('a,button,label,input'))return;x0=e.clientX;s0=rail.scrollLeft;bouge=false;rail.classList.add('drag');rail.setPointerCapture(e.pointerId)});
-  rail.addEventListener('pointermove',e=>{if(x0===null)return;const dx=e.clientX-x0;if(Math.abs(dx)>4)bouge=true;rail.scrollLeft=s0-dx});
-  const lacher=e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;rail.classList.remove('drag');aller(Math.abs(dx)>60?actif+(dx<0?1:-1):proche())};
-  rail.addEventListener('pointerup',lacher);rail.addEventListener('pointercancel',lacher);
-  rail.addEventListener('click',e=>{if(bouge){e.preventDefault();e.stopPropagation();bouge=false}},true);
-  // Site + Vidéo au centre dès l'arrivée
-  marquer(0);requestAnimationFrame(()=>aller(0,false));addEventListener('resize',()=>aller(actif,false));
   // CONTACT : panneau de choix, puis WhatsApp avec un message pré-rempli
   const WHATSAPP='33668077746';
   const MESSAGES={
@@ -1084,25 +843,6 @@
   panneau.addEventListener('click',e=>{if(e.target===panneau)panneau.close()});
   document.getElementById('panneau-ferme').addEventListener('click',()=>panneau.close());
 
-
-  // MOBILE : points sous les cartes + volet « tout ce qui est inclus »
-  const pointsO=[...document.querySelectorAll('.points-offres i')];
-  const majPoints=()=>pointsO.forEach((x,k)=>x.classList.toggle('on',k===actif));
-  rail.addEventListener('scroll',()=>requestAnimationFrame(majPoints),{passive:true});majPoints();
-  const volet=document.getElementById('volet');
-  document.querySelectorAll('.voir-tout').forEach(b=>b.addEventListener('click',()=>{
-    const pan=b.closest('.panneau-offre');
-    document.getElementById('volet-pour').textContent=pan.querySelector('.pour').textContent;
-    document.getElementById('volet-titre').textContent=pan.querySelector('h3').textContent;
-    document.getElementById('volet-liste').innerHTML=pan.querySelector('ul').innerHTML;
-    document.getElementById('volet-prix').innerHTML=pan.querySelector('.po-prix strong').innerHTML;
-    const c=pan.querySelector('.cta-offre'),vc=document.getElementById('volet-cta');vc.href=c.href;vc.lastChild.textContent=c.textContent.trim();
-    if(typeof volet.showModal==='function')volet.showModal();
-  }));
-  volet.querySelector('.volet-ferme').addEventListener('click',()=>volet.close());
-  volet.addEventListener('click',e=>{if(e.target===volet)volet.close()});
-
-  document.getElementById('volet-suivi').addEventListener('click',e=>{e.preventDefault();volet.close();const d=document.getElementById('suivi');d.open=true;d.querySelector('summary').focus({preventScroll:true});setTimeout(()=>d.scrollIntoView({behavior:reduit.matches?'auto':'smooth',block:'center'}),80)});
 </script>
 </body>
 </html>
