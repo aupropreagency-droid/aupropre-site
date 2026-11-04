@@ -6,7 +6,7 @@
 <title>AuPropre · Agence web pour créatifs et indépendants</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="description" content="Sites sur mesure pour les créatifs et indépendants qui veulent donner de la valeur à leur travail : landing pages, sites vitrines, sites avec vidéo. Partout en France.">
-<noscript><style>.rv{opacity:1;transform:none}.po-details,.po-reveal{grid-template-rows:1fr!important}.po-details-int,.po-reveal-int{visibility:visible!important}.po-toggle{display:none!important}</style></noscript>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <link rel="canonical" href="https://aupropreagency.fr/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
@@ -323,29 +323,9 @@
   .po-texte li::before,.oc-liste li::before{content:"";position:absolute;left:0;top:.15em;width:19px;height:19px;background:var(--grad);-webkit-mask:var(--coche) center/contain no-repeat;mask:var(--coche) center/contain no-repeat}
   .po-delai{margin:0 0 20px;padding:10px 14px;border-radius:14px;background:var(--papier);font-size:16px;line-height:1.4;color:var(--gris)}
   .po-delai b{color:var(--encre);font-weight:700}
-  /* Cartes dépliables quand elles sont empilées (téléphone, tablette) ; sur ordinateur tout reste visible */
-  .po-toggle{display:none}
-  .po-details,.po-reveal{display:grid;grid-template-rows:1fr}
-  .po-details-int,.po-reveal-int{min-height:0;overflow:hidden}
+  .po-prix .po-prix-label{margin:0 0 6px}
   .po-acompte{margin-top:8px;font-size:16px;color:var(--gris)}
   .po-acompte b{color:var(--encre);font-weight:700}
-  @media (max-width:980px){
-    .po-pied{display:flex;flex-direction:column}
-    .po-toggle{order:2;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;margin-top:18px;padding:0 20px;border:0;border-radius:999px;background:none;box-shadow:inset 0 0 0 1.5px var(--encre);font:600 16px var(--sans);color:var(--encre);cursor:pointer}
-    .po-toggle i{position:relative;flex:none;width:22px;height:22px;border-radius:50%;background:var(--encre);transition:transform .3s var(--ease),background .3s}
-    .po-toggle i::before,.po-toggle i::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:2px;margin:-1px 0 0 -5px;border-radius:2px;background:#fff}
-    .po-toggle i::after{transform:rotate(90deg)}
-    .po-toggle .t-fermer,.carte-offre.ouverte .po-toggle .t-ouvrir{display:none}
-    .carte-offre.ouverte .po-toggle .t-fermer{display:inline}
-    .carte-offre.ouverte .po-toggle{order:4;min-height:44px;margin-top:6px;box-shadow:none;color:var(--bic)}
-    .carte-offre.ouverte .po-toggle i{transform:rotate(45deg);background:#EEF2FF}
-    .carte-offre.ouverte .po-toggle i::before,.carte-offre.ouverte .po-toggle i::after{background:var(--bic)}
-    .po-reveal{order:3}
-    .po-details,.po-reveal{grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease)}
-    .po-details-int,.po-reveal-int{visibility:hidden;transition:visibility 0s .35s}
-    .carte-offre.ouverte .po-details,.carte-offre.ouverte .po-reveal{grid-template-rows:1fr}
-    .carte-offre.ouverte .po-details-int,.carte-offre.ouverte .po-reveal-int{visibility:visible;transition-delay:0s}
-  }
   .po-pied{margin-top:auto;padding-top:20px;border-top:1px solid var(--trait)}
   .po-prix strong{display:block;font-size:clamp(44px,4vw,56px);font-weight:800;letter-spacing:-.05em;line-height:1}
   .po-prix strong small{margin-right:5px;font-size:16px;font-weight:700;letter-spacing:0}
@@ -532,7 +512,6 @@
               <span class="pour">ton site en une seule page</span>
               <h3>Landing page</h3>
               <p class="desc">Tout l'essentiel sur une page, pour convaincre vite et être contacté. Idéal pour te lancer ou présenter une offre.</p>
-              <div class="po-details" id="d-landing"><div class="po-details-int">
               <p class="po-sous">Sur ta page&nbsp;:</p>
               <ul>
                 <li>Un titre et une présentation de ton activité</li>
@@ -540,15 +519,11 @@
                 <li>Tes avis clients et/ou réalisations, si tu en as</li>
                 <li>Tes infos pratiques et ton bouton de contact</li>
               </ul>
-              </div></div>
               <p class="po-delai">En ligne en <b>1&nbsp;semaine</b></p>
               <div class="po-pied">
-                <div class="po-prix"><strong>390&nbsp;€</strong></div>
-                <button type="button" class="po-toggle" aria-expanded="false" aria-controls="d-landing r-landing"><span class="t-ouvrir">Voir tout ce qui est compris</span><span class="t-fermer">Masquer le détail</span><i aria-hidden="true"></i></button>
-                <div class="po-reveal" id="r-landing"><div class="po-reveal-int">
-                  <p class="po-acompte"><b>78&nbsp;€ pour démarrer</b>, le reste quand ton site te plaît</p>
+                <div class="po-prix"><span class="po-prix-label">Prix total</span><strong>390&nbsp;€</strong></div>
+                  <p class="po-acompte"><b>20&nbsp;% pour démarrer</b>, le reste quand ton site te plaît</p>
                   <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20une%20landing%20page%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre" data-offre="portfolio"><span class="wa" aria-hidden="true"></span>Démarrer ma landing page</a>
-                </div></div>
               </div>
             </div>
           </article>
@@ -559,22 +534,17 @@
               <span class="pour">ton activité, page par page</span>
               <h3>Site vitrine</h3>
               <p class="desc">Quand une page ne suffit plus&nbsp;: un site complet pour tout présenter et inspirer confiance dès la première visite.</p>
-              <div class="po-details" id="d-vitrine"><div class="po-details-int">
               <p class="po-sous">Sur ton site&nbsp;:</p>
               <ul>
                 <li>Accueil, services, réalisations, à propos et contact</li>
                 <li>Une page par service</li>
                 <li>Ton offre mise en forme&nbsp;: formules, prix «&nbsp;à partir de&nbsp;», étapes</li>
               </ul>
-              </div></div>
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b></p>
               <div class="po-pied">
-                <div class="po-prix"><strong>590&nbsp;€</strong></div>
-                <button type="button" class="po-toggle" aria-expanded="false" aria-controls="d-vitrine r-vitrine"><span class="t-ouvrir">Voir tout ce qui est compris</span><span class="t-fermer">Masquer le détail</span><i aria-hidden="true"></i></button>
-                <div class="po-reveal" id="r-vitrine"><div class="po-reveal-int">
-                  <p class="po-acompte"><b>118&nbsp;€ pour démarrer</b>, le reste quand ton site te plaît</p>
+                <div class="po-prix"><span class="po-prix-label">Prix total</span><strong>590&nbsp;€</strong></div>
+                  <p class="po-acompte"><b>20&nbsp;% pour démarrer</b>, le reste quand ton site te plaît</p>
                   <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20vitrine%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre" data-offre="vitrine"><span class="wa" aria-hidden="true"></span>Démarrer mon site vitrine</a>
-                </div></div>
               </div>
             </div>
           </article>
@@ -585,7 +555,6 @@
               <span class="pour">le site et la vidéo, ensemble</span>
               <h3>Site + Vidéo</h3>
               <p class="desc">Ton site, et une vidéo animée (motion design) de 30&nbsp;secondes qui explique ton offre mieux qu'un long texte. Pour les services qu'il faut faire comprendre.</p>
-              <div class="po-details" id="d-video"><div class="po-details-int">
               <p class="po-sous">Avec ton site&nbsp;:</p>
               <ul>
                 <li>Ta landing page ou ton site vitrine, au choix</li>
@@ -593,15 +562,11 @@
                 <li>Pour ton site ou tes réseaux sociaux (un format au choix)</li>
                 <li>Le site et la vidéo dans le même univers</li>
               </ul>
-              </div></div>
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b> (landing) ou <b>3&nbsp;semaines</b> (vitrine)</p>
               <div class="po-pied">
-                <div class="po-prix"><strong><small>dès</small>640&nbsp;€</strong><span>Landing + vidéo 640&nbsp;€ · Vitrine + vidéo 840&nbsp;€</span></div>
-                <button type="button" class="po-toggle" aria-expanded="false" aria-controls="d-video r-video"><span class="t-ouvrir">Voir tout ce qui est compris</span><span class="t-fermer">Masquer le détail</span><i aria-hidden="true"></i></button>
-                <div class="po-reveal" id="r-video"><div class="po-reveal-int">
-                  <p class="po-acompte"><b>Dès 128&nbsp;€ pour démarrer</b>, le reste quand ton site et ta vidéo te plaisent</p>
+                <div class="po-prix"><span class="po-prix-label">Prix total</span><strong><small>dès</small>640&nbsp;€</strong><span>Landing + vidéo 640&nbsp;€ · Vitrine + vidéo 840&nbsp;€</span></div>
+                  <p class="po-acompte"><b>20&nbsp;% pour démarrer</b>, le reste quand ton site et ta vidéo te plaisent</p>
                   <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20avec%20une%20vid%C3%A9o%20de%20pr%C3%A9sentation%20UPFLOW.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-bic cta-offre" data-offre="video"><span class="wa" aria-hidden="true"></span>Démarrer mon site + vidéo</a>
-                </div></div>
               </div>
             </div>
           </article>
@@ -851,14 +816,6 @@
   addEventListener('resize',()=>{caleRail();rendreParcours()});
   rendreParcours();
 
-  // OFFRES (cartes empilées) : un toucher déplie la carte, un autre la replie
-  const empilees=matchMedia('(max-width:980px)');
-  document.querySelectorAll('.carte-offre').forEach(c=>{
-    const b=c.querySelector('.po-toggle');
-    const basculer=()=>{const o=!c.classList.contains('ouverte');c.classList.toggle('ouverte',o);b.setAttribute('aria-expanded',o)};
-    b.addEventListener('click',e=>{e.stopPropagation();basculer()});
-    c.addEventListener('click',e=>{if(!empilees.matches||e.target.closest('a,button,.po-pied,.po-delai'))return;basculer()});
-  });
   // CONTACT : panneau de choix, puis WhatsApp avec un message pré-rempli
   const WHATSAPP='33668077746';
   const MESSAGES={
