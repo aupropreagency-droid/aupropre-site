@@ -132,6 +132,18 @@
   @media (max-width:980px){.sm-liste{grid-template-columns:1fr 1fr}.sm-corps{padding:0 20px 22px}}
   @media (max-width:560px){.sm-liste{grid-template-columns:1fr}.suivi-module summary{padding:16px 18px}}
 
+  /* OUTILS : « Ton site travaille pour toi » */
+  .outils{padding:clamp(48px,6vw,84px) 0}
+  .outils .tete{margin-bottom:clamp(24px,3.4vw,40px)}
+  .outil-ico{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:50%;background:#EEF2FF;color:var(--bic)}
+  .outil-ico svg{width:26px;height:26px}
+  .outil h3{font-size:19px;font-weight:800;letter-spacing:-.03em;line-height:1.15}
+  .outil p{margin-top:6px;font-size:16px;line-height:1.5;color:var(--gris)}
+  .outils-liste{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,5vw,72px)}
+  .outil{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-top:1px solid var(--trait)}
+  .outils-note{max-width:46em;margin:clamp(24px,3vw,34px) auto 0;font-size:16px;line-height:1.5;text-align:center;color:var(--gris)}
+  @media (max-width:760px){.outils-liste{grid-template-columns:1fr}.outil{padding:16px 0}}
+
   /* RÉALISATIONS */
   .projets{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,28px)}
   .projet{position:relative;display:block}
@@ -503,7 +515,7 @@
           <li>Tes textes rédigés avec ton ton</li>
           <li>Un logo si tu n'en as pas</li>
           <li>Un design sur mesure, adapté au téléphone</li>
-          <li>Ton contact au choix : WhatsApp, appel, e-mail, formulaire ou réservation</li>
+          <li>Ton contact au choix : WhatsApp, appel, e-mail, formulaire, réservation ou commande en ligne</li>
           <li>Ton nom de domaine (1re&nbsp;année comprise) et la mise en ligne</li>
           <li>Ta fiche Google, si tu reçois des clients sur place</li>
           <li>Le site, le logo et les textes t'appartiennent une fois payés</li>
@@ -588,7 +600,7 @@
           </article>
       </div>
 
-      <p class="hors-prix rv"><b>Pas compris dans ces prix&nbsp;:</b> le <a href="#suivi">suivi après la mise en ligne</a> (hébergement, changements, sauvegardes et bilan&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement), l'abonnement d'un outil de réservation si tu en choisis un, et les nouvelles pages après la validation, sur devis. Ces prix sont des prix de lancement, valables pour les 10 premiers projets.</p>
+      <p class="hors-prix rv"><b>Pas compris dans ces prix&nbsp;:</b> le <a href="#suivi">suivi après la mise en ligne</a> (hébergement, changements, sauvegardes et bilan&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement), l'abonnement d'un outil de réservation ou de commande si tu en choisis un, et les nouvelles pages après la validation, sur devis. Ces prix sont des prix de lancement, valables pour les 10 premiers projets.</p>
 
       <details class="suivi-module rv" id="suivi">
         <summary><span class="sm-etoile" aria-hidden="true"></span><span class="sm-titre"><b>Le suivi, c'est quoi&nbsp;?</b><span>29&nbsp;€/mois · 1er mois offert · sans engagement</span></span><span class="sm-plus" aria-hidden="true"></span></summary>
@@ -603,6 +615,34 @@
           <p class="sm-sans">Sans suivi, je te transfère ton site et ton nom de domaine, et tu les gères toi-même. Tu peux aussi l'ajouter plus tard.</p>
         </div>
       </details>
+    </div>
+  </section>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <symbol id="ic-reserver" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M8.5 14.5l2.2 2.2 4.3-4.4"/></symbol>
+    <symbol id="ic-commander" viewBox="0 0 24 24"><path d="M5.2 8h13.6l-1.1 12H6.3L5.2 8z"/><path d="M9 8V6.6a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="ic-acompte" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12.5" rx="3"/><path d="M3 10.5h18M7 15h3.5"/></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="ic-google" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="ic-livraison" viewBox="0 0 24 24"><path d="M2.8 6.5h10.7v9.2H2.8zM13.5 9.5h4.1l3.2 3.1v3.1h-7.3"/><circle cx="7" cy="17.6" r="2"/><circle cx="17.2" cy="17.6" r="2"/></symbol>
+  </defs></svg>
+
+  <section class="outils" id="outils" aria-labelledby="t-outils">
+    <div class="wrap">
+      <div class="tete rv">
+        <p class="eyebrow">outils intégrés</p>
+        <h2 id="t-outils">Ton site travaille<br>pour toi.</h2>
+        <p class="chapo">Ce que ton site peut faire à ta place, selon ton activité.</p>
+      </div>
+      <div class="outils-liste">
+          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-reserver"/></svg></span><div><h3>Réserver</h3><p>Tes clients choisissent un créneau et réservent seuls : prestations, brunch, privatisation.</p></div></article>
+          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-commander"/></svg></span><div><h3>Commander</h3><p>Précommande, click &amp; collect, gâteaux ou box sur commande : tes clients commandent en ligne.</p></div></article>
+          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-acompte"/></svg></span><div><h3>Payer un acompte</h3><p>Moins de rendez-vous non honorés, et plus d'acomptes demandés à la main.</p></div></article>
+          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-chat"/></svg></span><div><h3>Écrire sur WhatsApp</h3><p>Un bouton par besoin, avec un message déjà écrit : devis, événement, entreprise.</p></div></article>
+          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-google"/></svg></span><div><h3>Être trouvé sur Google</h3><p>Ta fiche Google et un site pensé pour être trouvé dans ta ville.</p></div></article>
+          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-livraison"/></svg></span><div><h3>Livraison</h3><p>Des boutons vers Uber Eats ou Deliveroo, si tu livres.</p></div></article>
+      </div>
+      <p class="outils-note rv">Je choisis l'outil avec toi selon ton activité et je l'intègre à ton site. L'abonnement éventuel est à ton nom.</p>
     </div>
   </section>
 
@@ -700,7 +740,7 @@
         <details><summary><span class="n">02</span>En combien de temps mon site est en ligne&nbsp;?</summary><p>Compte 1&nbsp;semaine pour une landing page et 2&nbsp;semaines pour un site vitrine (2 et 3&nbsp;semaines avec la vidéo), à partir du moment où j'ai ton questionnaire et tes photos. Tu as ensuite 3 à 5&nbsp;jours pour tester ton site et demander tes changements. Si tu as besoin de plus de temps, pas de souci&nbsp;: la mise en ligne est simplement décalée d'autant.</p></details>
         <details><summary><span class="n">03</span>Et si mon site ne me plaît pas&nbsp;?</summary><p>Je le retravaille avec toi jusqu'à ce qu'il te ressemble. Et si tu préfères arrêter, tu arrêtes&nbsp;: tu ne paies rien. Le site n'est ni mis en ligne ni transféré.</p></details>
         <details><summary><span class="n">04</span>Je dois écrire mes textes ou faire mon logo&nbsp;?</summary><p>Non. Tu remplis un questionnaire de 15&nbsp;minutes et je rédige tous les textes dans ton ton. Ton logo est créé pour toi&nbsp;: un logo simple, avec ton nom et un symbole. Tu relis, tu valides, et j'ajuste si besoin.</p></details>
-        <details><summary><span class="n">05</span>Comment mes clients me contactent&nbsp;?</summary><p>Tu choisis&nbsp;: un bouton WhatsApp, appel ou e-mail avec un message déjà écrit, un formulaire, ou un outil de réservation intégré à ton site, choisi avec toi selon ton activité. La mise en place est incluse&nbsp;; l'abonnement éventuel de l'outil est à ton nom.</p></details>
+        <details><summary><span class="n">05</span>Comment mes clients me contactent&nbsp;?</summary><p>Tu choisis&nbsp;: un bouton WhatsApp, appel ou e-mail avec un message déjà écrit, un formulaire, un outil de réservation ou de commande en ligne (avec paiement d'un acompte par tes clients, si tu veux), choisi avec toi selon ton activité. La mise en place est incluse&nbsp;; l'abonnement éventuel de l'outil est à ton nom.</p></details>
         <details><summary><span class="n">06</span>Et si je ne prends pas le suivi&nbsp;?</summary><p>Aucun problème. Ton site t'appartient&nbsp;: je te transfère le site, ses fichiers et ton nom de domaine, et tu les gères toi-même. Tu peux aussi prendre le suivi plus tard, ou l'arrêter quand tu veux.</p></details>
       </div>
     </div>
