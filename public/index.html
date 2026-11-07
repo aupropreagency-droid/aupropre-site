@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="AuPropre, agence web : Ton talent, mis au propre.">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "AuPropre", "description": "Sites sur mesure pour les créatifs et indépendants qui veulent donner de la valeur à leur travail : landing pages, sites vitrines, sites avec vidéo. Partout en France.", "url": "https://aupropreagency.fr/", "image": "https://aupropreagency.fr/og.png", "email": "aupropre.agency@gmail.com", "areaServed": "FR", "sameAs": ["https://www.instagram.com/aupropre.agency/"], "priceRange": "390 € – 840 € ; suivi : 29 €/mois"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "AuPropre", "description": "Sites sur mesure pour les créatifs et indépendants qui veulent donner de la valeur à leur travail : landing pages, sites vitrines, sites avec vidéo. Partout en France.", "url": "https://aupropreagency.fr/", "image": "https://aupropreagency.fr/og.png", "email": "aupropre.agency@gmail.com", "areaServed": "FR", "sameAs": ["https://www.instagram.com/aupropre.agency/"], "priceRange": "290 € – 740 € ; suivi : 29 €/mois"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
@@ -310,21 +310,27 @@
   .cartes-offres{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px);align-items:stretch}
   .carte-offre{display:flex;flex-direction:column;overflow:hidden;background:#fff;border-radius:var(--r-lg);box-shadow:0 0 0 1px var(--trait);transition:transform .35s var(--ease),box-shadow .35s}
   .carte-offre:hover{transform:translateY(-4px);box-shadow:0 0 0 1px var(--trait),0 30px 50px -36px rgba(20,20,60,.45)}
-  .carte-offre::before{content:"";flex:none;height:6px;background:#E3E6EC}
-  .carte-video::before{background:var(--grad)}
-  .po-texte{flex:1;display:flex;flex-direction:column;padding:clamp(22px,2.4vw,30px)}
-  .po-num{align-self:flex-start;margin-bottom:14px;padding:5px 13px;border-radius:999px;background:var(--papier-2);font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.3;color:var(--encre)}
-  .carte-video .po-num{background:#EEF2FF;color:var(--bic)}
-  .po-texte .pour{font-family:var(--hand);font-size:22px;line-height:1;color:var(--bic)}
-  .po-texte h3{margin-top:8px;font-size:clamp(30px,2.7vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1}
-  .po-texte .desc{margin-top:12px;font-size:16px;color:var(--gris)}
-  .po-sous{margin-top:16px;font-size:16px;font-weight:700;color:var(--encre)}
+  .po-texte{flex:1;display:flex;flex-direction:column}
+  .po-tete{display:flex;flex-direction:column;padding:clamp(24px,2.6vw,32px) clamp(22px,2.4vw,30px) clamp(22px,2.4vw,28px);background:linear-gradient(160deg,#0047FF 0%,#0036D9 100%);color:#fff}
+  .po-corps{flex:1;display:flex;flex-direction:column;padding:clamp(20px,2.2vw,26px) clamp(22px,2.4vw,30px) clamp(22px,2.4vw,30px)}
+  @media (min-width:981px){
+    .cartes-offres{grid-template-rows:auto 1fr;row-gap:0}
+    .carte-offre{display:grid;grid-template-rows:subgrid;grid-row:span 2}
+    .po-texte{display:contents}
+  }
+  .po-num{align-self:flex-start;margin-bottom:14px;padding:5px 13px;border-radius:999px;background:rgba(255,255,255,.18);font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.3;color:#fff}
+  .po-texte .pour{font-family:var(--hand);font-size:22px;line-height:1;color:#CFE0FF}
+  .po-texte h3{margin-top:8px;font-size:clamp(30px,2.7vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1;color:#fff}
+  .po-texte .desc{margin-top:12px;font-size:16px;color:rgba(255,255,255,.9)}
+  .po-sous{margin-top:0;font-size:16px;font-weight:700;color:var(--encre)}
   .po-texte ul{list-style:none;display:grid;gap:11px;margin:10px 0 18px}
   .po-texte li,.oc-liste li{position:relative;padding-left:30px;font-size:16px;line-height:1.45}
   .po-texte li::before,.oc-liste li::before{content:"";position:absolute;left:0;top:.15em;width:19px;height:19px;background:var(--grad);-webkit-mask:var(--coche) center/contain no-repeat;mask:var(--coche) center/contain no-repeat}
   .po-delai{margin:0 0 20px;padding:10px 14px;border-radius:14px;background:var(--papier);font-size:16px;line-height:1.4;color:var(--gris)}
   .po-delai b{color:var(--encre);font-weight:700}
-  .po-prix .po-prix-label{margin:0 0 6px}
+  .po-prix .po-prix-label{margin:0 0 6px;color:var(--bic);font-weight:600}
+  .lancement-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:18px;font-size:16px;color:var(--encre)}
+  .lancement-note span{padding:6px 14px;border-radius:999px;background:var(--bic);color:#fff;font-weight:700}
   .po-pied{margin-top:auto;padding-top:20px;border-top:1px solid var(--trait)}
   .po-prix strong{display:block;font-size:clamp(44px,4vw,56px);font-weight:800;letter-spacing:-.05em;line-height:1}
   .po-prix strong small{margin-right:5px;font-size:16px;font-weight:700;letter-spacing:0}
@@ -444,7 +450,7 @@
           <a href="#offres" class="btn btn-bic">Voir les offres <span class="fl" aria-hidden="true">↓</span></a>
           <a href="#realisations" class="btn btn-ligne">Voir les réalisations</a>
         </div>
-        <p class="hero-garantie"><span class="hg-ico" aria-hidden="true"></span><span>Tu vois ton site en ligne et tu le testes <b>avant de payer le solde.</b></span></p>
+        <p class="hero-garantie"><span class="hg-ico" aria-hidden="true"></span><span>Tu vois ton site en ligne et tu le testes <b>avant de payer quoi que ce soit.</b></span></p>
       </div>
     </div>
   </section>
@@ -488,6 +494,7 @@
       <div class="tete rv">
         <p class="eyebrow"><b>01</b> les offres</p>
         <h2>Trois offres,<br>selon ton projet.</h2>
+        <p class="lancement-note"><span>Prix de lancement</span> pour les 10 premiers projets</p>
       </div>
 
       <div class="offres-commun rv">
@@ -500,18 +507,21 @@
           <li>Ton nom de domaine (1re&nbsp;année comprise) et la mise en ligne</li>
           <li>Ta fiche Google, si tu reçois des clients sur place</li>
           <li>Le site, le logo et les textes t'appartiennent une fois payés</li>
-          <li>Tu testes avant de payer le solde, je retouche jusqu'à ce que ça te plaise</li>
-          <li><b>20&nbsp;% pour démarrer, le reste quand ton site te plaît</b></li>
+          <li>Tu testes ton site avant de payer, je retouche jusqu'à ce qu'il te plaise</li>
+          <li><b>Rien à payer avant d'être satisfait : un seul paiement, une fois ton site validé</b></li>
         </ul>
       </div>
 
       <div class="cartes-offres rv">
           <article class="carte-offre" aria-label="Landing page">
             <div class="po-texte">
+              <div class="po-tete">
               <span class="po-num">Offre 1</span>
               <span class="pour">ton site en une seule page</span>
               <h3>Landing page</h3>
               <p class="desc">Tout l'essentiel sur une page, pour convaincre vite et être contacté. Idéal pour te lancer ou présenter une offre.</p>
+              </div>
+              <div class="po-corps">
               <p class="po-sous">Sur ta page&nbsp;:</p>
               <ul>
                 <li>Un titre et une présentation de ton activité</li>
@@ -521,18 +531,22 @@
               </ul>
               <p class="po-delai">En ligne en <b>1&nbsp;semaine</b></p>
               <div class="po-pied">
-                <div class="po-prix"><span class="po-prix-label">Prix total</span><strong>390&nbsp;€</strong></div>
+                <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong>290&nbsp;€</strong></div>
                   <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20une%20landing%20page%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre" data-offre="portfolio"><span class="wa" aria-hidden="true"></span>Démarrer ma landing page</a>
+              </div>
               </div>
             </div>
           </article>
 
           <article class="carte-offre" aria-label="Site vitrine">
             <div class="po-texte">
+              <div class="po-tete">
               <span class="po-num">Offre 2</span>
               <span class="pour">ton activité, page par page</span>
               <h3>Site vitrine</h3>
               <p class="desc">Quand une page ne suffit plus&nbsp;: un site complet pour tout présenter et inspirer confiance dès la première visite.</p>
+              </div>
+              <div class="po-corps">
               <p class="po-sous">Sur ton site&nbsp;:</p>
               <ul>
                 <li>Accueil, services, réalisations, à propos et contact</li>
@@ -541,18 +555,22 @@
               </ul>
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b></p>
               <div class="po-pied">
-                <div class="po-prix"><span class="po-prix-label">Prix total</span><strong>590&nbsp;€</strong></div>
+                <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong>490&nbsp;€</strong></div>
                   <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20vitrine%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre" data-offre="vitrine"><span class="wa" aria-hidden="true"></span>Démarrer mon site vitrine</a>
+              </div>
               </div>
             </div>
           </article>
 
           <article class="carte-offre carte-video" aria-label="Site + Vidéo">
             <div class="po-texte">
+              <div class="po-tete">
               <span class="po-num">Offre 3</span>
               <span class="pour">le site et la vidéo, ensemble</span>
               <h3>Site + Vidéo</h3>
               <p class="desc">Ton site, et une vidéo animée (motion design) de 30&nbsp;secondes qui explique ton offre mieux qu'un long texte. Pour les services qu'il faut faire comprendre.</p>
+              </div>
+              <div class="po-corps">
               <p class="po-sous">Avec ton site&nbsp;:</p>
               <ul>
                 <li>Ta landing page ou ton site vitrine, au choix</li>
@@ -562,14 +580,15 @@
               </ul>
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b> (landing) ou <b>3&nbsp;semaines</b> (vitrine)</p>
               <div class="po-pied">
-                <div class="po-prix"><span class="po-prix-label">Prix total</span><strong><small>dès</small>640&nbsp;€</strong><span>Landing + vidéo 640&nbsp;€ · Vitrine + vidéo 840&nbsp;€</span></div>
+                <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong><small>dès</small>540&nbsp;€</strong><span>Landing + vidéo 540&nbsp;€ · Vitrine + vidéo 740&nbsp;€</span></div>
                   <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20avec%20une%20vid%C3%A9o%20de%20pr%C3%A9sentation%20UPFLOW.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-bic cta-offre" data-offre="video"><span class="wa" aria-hidden="true"></span>Démarrer mon site + vidéo</a>
+              </div>
               </div>
             </div>
           </article>
       </div>
 
-      <p class="hors-prix rv"><b>Pas compris dans ces prix&nbsp;:</b> le <a href="#suivi">suivi après la mise en ligne</a> (hébergement, changements, sauvegardes et bilan&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement), l'abonnement d'un outil de réservation si tu en choisis un, et les nouvelles pages après la validation, sur devis.</p>
+      <p class="hors-prix rv"><b>Pas compris dans ces prix&nbsp;:</b> le <a href="#suivi">suivi après la mise en ligne</a> (hébergement, changements, sauvegardes et bilan&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement), l'abonnement d'un outil de réservation si tu en choisis un, et les nouvelles pages après la validation, sur devis. Ces prix sont des prix de lancement, valables pour les 10 premiers projets.</p>
 
       <details class="suivi-module rv" id="suivi">
         <summary><span class="sm-etoile" aria-hidden="true"></span><span class="sm-titre"><b>Le suivi, c'est quoi&nbsp;?</b><span>29&nbsp;€/mois · 1er mois offert · sans engagement</span></span><span class="sm-plus" aria-hidden="true"></span></summary>
@@ -601,13 +620,6 @@
           <p>Site vitrine · d'un vieux Wix à un site qui rassure</p>          </a>
           <a class="projet-avis" href="#avis" data-i="0"><span class="etoiles" aria-hidden="true">★</span> Avis Google</a>
         </div>
-        <div class="projet rv" id="r-glossy">
-          <a class="projet-lien" href="https://glossy-ponytail.mouvementvisible.workers.dev/" target="_blank" rel="noopener">
-          <div class="projet-img"><img src="images/glossy-ponytail.webp" alt="Le site de Glossy Ponytail, coiffeuse" width="960" height="720" loading="lazy" decoding="async"></div>
-          <h3>Glossy Ponytail <span>Voir le site ↗</span></h3>
-          <p>Landing page · réservation et acompte en ligne</p>
-          </a>
-        </div>
         <div class="projet rv" id="r-shotby12">
           <a class="projet-lien" href="https://shotby12.fr" target="_blank" rel="noopener">
           <div class="projet-img"><img src="images/shotby12.webp" alt="Le site de SHOTBY12, vidéaste, social media manager" width="960" height="720" loading="lazy" decoding="async"></div>
@@ -621,7 +633,14 @@
           <h3>UPFLOW <span>Voir le site ↗</span></h3>
           <p>Landing page · studio partenaire</p>          </a>
           <a class="projet-avis" href="#avis" data-i="2"><span class="etoiles" aria-hidden="true">★</span> Avis Google</a>
+        </div>        <div class="projet rv" id="r-glossy">
+          <a class="projet-lien" href="https://glossy-ponytail.mouvementvisible.workers.dev/" target="_blank" rel="noopener">
+          <div class="projet-img"><img src="images/glossy-ponytail.webp" alt="Le site de Glossy Ponytail, coiffeuse" width="960" height="720" loading="lazy" decoding="async"></div>
+          <h3>Glossy Ponytail <span>Voir le site ↗</span></h3>
+          <p>Landing page · réservation et acompte en ligne</p>
+          </a>
         </div>
+
       </div>
     </div>
   </section>
@@ -637,7 +656,7 @@
           <li class="etape">
             <span class="etape-num">1</span>
             <svg class="illu illu-wa" viewBox="0 0 64 48" aria-hidden="true"><path d="M8 6h44a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6H24l-10 8v-8H8a6 6 0 0 1-6-6V12a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle class="d d1" cx="20" cy="21" r="3.2"/><circle class="d d2" cx="30" cy="21" r="3.2"/><circle class="d d3" cx="40" cy="21" r="3.2"/></svg>
-            <h3>Je découvre ton projet</h3><p>Tu m'écris sur WhatsApp. Je te pose quelques questions sur ton activité et tes clients, puis je t'envoie un devis clair.</p><p class="etape-toi"><b>Toi&nbsp;:</b> tu valides le devis et tu règles l'acompte de 20&nbsp;%.</p><span class="duree">quand tu veux</span>
+            <h3>Je découvre ton projet</h3><p>Tu m'écris sur WhatsApp. Je te pose quelques questions sur ton activité et tes clients, puis je t'envoie un devis clair.</p><p class="etape-toi"><b>Toi&nbsp;:</b> tu valides le devis. Tu ne paies rien à ce stade.</p><span class="duree">quand tu veux</span>
           </li>
           <li class="etape">
             <span class="etape-num">2</span>
@@ -652,7 +671,7 @@
           <li class="etape">
             <span class="etape-num">4</span>
             <svg class="illu illu-code" viewBox="0 0 64 48" aria-hidden="true"><path class="chev cg" d="M18 14l-10 10 10 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="chev cd" d="M46 14l10 10-10 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="slash" d="M36 10l-8 28" stroke="url(#g-ap)" stroke-width="3" stroke-linecap="round"/></svg>
-            <h3>J'ajuste selon tes retours</h3><p>Je fais les changements que tu demandes, jusqu'à ce que ton site te plaise.</p><p class="etape-toi"><b>Toi&nbsp;:</b> tu prends le temps de tester ton site sur ton téléphone et tu me dis ce qu'il faut changer. Quand il te plaît, tu valides et tu règles les 80&nbsp;% restants.</p><span class="duree">3 à 5 jours</span>
+            <h3>J'ajuste selon tes retours</h3><p>Je fais les changements que tu demandes, jusqu'à ce que ton site te plaise.</p><p class="etape-toi"><b>Toi&nbsp;:</b> tu prends le temps de tester ton site sur ton téléphone et tu me dis ce qu'il faut changer. Quand il te plaît, tu valides et tu paies, en une seule fois.</p><span class="duree">3 à 5 jours</span>
           </li>
           <li class="etape">
             <span class="etape-num">5</span>
@@ -664,7 +683,7 @@
 
       <div class="promesse">
         <span class="promesse-note">ma promesse</span>
-        <p>Tu vois ton site en ligne avant de payer le solde. S'il ne te plaît pas, je le retravaille <strong>jusqu'à ce qu'il te ressemble.</strong></p>
+        <p>Tu vois ton site en ligne avant de payer quoi que ce soit. S'il ne te plaît pas, je le retravaille <strong>jusqu'à ce qu'il te ressemble.</strong></p>
       </div>
     </div>
   </section>
@@ -677,9 +696,9 @@
         <p class="faq-plus">Tout le détail est dans les <a href="conditions-de-vente.html">conditions de vente</a>.</p>
       </div>
       <div class="faq-liste rv">
-        <details><summary><span class="n">01</span>Combien ça coûte, et comment je paie&nbsp;?</summary><p>Landing page&nbsp;: 390&nbsp;€. Site vitrine&nbsp;: 590&nbsp;€. Site + Vidéo&nbsp;: 640&nbsp;€ avec une landing page, 840&nbsp;€ avec un site vitrine. Le suivi, si tu le veux&nbsp;: 29&nbsp;€/mois, premier mois offert. Tu paies par virement en deux fois&nbsp;: 20&nbsp;% pour lancer le projet, puis 80&nbsp;% quand tu as validé ton site. J'achète alors ton nom de domaine et ton site est en ligne sous 24&nbsp;h.</p></details>
+        <details><summary><span class="n">01</span>Combien ça coûte, et comment je paie&nbsp;?</summary><p>Landing page&nbsp;: 290&nbsp;€. Site vitrine&nbsp;: 490&nbsp;€. Site + Vidéo&nbsp;: 540&nbsp;€ avec une landing page, 740&nbsp;€ avec un site vitrine. Ce sont des prix de lancement, valables pour les 10 premiers projets. Le suivi, si tu le veux&nbsp;: 29&nbsp;€/mois, premier mois offert. Tu ne paies rien avant d'avoir validé ton site&nbsp;: un seul paiement par virement, quand il te plaît. J'achète alors ton nom de domaine et ton site est en ligne sous 24&nbsp;h.</p></details>
         <details><summary><span class="n">02</span>En combien de temps mon site est en ligne&nbsp;?</summary><p>Compte 1&nbsp;semaine pour une landing page et 2&nbsp;semaines pour un site vitrine (2 et 3&nbsp;semaines avec la vidéo), à partir du moment où j'ai ton questionnaire et tes photos. Tu as ensuite 3 à 5&nbsp;jours pour tester ton site et demander tes changements. Si tu as besoin de plus de temps, pas de souci&nbsp;: la mise en ligne est simplement décalée d'autant.</p></details>
-        <details><summary><span class="n">03</span>Et si mon site ne me plaît pas&nbsp;?</summary><p>Je le retravaille avec toi jusqu'à ce qu'il te ressemble. Et si tu préfères arrêter, tu arrêtes&nbsp;: tu ne paies pas les 80&nbsp;% restants. Seul l'acompte de 20&nbsp;% est gardé, pour le travail déjà fait.</p></details>
+        <details><summary><span class="n">03</span>Et si mon site ne me plaît pas&nbsp;?</summary><p>Je le retravaille avec toi jusqu'à ce qu'il te ressemble. Et si tu préfères arrêter, tu arrêtes&nbsp;: tu ne paies rien. Le site n'est ni mis en ligne ni transféré.</p></details>
         <details><summary><span class="n">04</span>Je dois écrire mes textes ou faire mon logo&nbsp;?</summary><p>Non. Tu remplis un questionnaire de 15&nbsp;minutes et je rédige tous les textes dans ton ton. Ton logo est créé pour toi&nbsp;: un logo simple, avec ton nom et un symbole. Tu relis, tu valides, et j'ajuste si besoin.</p></details>
         <details><summary><span class="n">05</span>Comment mes clients me contactent&nbsp;?</summary><p>Tu choisis&nbsp;: un bouton WhatsApp, appel ou e-mail avec un message déjà écrit, un formulaire, ou un outil de réservation intégré à ton site, choisi avec toi selon ton activité. La mise en place est incluse&nbsp;; l'abonnement éventuel de l'outil est à ton nom.</p></details>
         <details><summary><span class="n">06</span>Et si je ne prends pas le suivi&nbsp;?</summary><p>Aucun problème. Ton site t'appartient&nbsp;: je te transfère le site, ses fichiers et ton nom de domaine, et tu les gères toi-même. Tu peux aussi prendre le suivi plus tard, ou l'arrêter quand tu veux.</p></details>
