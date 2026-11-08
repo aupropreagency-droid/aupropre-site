@@ -139,10 +139,11 @@
   .toujours-liste li{display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:16px;line-height:1.35;font-weight:600}
   .t-ico{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%}
   .t-ico svg{width:24px;height:24px}
-  .toujours{background:var(--grad);color:#fff;box-shadow:0 30px 60px -30px rgba(0,71,255,.55)}
-  .toujours .t-ico{background:rgba(255,255,255,.18);color:#fff}
+  .toujours{background:#fff;color:var(--encre);box-shadow:0 0 0 1px var(--trait)}
+  .toujours-liste li{padding:14px 16px;border-radius:var(--r-md);background:var(--papier)}
+  .toujours .t-ico{background:#fff;color:var(--bic);box-shadow:0 0 0 1px var(--trait)}
   @media (max-width:980px){.toujours-liste{grid-template-columns:repeat(3,1fr)}}
-  @media (max-width:560px){.toujours-liste{grid-template-columns:1fr 1fr;gap:12px}.toujours-liste li:last-child{grid-column:1/-1}}
+  @media (max-width:560px){.toujours-liste{grid-template-columns:1fr;gap:8px}.toujours-liste li{flex-direction:row;align-items:center;gap:12px;padding:10px 12px}}
   .lancement-promesse{flex-basis:100%;font-weight:700;color:var(--encre)}
 
   /* Menu : le lien le plus long disparaît quand la barre devient trop étroite */
@@ -537,9 +538,8 @@
               <div class="po-corps">
               <p class="po-sous">Sur ta page&nbsp;:</p>
               <ul>
-                <li>Un titre et une présentation de ton activité</li>
-                <li>Tes services ou tes projets</li>
-                <li>Tes avis clients et/ou réalisations, si tu en as</li>
+                <li>Ton activité, tes services ou tes projets</li>
+                <li>Tes avis et tes réalisations, si tu en as</li>
                 <li>Tes infos pratiques et ton bouton de contact</li>
               </ul>
               <div class="po-peut">
@@ -580,7 +580,6 @@
                   <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Réservation sur ton site</li>
                   <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-commander"/></svg>Commande en ligne</li>
                   <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg>Acompte ou paiement en ligne</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-chat"/></svg>Un bouton WhatsApp par besoin</li>
                 </ul>
               </div>
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b></p>
@@ -606,15 +605,11 @@
                 <li>Ta landing page ou ton site vitrine, au choix</li>
                 <li>Une vidéo animée de 30&nbsp;secondes, faite par UPFLOW, mon studio partenaire</li>
                 <li>Pour ton site ou tes réseaux sociaux (un format au choix)</li>
-                <li>Le site et la vidéo dans le même univers</li>
               </ul>
               <div class="po-peut">
                 <p class="po-peut-titre">Ton site peut aussi&nbsp;:</p>
                 <ul>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Réservation sur ton site</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-commander"/></svg>Commande en ligne</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg>Acompte ou paiement en ligne</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-chat"/></svg>Un bouton WhatsApp par besoin</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Les options de la landing ou du vitrine, selon ta formule</li>
                 </ul>
               </div>
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b> (landing) ou <b>3&nbsp;semaines</b> (vitrine)</p>
@@ -753,7 +748,7 @@
         <details><summary><span class="n">02</span>En combien de temps mon site est en ligne&nbsp;?</summary><p>Compte 1&nbsp;semaine pour une landing page et 2&nbsp;semaines pour un site vitrine (2 et 3&nbsp;semaines avec la vidéo), à partir du moment où j'ai ton questionnaire et tes photos. Tu as ensuite 3 à 5&nbsp;jours pour tester ton site et demander tes changements. Si tu as besoin de plus de temps, pas de souci&nbsp;: la mise en ligne est simplement décalée d'autant.</p></details>
         <details><summary><span class="n">03</span>Et si mon site ne me plaît pas&nbsp;?</summary><p>Je le retravaille avec toi jusqu'à ce qu'il te ressemble. Et si tu préfères arrêter, tu arrêtes&nbsp;: tu ne paies rien. Le site n'est ni mis en ligne ni transféré.</p></details>
         <details><summary><span class="n">04</span>Je dois écrire mes textes ou faire mon logo&nbsp;?</summary><p>Non. Tu remplis un questionnaire de 15&nbsp;minutes et je rédige tous les textes dans ton ton. Ton logo est créé pour toi&nbsp;: un logo simple, avec ton nom et un symbole. Tu relis, tu valides, et j'ajuste si besoin.</p></details>
-        <details><summary><span class="n">05</span>Comment mes clients me contactent&nbsp;?</summary><p>Tu choisis&nbsp;: un bouton WhatsApp, appel ou e-mail avec un message déjà écrit, un formulaire, un outil de réservation ou de commande en ligne (avec acompte ou paiement en ligne par tes clients, si tu veux), choisi avec toi selon ton activité. La mise en place est incluse&nbsp;; l'abonnement éventuel de l'outil est à ton nom. Une boutique complète avec panier et livraison est sur devis.</p></details>
+        <details><summary><span class="n">05</span>Comment mes clients me contactent&nbsp;?</summary><p>Tu choisis&nbsp;: un bouton WhatsApp, appel ou e-mail avec un message déjà écrit, un formulaire, un outil de réservation ou de commande en ligne (avec acompte ou paiement en ligne par tes clients, si tu veux), choisi avec toi selon ton activité. La mise en place est incluse&nbsp;; l'abonnement éventuel de l'outil est à ton nom. Sur la landing page, c'est un bouton ou un lien vers ton agenda ou ton paiement&nbsp;; sur le site vitrine, c'est intégré à ton site. Une boutique complète avec panier et livraison est sur devis.</p></details>
         <details><summary><span class="n">06</span>Et si je ne prends pas le suivi&nbsp;?</summary><p>Aucun problème. Ton site t'appartient&nbsp;: je te transfère le site, ses fichiers et ton nom de domaine, et tu les gères toi-même. Tu peux aussi prendre le suivi plus tard, ou l'arrêter quand tu veux.</p></details>
       </div>
     </div>
