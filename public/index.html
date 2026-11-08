@@ -133,7 +133,7 @@
   @media (max-width:560px){.sm-liste{grid-template-columns:1fr}.suivi-module summary{padding:16px 18px}}
 
   /* OFFRES : bande « Toujours compris » */
-  .toujours{margin-top:clamp(44px,6vw,76px);padding:clamp(26px,3.4vw,40px);border-radius:var(--r-lg)}
+  .toujours{margin:clamp(28px,4vw,44px) 0 clamp(28px,4vw,44px);padding:clamp(26px,3.4vw,40px);border-radius:var(--r-lg)}
   .toujours-titre{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin:0 0 clamp(18px,2.4vw,26px)}
   .toujours-liste{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
   .toujours-liste li{display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:16px;line-height:1.35;font-weight:600}
@@ -514,6 +514,17 @@
         <p class="lancement-note"><span>Prix de lancement</span> pour les 10 premiers projets<b class="lancement-promesse">Tu ne paies rien avant d'avoir validé ton site.</b></p>
       </div>
 
+      <div class="toujours rv">
+        <p class="toujours-titre">Toujours compris dans chaque offre</p>
+        <ul class="toujours-liste">
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-textes"/></svg></span>textes rédigés pour toi</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-logo"/></svg></span>logo si tu n'en as pas</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-design"/></svg></span>design sur mesure</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-domaine"/></svg></span>nom de domaine et mise en ligne</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-propriete"/></svg></span>tout t'appartient</li>
+        </ul>
+      </div>
+
       <div class="cartes-offres rv">
           <article class="carte-offre" aria-label="Landing page">
             <div class="po-texte">
@@ -615,18 +626,6 @@
             </div>
           </article>
       </div>
-
-      <div class="toujours rv">
-        <p class="toujours-titre">Toujours compris dans chaque offre</p>
-        <ul class="toujours-liste">
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-textes"/></svg></span>textes rédigés pour toi</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-logo"/></svg></span>logo si tu n'en as pas</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-design"/></svg></span>design sur mesure</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-domaine"/></svg></span>nom de domaine et mise en ligne</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-propriete"/></svg></span>tout t'appartient</li>
-        </ul>
-      </div>
-
 
       <p class="hors-prix rv"><b>Pas compris dans ces prix&nbsp;:</b> le <a href="#suivi">suivi après la mise en ligne</a> (hébergement, changements, sauvegardes et bilan&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement), l'abonnement d'un outil de réservation ou de commande si tu en choisis un, et les nouvelles pages après la validation, sur devis. Ces prix sont des prix de lancement, valables pour les 10 premiers projets.</p>
 
