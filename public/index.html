@@ -133,15 +133,16 @@
   @media (max-width:560px){.sm-liste{grid-template-columns:1fr}.suivi-module summary{padding:16px 18px}}
 
   /* OFFRES : bande « Toujours compris » */
-  .toujours{display:flex;flex-direction:column;gap:18px;margin-top:clamp(22px,3vw,34px);padding:clamp(18px,2.4vw,26px) clamp(20px,2.6vw,30px);border-radius:var(--r-lg);background:#fff;box-shadow:0 0 0 1px var(--trait)}
-  .toujours-titre{font-size:18px;font-weight:800;letter-spacing:-.02em}
-  .toujours-ligne{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
-  .toujours-choix{padding-top:18px;border-top:1px solid var(--trait)}
-  .toujours-liste{list-style:none;display:flex;flex-wrap:wrap;gap:12px 26px}
-  .toujours-liste li{display:flex;align-items:center;gap:10px;font-size:16px;line-height:1.35}
-  .t-ico{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:50%;background:#EEF2FF;color:var(--bic)}
-  .t-ico svg{width:20px;height:20px}
-  @media (max-width:760px){.toujours-ligne{flex-direction:column;align-items:flex-start}.toujours-liste{flex-direction:column;gap:10px}.toujours-choix .toujours-liste{display:grid;grid-template-columns:1fr 1fr;gap:12px 10px;width:100%}}
+  .toujours{margin-top:clamp(44px,6vw,76px);padding:clamp(26px,3.4vw,40px);border-radius:var(--r-lg)}
+  .toujours-titre{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin:0 0 clamp(18px,2.4vw,26px)}
+  .toujours-liste{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .toujours-liste li{display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:16px;line-height:1.35;font-weight:600}
+  .t-ico{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%}
+  .t-ico svg{width:24px;height:24px}
+  .toujours{background:var(--grad);color:#fff;box-shadow:0 30px 60px -30px rgba(0,71,255,.55)}
+  .toujours .t-ico{background:rgba(255,255,255,.18);color:#fff}
+  @media (max-width:980px){.toujours-liste{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:560px){.toujours-liste{grid-template-columns:1fr 1fr;gap:12px}.toujours-liste li:last-child{grid-column:1/-1}}
   .lancement-promesse{flex-basis:100%;font-weight:700;color:var(--encre)}
 
   /* Menu : le lien le plus long disparaît quand la barre devient trop étroite */
@@ -336,6 +337,12 @@
   .po-texte ul{list-style:none;display:grid;gap:11px;margin:10px 0 18px}
   .po-texte li{position:relative;padding-left:30px;font-size:16px;line-height:1.45}
   .po-texte li::before{content:"";position:absolute;left:0;top:.15em;width:19px;height:19px;background:var(--grad);-webkit-mask:var(--coche) center/contain no-repeat;mask:var(--coche) center/contain no-repeat}
+  .po-peut{margin:0 0 16px;padding:14px 16px 12px;border-radius:14px;background:#EEF2FF}
+  .po-peut-titre{margin:0 0 8px;font-size:16px;font-weight:800;letter-spacing:-.01em;color:var(--bic)}
+  .po-texte .po-peut ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+  .po-texte .po-peut li{display:flex;align-items:center;gap:10px;padding:0;font-size:16px;line-height:1.3;color:var(--encre)}
+  .po-texte .po-peut li::before{content:none}
+  .po-peut svg{flex:none;width:22px;height:22px;color:var(--bic)}
   .po-delai{margin:0 0 20px;padding:10px 14px;border-radius:14px;background:var(--papier);font-size:16px;line-height:1.4;color:var(--gris)}
   .po-delai b{color:var(--encre);font-weight:700}
   .po-prix .po-prix-label{margin:0 0 6px;color:var(--bic);font-weight:600}
@@ -524,6 +531,14 @@
                 <li>Tes avis clients et/ou réalisations, si tu en as</li>
                 <li>Tes infos pratiques et ton bouton de contact</li>
               </ul>
+              <div class="po-peut">
+                <p class="po-peut-titre">Ton site peut aussi&nbsp;:</p>
+                <ul>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-chat"/></svg>Bouton WhatsApp, message prêt</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Lien vers ton agenda en ligne</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg>Lien de paiement pour l'acompte</li>
+                </ul>
+              </div>
               <p class="po-delai">En ligne en <b>1&nbsp;semaine</b></p>
               <div class="po-pied">
                 <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong>290&nbsp;€</strong></div>
@@ -548,6 +563,15 @@
                 <li>Une page par service</li>
                 <li>Ton offre mise en forme&nbsp;: formules, prix «&nbsp;à partir de&nbsp;», étapes</li>
               </ul>
+              <div class="po-peut">
+                <p class="po-peut-titre">Ton site peut aussi&nbsp;:</p>
+                <ul>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Réservation sur ton site</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-commander"/></svg>Commande en ligne</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg>Acompte ou paiement en ligne</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-chat"/></svg>Un bouton WhatsApp par besoin</li>
+                </ul>
+              </div>
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b></p>
               <div class="po-pied">
                 <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong>490&nbsp;€</strong></div>
@@ -573,6 +597,15 @@
                 <li>Pour ton site ou tes réseaux sociaux (un format au choix)</li>
                 <li>Le site et la vidéo dans le même univers</li>
               </ul>
+              <div class="po-peut">
+                <p class="po-peut-titre">Ton site peut aussi&nbsp;:</p>
+                <ul>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Réservation sur ton site</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-commander"/></svg>Commande en ligne</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg>Acompte ou paiement en ligne</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-chat"/></svg>Un bouton WhatsApp par besoin</li>
+                </ul>
+              </div>
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b> (landing) ou <b>3&nbsp;semaines</b> (vitrine)</p>
               <div class="po-pied">
                 <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong><small>dès</small>540&nbsp;€</strong><span>Landing + vidéo 540&nbsp;€ · Vitrine + vidéo 740&nbsp;€</span></div>
@@ -584,8 +617,7 @@
       </div>
 
       <div class="toujours rv">
-        <div class="toujours-ligne">
-        <p class="toujours-titre">Toujours compris&nbsp;:</p>
+        <p class="toujours-titre">Toujours compris dans chaque offre</p>
         <ul class="toujours-liste">
           <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-textes"/></svg></span>textes rédigés pour toi</li>
           <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-logo"/></svg></span>logo si tu n'en as pas</li>
@@ -593,19 +625,8 @@
           <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-domaine"/></svg></span>nom de domaine et mise en ligne</li>
           <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-propriete"/></svg></span>tout t'appartient</li>
         </ul>
-        </div>
-        <div class="toujours-ligne toujours-choix">
-        <p class="toujours-titre">Au choix, selon ton activité&nbsp;:</p>
-        <ul class="toujours-liste">
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg></span>Réserver</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-commander"/></svg></span>Commander</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg></span>Payer en ligne</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-chat"/></svg></span>WhatsApp</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-google"/></svg></span>Google</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-livraison"/></svg></span>Livraison</li>
-        </ul>
-        </div>
       </div>
+
 
       <p class="hors-prix rv"><b>Pas compris dans ces prix&nbsp;:</b> le <a href="#suivi">suivi après la mise en ligne</a> (hébergement, changements, sauvegardes et bilan&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement), l'abonnement d'un outil de réservation ou de commande si tu en choisis un, et les nouvelles pages après la validation, sur devis. Ces prix sont des prix de lancement, valables pour les 10 premiers projets.</p>
 
