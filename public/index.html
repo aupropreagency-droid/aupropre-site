@@ -106,7 +106,7 @@
   .hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:36px}
 
   /* OFFRES */
-  .offres{padding-top:clamp(40px,6vw,80px)}
+  .offres{padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(28px,4vw,56px)}
 
 
   /* SUIVI : module repliable */
@@ -132,17 +132,20 @@
   @media (max-width:980px){.sm-liste{grid-template-columns:1fr 1fr}.sm-corps{padding:0 20px 22px}}
   @media (max-width:560px){.sm-liste{grid-template-columns:1fr}.suivi-module summary{padding:16px 18px}}
 
-  /* OUTILS : « Ton site travaille pour toi » */
-  .outils{padding:clamp(48px,6vw,84px) 0}
-  .outils .tete{margin-bottom:clamp(24px,3.4vw,40px)}
-  .outil-ico{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:50%;background:#EEF2FF;color:var(--bic)}
-  .outil-ico svg{width:26px;height:26px}
-  .outil h3{font-size:19px;font-weight:800;letter-spacing:-.03em;line-height:1.15}
-  .outil p{margin-top:6px;font-size:16px;line-height:1.5;color:var(--gris)}
-  .outils-liste{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,5vw,72px)}
-  .outil{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-top:1px solid var(--trait)}
-  .outils-note{max-width:46em;margin:clamp(24px,3vw,34px) auto 0;font-size:16px;line-height:1.5;text-align:center;color:var(--gris)}
-  @media (max-width:760px){.outils-liste{grid-template-columns:1fr}.outil{padding:16px 0}}
+  /* OFFRES : bande « Toujours compris » */
+  .toujours{display:flex;flex-direction:column;gap:18px;margin-top:clamp(22px,3vw,34px);padding:clamp(18px,2.4vw,26px) clamp(20px,2.6vw,30px);border-radius:var(--r-lg);background:#fff;box-shadow:0 0 0 1px var(--trait)}
+  .toujours-titre{font-size:18px;font-weight:800;letter-spacing:-.02em}
+  .toujours-ligne{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+  .toujours-choix{padding-top:18px;border-top:1px solid var(--trait)}
+  .toujours-liste{list-style:none;display:flex;flex-wrap:wrap;gap:12px 26px}
+  .toujours-liste li{display:flex;align-items:center;gap:10px;font-size:16px;line-height:1.35}
+  .t-ico{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:50%;background:#EEF2FF;color:var(--bic)}
+  .t-ico svg{width:20px;height:20px}
+  @media (max-width:760px){.toujours-ligne{flex-direction:column;align-items:flex-start}.toujours-liste{flex-direction:column;gap:10px}.toujours-choix .toujours-liste{display:grid;grid-template-columns:1fr 1fr;gap:12px 10px;width:100%}}
+  .lancement-promesse{flex-basis:100%;font-weight:700;color:var(--encre)}
+
+  /* Menu : le lien le plus long disparaît quand la barre devient trop étroite */
+  @media (max-width:1100px){.pilule ul li:nth-child(2){display:none}}
 
   /* RÉALISATIONS */
   .projets{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,28px)}
@@ -311,14 +314,9 @@
 
   /* OFFRES : 3 cartes alignées sur ordinateur, empilées sur mobile */
   .offres{--coche:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12.5l5 5L20 6.5' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
-  .offres-commun{margin-bottom:clamp(22px,3vw,34px);padding:clamp(22px,3vw,32px);border-radius:var(--r-lg);background:#fff;box-shadow:0 0 0 1px var(--trait)}
-  .oc-titre{font-size:clamp(24px,2.4vw,30px);font-weight:800;letter-spacing:-.035em;line-height:1.1}
-  .oc-liste{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 40px;margin-top:18px}
-  .oc-liste li:last-child{grid-column:1/-1}
   .hors-prix{max-width:56em;margin:clamp(24px,3vw,34px) auto 0;font-size:16px;line-height:1.5;text-align:center;color:var(--gris)}
   .hors-prix b{color:var(--encre)}
   .hors-prix a{color:var(--bic)}
-  @media (max-width:760px){.oc-liste{grid-template-columns:1fr}}
   .cartes-offres{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px);align-items:stretch}
   .carte-offre{display:flex;flex-direction:column;overflow:hidden;background:#fff;border-radius:var(--r-lg);box-shadow:0 0 0 1px var(--trait);transition:transform .35s var(--ease),box-shadow .35s}
   .carte-offre:hover{transform:translateY(-4px);box-shadow:0 0 0 1px var(--trait),0 30px 50px -36px rgba(20,20,60,.45)}
@@ -336,8 +334,8 @@
   .po-texte .desc{margin-top:12px;font-size:16px;color:rgba(255,255,255,.9)}
   .po-sous{margin-top:0;font-size:16px;font-weight:700;color:var(--encre)}
   .po-texte ul{list-style:none;display:grid;gap:11px;margin:10px 0 18px}
-  .po-texte li,.oc-liste li{position:relative;padding-left:30px;font-size:16px;line-height:1.45}
-  .po-texte li::before,.oc-liste li::before{content:"";position:absolute;left:0;top:.15em;width:19px;height:19px;background:var(--grad);-webkit-mask:var(--coche) center/contain no-repeat;mask:var(--coche) center/contain no-repeat}
+  .po-texte li{position:relative;padding-left:30px;font-size:16px;line-height:1.45}
+  .po-texte li::before{content:"";position:absolute;left:0;top:.15em;width:19px;height:19px;background:var(--grad);-webkit-mask:var(--coche) center/contain no-repeat;mask:var(--coche) center/contain no-repeat}
   .po-delai{margin:0 0 20px;padding:10px 14px;border-radius:14px;background:var(--papier);font-size:16px;line-height:1.4;color:var(--gris)}
   .po-delai b{color:var(--encre);font-weight:700}
   .po-prix .po-prix-label{margin:0 0 6px;color:var(--bic);font-weight:600}
@@ -506,22 +504,7 @@
       <div class="tete rv">
         <p class="eyebrow"><b>01</b> les offres</p>
         <h2>Trois offres,<br>selon ton projet.</h2>
-        <p class="lancement-note"><span>Prix de lancement</span> pour les 10 premiers projets</p>
-      </div>
-
-      <div class="offres-commun rv">
-        <h3 class="oc-titre">Dans chaque offre</h3>
-        <ul class="oc-liste">
-          <li>Tes textes rédigés avec ton ton</li>
-          <li>Un logo si tu n'en as pas</li>
-          <li>Un design sur mesure, adapté au téléphone</li>
-          <li>Ton contact au choix : WhatsApp, appel, e-mail, formulaire, réservation ou commande en ligne</li>
-          <li>Ton nom de domaine (1re&nbsp;année comprise) et la mise en ligne</li>
-          <li>Ta fiche Google, si tu reçois des clients sur place</li>
-          <li>Le site, le logo et les textes t'appartiennent une fois payés</li>
-          <li>Tu testes ton site avant de payer, je retouche jusqu'à ce qu'il te plaise</li>
-          <li><b>Rien à payer avant d'être satisfait : un seul paiement, une fois ton site validé</b></li>
-        </ul>
+        <p class="lancement-note"><span>Prix de lancement</span> pour les 10 premiers projets<b class="lancement-promesse">Tu ne paies rien avant d'avoir validé ton site.</b></p>
       </div>
 
       <div class="cartes-offres rv">
@@ -544,7 +527,7 @@
               <p class="po-delai">En ligne en <b>1&nbsp;semaine</b></p>
               <div class="po-pied">
                 <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong>290&nbsp;€</strong></div>
-                  <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20une%20landing%20page%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre" data-offre="portfolio"><span class="wa" aria-hidden="true"></span>Démarrer ma landing page</a>
+                  <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20une%20landing%20page%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre js-wa" data-choix="portfolio" data-offre="portfolio"><span class="wa" aria-hidden="true"></span>Démarrer ma landing page</a>
               </div>
               </div>
             </div>
@@ -568,7 +551,7 @@
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b></p>
               <div class="po-pied">
                 <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong>490&nbsp;€</strong></div>
-                  <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20vitrine%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre" data-offre="vitrine"><span class="wa" aria-hidden="true"></span>Démarrer mon site vitrine</a>
+                  <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20vitrine%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre js-wa" data-choix="vitrine" data-offre="vitrine"><span class="wa" aria-hidden="true"></span>Démarrer mon site vitrine</a>
               </div>
               </div>
             </div>
@@ -593,11 +576,35 @@
               <p class="po-delai">En ligne en <b>2&nbsp;semaines</b> (landing) ou <b>3&nbsp;semaines</b> (vitrine)</p>
               <div class="po-pied">
                 <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong><small>dès</small>540&nbsp;€</strong><span>Landing + vidéo 540&nbsp;€ · Vitrine + vidéo 740&nbsp;€</span></div>
-                  <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20avec%20une%20vid%C3%A9o%20de%20pr%C3%A9sentation%20UPFLOW.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-bic cta-offre" data-offre="video"><span class="wa" aria-hidden="true"></span>Démarrer mon site + vidéo</a>
+                  <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20avec%20une%20vid%C3%A9o%20de%20pr%C3%A9sentation%20UPFLOW.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-bic cta-offre js-wa" data-choix="video" data-offre="video"><span class="wa" aria-hidden="true"></span>Démarrer mon site + vidéo</a>
               </div>
               </div>
             </div>
           </article>
+      </div>
+
+      <div class="toujours rv">
+        <div class="toujours-ligne">
+        <p class="toujours-titre">Toujours compris&nbsp;:</p>
+        <ul class="toujours-liste">
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-textes"/></svg></span>textes rédigés pour toi</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-logo"/></svg></span>logo si tu n'en as pas</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-design"/></svg></span>design sur mesure</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-domaine"/></svg></span>nom de domaine et mise en ligne</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-propriete"/></svg></span>tout t'appartient</li>
+        </ul>
+        </div>
+        <div class="toujours-ligne toujours-choix">
+        <p class="toujours-titre">Au choix, selon ton activité&nbsp;:</p>
+        <ul class="toujours-liste">
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg></span>Réserver</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-commander"/></svg></span>Commander</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg></span>Payer en ligne</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-chat"/></svg></span>WhatsApp</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-google"/></svg></span>Google</li>
+          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-livraison"/></svg></span>Livraison</li>
+        </ul>
+        </div>
       </div>
 
       <p class="hors-prix rv"><b>Pas compris dans ces prix&nbsp;:</b> le <a href="#suivi">suivi après la mise en ligne</a> (hébergement, changements, sauvegardes et bilan&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement), l'abonnement d'un outil de réservation ou de commande si tu en choisis un, et les nouvelles pages après la validation, sur devis. Ces prix sont des prix de lancement, valables pour les 10 premiers projets.</p>
@@ -625,26 +632,12 @@
     <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></symbol>
     <symbol id="ic-google" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
     <symbol id="ic-livraison" viewBox="0 0 24 24"><path d="M2.8 6.5h10.7v9.2H2.8zM13.5 9.5h4.1l3.2 3.1v3.1h-7.3"/><circle cx="7" cy="17.6" r="2"/><circle cx="17.2" cy="17.6" r="2"/></symbol>
+    <symbol id="ic-textes" viewBox="0 0 24 24"><path d="M4 20l1.1-4.2L16.6 4.3a2.1 2.1 0 0 1 3 3L8.1 18.9 4 20z"/><path d="M14.5 6.4l3 3"/></symbol>
+    <symbol id="ic-logo" viewBox="0 0 24 24"><path d="M12 3c.9 5 4 8.1 9 9-5 .9-8.1 4-9 9-.9-5-4-8.1-9-9 5-.9 8.1-4 9-9z"/></symbol>
+    <symbol id="ic-design" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M3.5 9.5h17M10 9.5V20"/></symbol>
+    <symbol id="ic-domaine" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.9 5.2 3.9 8.5s-1.3 6.1-3.9 8.5c-2.6-2.4-3.9-5.2-3.9-8.5S9.4 5.9 12 3.5z"/></symbol>
+    <symbol id="ic-propriete" viewBox="0 0 24 24"><path d="M12 3l7 2.8v5.5c0 4.4-2.9 7.6-7 9.2-4.1-1.6-7-4.8-7-9.2V5.8L12 3z"/><path d="M8.8 12l2.3 2.3 4.2-4.4"/></symbol>
   </defs></svg>
-
-  <section class="outils" id="outils" aria-labelledby="t-outils">
-    <div class="wrap">
-      <div class="tete rv">
-        <p class="eyebrow">outils intégrés</p>
-        <h2 id="t-outils">Ton site travaille<br>pour toi.</h2>
-        <p class="chapo">Ce que ton site peut faire à ta place, selon ton activité.</p>
-      </div>
-      <div class="outils-liste">
-          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-reserver"/></svg></span><div><h3>Réserver</h3><p>Tes clients choisissent un créneau et réservent seuls : prestations, brunch, privatisation.</p></div></article>
-          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-commander"/></svg></span><div><h3>Commander</h3><p>Précommande, click &amp; collect, gâteaux ou box sur commande : tes clients commandent en ligne.</p></div></article>
-          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-acompte"/></svg></span><div><h3>Payer un acompte</h3><p>Moins de rendez-vous non honorés, et plus d'acomptes demandés à la main.</p></div></article>
-          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-chat"/></svg></span><div><h3>Écrire sur WhatsApp</h3><p>Un bouton par besoin, avec un message déjà écrit : devis, événement, entreprise.</p></div></article>
-          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-google"/></svg></span><div><h3>Être trouvé sur Google</h3><p>Ta fiche Google et un site pensé pour être trouvé dans ta ville.</p></div></article>
-          <article class="outil"><span class="outil-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-livraison"/></svg></span><div><h3>Livraison</h3><p>Des boutons vers Uber Eats ou Deliveroo, si tu livres.</p></div></article>
-      </div>
-      <p class="outils-note rv">Je choisis l'outil avec toi selon ton activité et je l'intègre à ton site. L'abonnement éventuel est à ton nom.</p>
-    </div>
-  </section>
 
   <section class="realisations" id="realisations">
     <div class="wrap">
@@ -740,7 +733,7 @@
         <details><summary><span class="n">02</span>En combien de temps mon site est en ligne&nbsp;?</summary><p>Compte 1&nbsp;semaine pour une landing page et 2&nbsp;semaines pour un site vitrine (2 et 3&nbsp;semaines avec la vidéo), à partir du moment où j'ai ton questionnaire et tes photos. Tu as ensuite 3 à 5&nbsp;jours pour tester ton site et demander tes changements. Si tu as besoin de plus de temps, pas de souci&nbsp;: la mise en ligne est simplement décalée d'autant.</p></details>
         <details><summary><span class="n">03</span>Et si mon site ne me plaît pas&nbsp;?</summary><p>Je le retravaille avec toi jusqu'à ce qu'il te ressemble. Et si tu préfères arrêter, tu arrêtes&nbsp;: tu ne paies rien. Le site n'est ni mis en ligne ni transféré.</p></details>
         <details><summary><span class="n">04</span>Je dois écrire mes textes ou faire mon logo&nbsp;?</summary><p>Non. Tu remplis un questionnaire de 15&nbsp;minutes et je rédige tous les textes dans ton ton. Ton logo est créé pour toi&nbsp;: un logo simple, avec ton nom et un symbole. Tu relis, tu valides, et j'ajuste si besoin.</p></details>
-        <details><summary><span class="n">05</span>Comment mes clients me contactent&nbsp;?</summary><p>Tu choisis&nbsp;: un bouton WhatsApp, appel ou e-mail avec un message déjà écrit, un formulaire, un outil de réservation ou de commande en ligne (avec paiement d'un acompte par tes clients, si tu veux), choisi avec toi selon ton activité. La mise en place est incluse&nbsp;; l'abonnement éventuel de l'outil est à ton nom.</p></details>
+        <details><summary><span class="n">05</span>Comment mes clients me contactent&nbsp;?</summary><p>Tu choisis&nbsp;: un bouton WhatsApp, appel ou e-mail avec un message déjà écrit, un formulaire, un outil de réservation ou de commande en ligne (avec acompte ou paiement en ligne par tes clients, si tu veux), choisi avec toi selon ton activité. La mise en place est incluse&nbsp;; l'abonnement éventuel de l'outil est à ton nom. Une boutique complète avec panier et livraison est sur devis.</p></details>
         <details><summary><span class="n">06</span>Et si je ne prends pas le suivi&nbsp;?</summary><p>Aucun problème. Ton site t'appartient&nbsp;: je te transfère le site, ses fichiers et ton nom de domaine, et tu les gères toi-même. Tu peux aussi prendre le suivi plus tard, ou l'arrêter quand tu veux.</p></details>
       </div>
     </div>
