@@ -133,17 +133,69 @@
   @media (max-width:560px){.sm-liste{grid-template-columns:1fr}.suivi-module summary{padding:16px 18px}}
 
   /* OFFRES : bande « Toujours compris » */
-  .toujours{margin:clamp(28px,4vw,44px) 0 clamp(28px,4vw,44px);padding:clamp(26px,3.4vw,40px);border-radius:var(--r-lg)}
-  .toujours-titre{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin:0 0 clamp(18px,2.4vw,26px)}
-  .toujours-liste{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-  .toujours-liste li{display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:16px;line-height:1.35;font-weight:600}
   .t-ico{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%}
   .t-ico svg{width:24px;height:24px}
-  .toujours{background:#fff;color:var(--encre);box-shadow:0 0 0 1px var(--trait)}
-  .toujours-liste li{padding:14px 16px;border-radius:var(--r-md);background:var(--papier)}
-  .toujours .t-ico{background:#fff;color:var(--bic);box-shadow:0 0 0 1px var(--trait)}
-  @media (max-width:980px){.toujours-liste{grid-template-columns:repeat(3,1fr)}}
-  @media (max-width:560px){.toujours-liste{grid-template-columns:1fr;gap:8px}.toujours-liste li{flex-direction:row;align-items:center;gap:12px;padding:10px 12px}}
+  /* OFFRES : une carte unique, des boutons d'options (2 variantes à l'aperçu) */
+  .config{margin-top:clamp(24px,3vw,36px)}
+  .config [hidden]{display:none !important}
+  .choix-offre{display:block}
+  .seg{display:flex;gap:4px;padding:4px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--trait)}
+  .seg button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:56px;padding:6px 10px;border:0;border-radius:999px;background:transparent;font:700 16px/1.15 var(--sans);color:var(--encre);text-align:center;cursor:pointer;transition:background .2s,color .2s}
+  .seg button span{font-size:16px;font-weight:500;color:var(--gris)}
+  .seg button:hover{background:#EEF1FD}
+  .seg button[aria-checked="true"]{background:var(--bic);color:#fff}
+  .seg button[aria-checked="true"] span{color:rgba(255,255,255,.88)}
+  .choix-offre{margin-bottom:20px}
+  .cc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);overflow:hidden;border-radius:var(--r-lg);background:#fff;box-shadow:0 0 0 1px var(--trait)}
+  .cc-tete{background:linear-gradient(160deg,#0047FF 0%,#0036D9 100%);color:#fff;padding:clamp(24px,2.6vw,36px)}
+  .cc-tete-in{position:sticky;top:96px;display:flex;flex-direction:column;gap:0}
+  .cc-pour{font-family:var(--hand);font-size:22px;line-height:1;color:#CFE0FF}
+  .cc-tete h3{margin-top:8px;font-size:clamp(30px,2.7vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1}
+  .cc-desc{margin-top:12px;font-size:16px;color:rgba(255,255,255,.9)}
+  .cc-prix{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.25)}
+  .cc-prix-label{display:block;margin-bottom:6px;font-size:16px;font-weight:600;color:#CFE0FF}
+  .cc-prix strong small{display:block;margin-bottom:6px;font-size:16px;font-weight:600;letter-spacing:0;color:#CFE0FF}
+  .cc-prix-sous{display:block;margin-top:8px;font-size:16px;color:#fff}
+  .cc-prix strong{display:block;font-size:clamp(48px,4.4vw,64px);font-weight:800;letter-spacing:-.05em;line-height:1}
+  .cc-delai{display:block;margin-top:8px;font-size:16px;color:rgba(255,255,255,.9)}
+  .cc-delai b{color:#fff}
+  .cc-cta{width:100%;font-size:16px;margin-top:20px;white-space:normal;text-align:center;line-height:1.2}
+  .cc-cta-haut{background:#fff;color:var(--encre)}
+  .cc-cta-haut:hover{background:#EEF1FD}
+  .cc-corps{display:flex;flex-direction:column;gap:clamp(20px,2.4vw,28px);padding:clamp(24px,2.6vw,36px)}
+  .cc-titre{margin:0 0 10px;font-size:16px;font-weight:800;letter-spacing:-.01em}
+  .cc-liste{list-style:none;display:grid;gap:11px;margin:0;padding:0}
+  .cc-liste li{position:relative;padding-left:30px;font-size:16px;line-height:1.45}
+  .cc-liste li::before{content:"";position:absolute;left:0;top:.15em;width:19px;height:19px;background:var(--grad);-webkit-mask:var(--coche) center/contain no-repeat;mask:var(--coche) center/contain no-repeat}
+  .cc-liste-ico li::before{content:none}
+  .cc-liste-ico li{padding-left:0;display:flex;align-items:center;gap:10px}
+  .cc-liste-ico svg{flex:none;width:24px;height:24px;color:var(--bic)}
+  .cc-bloc + .cc-bloc{padding-top:clamp(20px,2.4vw,28px);border-top:1px solid var(--trait)}
+  .cc-inclus{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin:0;padding:0}
+  .cc-inclus li{display:flex;align-items:center;gap:10px;font-size:16px;line-height:1.3}
+  .cc-inclus .t-ico{background:#EEF2FF;color:var(--bic);box-shadow:none}
+  .cc-outils{padding:18px !important;border-radius:var(--r-md);background:#EEF2FF;border-top:0 !important}
+  .cc-outils .cc-titre{color:var(--bic)}
+  .cc-exemple{margin-top:18px;padding:18px;border-radius:var(--r-md);background:var(--papier)}
+  .cc-ex-titre{margin:0;font-family:var(--hand);font-size:24px;line-height:1.1;color:var(--bic)}
+  .cc-ex-texte{margin:8px 0 14px;font-size:16px;line-height:1.5;color:var(--gris)}
+  .cc-ex-media{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .cc-ex-media a{position:relative;display:flex;flex-direction:column;gap:8px;color:var(--encre);text-decoration:none;font-size:16px;font-weight:600}
+  .cc-ex-site img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;box-shadow:0 0 0 1px var(--trait)}
+  .cc-ex-video{justify-content:flex-end}
+  .cc-ex-video::before{content:"";display:block;aspect-ratio:4/3;border-radius:12px;background:linear-gradient(160deg,#16161D,#0B0B10);box-shadow:0 0 0 1px var(--trait)}
+  .cc-play{position:absolute;left:50%;top:calc(50% - 20px);transform:translate(-50%,-50%);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#fff;color:var(--bic)}
+  .cc-play svg{width:24px;height:24px;margin-left:3px}
+  .cc-cta-bas{align-self:stretch}
+  @media (max-width:980px){
+    .cc{grid-template-columns:1fr}
+    .cc-tete-in{position:static}
+  }
+  @media (max-width:560px){
+    .cc-inclus{grid-template-columns:1fr}
+    .cc-ex-media{grid-template-columns:1fr}
+    .seg{flex-direction:column;border-radius:24px}
+  }
   .lancement-promesse{flex-basis:100%;font-weight:700;color:var(--encre)}
 
   /* Menu : le lien le plus long disparaît quand la barre devient trop étroite */
@@ -319,44 +371,8 @@
   .hors-prix{max-width:56em;margin:clamp(24px,3vw,34px) auto 0;font-size:16px;line-height:1.5;text-align:center;color:var(--gris)}
   .hors-prix b{color:var(--encre)}
   .hors-prix a{color:var(--bic)}
-  .cartes-offres{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px);align-items:stretch}
-  .carte-offre{display:flex;flex-direction:column;overflow:hidden;background:#fff;border-radius:var(--r-lg);box-shadow:0 0 0 1px var(--trait);transition:transform .35s var(--ease),box-shadow .35s}
-  .carte-offre:hover{transform:translateY(-4px);box-shadow:0 0 0 1px var(--trait),0 30px 50px -36px rgba(20,20,60,.45)}
-  .po-texte{flex:1;display:flex;flex-direction:column}
-  .po-tete{display:flex;flex-direction:column;padding:clamp(24px,2.6vw,32px) clamp(22px,2.4vw,30px) clamp(22px,2.4vw,28px);background:linear-gradient(160deg,#0047FF 0%,#0036D9 100%);color:#fff}
-  .po-corps{flex:1;display:flex;flex-direction:column;padding:clamp(20px,2.2vw,26px) clamp(22px,2.4vw,30px) clamp(22px,2.4vw,30px)}
-  @media (min-width:981px){
-    .cartes-offres{grid-template-rows:auto 1fr;row-gap:0}
-    .carte-offre{display:grid;grid-template-rows:subgrid;grid-row:span 2}
-    .po-texte{display:contents}
-  }
-  .po-num{align-self:flex-start;margin-bottom:14px;padding:5px 13px;border-radius:999px;background:rgba(255,255,255,.18);font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.3;color:#fff}
-  .po-texte .pour{font-family:var(--hand);font-size:22px;line-height:1;color:#CFE0FF}
-  .po-texte h3{margin-top:8px;font-size:clamp(30px,2.7vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1;color:#fff}
-  .po-texte .desc{margin-top:12px;font-size:16px;color:rgba(255,255,255,.9)}
-  .po-sous{margin-top:0;font-size:16px;font-weight:700;color:var(--encre)}
-  .po-texte ul{list-style:none;display:grid;gap:11px;margin:10px 0 18px}
-  .po-texte li{position:relative;padding-left:30px;font-size:16px;line-height:1.45}
-  .po-texte li::before{content:"";position:absolute;left:0;top:.15em;width:19px;height:19px;background:var(--grad);-webkit-mask:var(--coche) center/contain no-repeat;mask:var(--coche) center/contain no-repeat}
-  .po-peut{margin:0 0 16px;padding:14px 16px 12px;border-radius:14px;background:#EEF2FF}
-  .po-peut-titre{margin:0 0 8px;font-size:16px;font-weight:800;letter-spacing:-.01em;color:var(--bic)}
-  .po-texte .po-peut ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
-  .po-texte .po-peut li{display:flex;align-items:center;gap:10px;padding:0;font-size:16px;line-height:1.3;color:var(--encre)}
-  .po-texte .po-peut li::before{content:none}
-  .po-peut svg{flex:none;width:22px;height:22px;color:var(--bic)}
-  .po-delai{margin:0 0 20px;padding:10px 14px;border-radius:14px;background:var(--papier);font-size:16px;line-height:1.4;color:var(--gris)}
-  .po-delai b{color:var(--encre);font-weight:700}
-  .po-prix .po-prix-label{margin:0 0 6px;color:var(--bic);font-weight:600}
   .lancement-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:18px;font-size:16px;color:var(--encre)}
   .lancement-note span{padding:6px 14px;border-radius:999px;background:var(--bic);color:#fff;font-weight:700}
-  .po-pied{margin-top:auto;padding-top:20px;border-top:1px solid var(--trait)}
-  .po-prix strong{display:block;font-size:clamp(44px,4vw,56px);font-weight:800;letter-spacing:-.05em;line-height:1}
-  .po-prix strong small{margin-right:5px;font-size:16px;font-weight:700;letter-spacing:0}
-  .po-prix span{display:block;margin-top:6px;font-size:16px;color:var(--gris)}
-  .po-pied .btn{width:100%;margin-top:18px;white-space:normal;text-align:center;line-height:1.2}
-  @media (max-width:980px){
-    .cartes-offres{grid-template-columns:1fr;max-width:560px;margin:0 auto;gap:22px}
-  }
 
   /* PANNEAU DE CONTACT : une étape douce avant WhatsApp */
   .panneau{border:0;padding:clamp(26px,3.4vw,40px);width:min(560px,calc(100% - 24px));border-radius:var(--r-lg);background:#fff;color:var(--encre);box-shadow:0 40px 90px -30px rgba(20,20,60,.5);margin:auto;overflow:visible}
@@ -511,115 +527,93 @@
     <div class="wrap">
       <div class="tete rv">
         <p class="eyebrow"><b>01</b> les offres</p>
-        <h2>Trois offres,<br>selon ton projet.</h2>
+        <h2>Ton site,<br>selon ton projet.</h2>
         <p class="lancement-note"><span>Prix de lancement</span> pour les 10 premiers projets<b class="lancement-promesse">Tu ne paies rien avant d'avoir validé ton site.</b></p>
       </div>
 
-      <div class="toujours rv">
-        <p class="toujours-titre">Toujours compris dans chaque offre</p>
-        <ul class="toujours-liste">
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-textes"/></svg></span>textes rédigés pour toi</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-logo"/></svg></span>logo si tu n'en as pas</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-design"/></svg></span>design sur mesure</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-domaine"/></svg></span>nom de domaine et mise en ligne</li>
-          <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-propriete"/></svg></span>tout t'appartient</li>
-        </ul>
-      </div>
-
-      <div class="cartes-offres rv">
-          <article class="carte-offre" aria-label="Landing page">
-            <div class="po-texte">
-              <div class="po-tete">
-              <span class="po-num">Offre 1</span>
-              <span class="pour">ton site en une seule page</span>
-              <h3>Landing page</h3>
-              <p class="desc">Tout l'essentiel sur une page, pour convaincre vite et être contacté. Idéal pour te lancer ou présenter une offre.</p>
+      <div class="config rv">
+        <div class="choix-offre" hidden>
+          <div class="seg" role="radiogroup" aria-label="Ton offre">
+            <button type="button" role="radio" aria-checked="false" data-offre="portfolio"><b>Landing page</b><span>200&nbsp;€</span></button>
+            <button type="button" role="radio" aria-checked="true" data-offre="vitrine"><b>Site vitrine</b><span>400&nbsp;€</span></button>
+            <button type="button" role="radio" aria-checked="false" data-offre="video"><b>Site + Vidéo</b><span>à partir de 350&nbsp;€</span></button>
+          </div>
+        </div>
+        <article class="cc" aria-label="Ton offre">
+          <div class="cc-tete">
+            <div class="cc-tete-in">
+              <p class="cc-pour" data-pour>ton activité, page par page</p>
+              <h3 data-nom>Site vitrine</h3>
+              <p class="cc-desc" data-desc>Quand une page ne suffit plus&nbsp;: un site complet pour tout présenter et inspirer confiance dès la première visite.</p>
+              <div class="cc-prix" aria-live="polite">
+                <span class="cc-prix-label">Prix de lancement</span>
+                <strong data-prix>400&nbsp;€</strong>
+                <span class="cc-prix-sous" data-prix-sous hidden></span>
+                <span class="cc-delai" data-delai>En ligne en <b>2&nbsp;semaines</b></span>
               </div>
-              <div class="po-corps">
-              <p class="po-sous">Sur ta page&nbsp;:</p>
-              <ul>
+              <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20vitrine%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn cc-cta cc-cta-haut js-wa" data-choix="vitrine" data-wa-portfolio="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20une%20landing%20page%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" data-wa-vitrine="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20vitrine%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" data-wa-video="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20avec%20une%20vid%C3%A9o%20de%20pr%C3%A9sentation%20UPFLOW.%20On%20en%20parle%20%3F"><span class="wa"></span><span data-cta>Démarrer mon site vitrine</span></a>
+            </div>
+          </div>
+          <div class="cc-corps">
+            <div class="cc-bloc">
+              <p class="cc-titre" data-titre-site>Sur ton site&nbsp;:</p>
+              <ul class="cc-liste" data-liste="portfolio" hidden>
                 <li>Ton activité, tes services ou tes projets</li>
                 <li>Tes avis et tes réalisations, si tu en as</li>
                 <li>Tes infos pratiques et ton bouton de contact</li>
               </ul>
-              <div class="po-peut">
-                <p class="po-peut-titre">Ton site peut aussi&nbsp;:</p>
-                <ul>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-chat"/></svg>Bouton WhatsApp, message prêt</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Lien vers ton agenda en ligne</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg>Lien de paiement pour l'acompte</li>
-                </ul>
-              </div>
-              <p class="po-delai">En ligne en <b>1&nbsp;semaine</b></p>
-              <div class="po-pied">
-                <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong>200&nbsp;€</strong></div>
-                  <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20une%20landing%20page%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre js-wa" data-choix="portfolio" data-offre="portfolio"><span class="wa" aria-hidden="true"></span>Démarrer ma landing page</a>
-              </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="carte-offre" aria-label="Site vitrine">
-            <div class="po-texte">
-              <div class="po-tete">
-              <span class="po-num">Offre 2</span>
-              <span class="pour">ton activité, page par page</span>
-              <h3>Site vitrine</h3>
-              <p class="desc">Quand une page ne suffit plus&nbsp;: un site complet pour tout présenter et inspirer confiance dès la première visite.</p>
-              </div>
-              <div class="po-corps">
-              <p class="po-sous">Sur ton site&nbsp;:</p>
-              <ul>
+              <ul class="cc-liste" data-liste="vitrine">
                 <li>Accueil, services, réalisations, à propos et contact</li>
                 <li>Une page par service</li>
                 <li>Ton offre mise en forme&nbsp;: formules, prix «&nbsp;à partir de&nbsp;», étapes</li>
               </ul>
-              <div class="po-peut">
-                <p class="po-peut-titre">Ton site peut aussi&nbsp;:</p>
-                <ul>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Réservation sur ton site</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-commander"/></svg>Commande en ligne</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg>Acompte ou paiement en ligne</li>
-                </ul>
-              </div>
-              <p class="po-delai">En ligne en <b>2&nbsp;semaines</b></p>
-              <div class="po-pied">
-                <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong>400&nbsp;€</strong></div>
-                  <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20vitrine%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cta-offre js-wa" data-choix="vitrine" data-offre="vitrine"><span class="wa" aria-hidden="true"></span>Démarrer mon site vitrine</a>
-              </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="carte-offre carte-video" aria-label="Site + Vidéo">
-            <div class="po-texte">
-              <div class="po-tete">
-              <span class="po-num">Offre 3</span>
-              <span class="pour">le site et la vidéo, ensemble</span>
-              <h3>Site + Vidéo</h3>
-              <p class="desc">Ton site, et une vidéo animée (motion design) de 30&nbsp;secondes qui explique ton offre mieux qu'un long texte. Pour les services qu'il faut faire comprendre.</p>
-              </div>
-              <div class="po-corps">
-              <p class="po-sous">Avec ton site&nbsp;:</p>
-              <ul>
+              <ul class="cc-liste" data-liste="video" hidden>
                 <li>Ta landing page ou ton site vitrine, au choix</li>
+              </ul>
+            </div>
+            <div class="cc-bloc cc-video" data-bloc-video hidden>
+              <p class="cc-titre">Avec la vidéo UPFLOW&nbsp;:</p>
+              <ul class="cc-liste">
                 <li>Une vidéo animée de 30&nbsp;secondes, faite par UPFLOW, mon studio partenaire</li>
                 <li>Pour ton site ou tes réseaux sociaux (un format au choix)</li>
               </ul>
-              <div class="po-peut">
-                <p class="po-peut-titre">Ton site peut aussi&nbsp;:</p>
-                <ul>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Les options de la landing ou du vitrine, selon ta formule</li>
-                </ul>
-              </div>
-              <p class="po-delai">En ligne en <b>2&nbsp;semaines</b> (landing) ou <b>3&nbsp;semaines</b> (vitrine)</p>
-              <div class="po-pied">
-                <div class="po-prix"><span class="po-prix-label">Prix de lancement</span><strong><small>dès</small>350&nbsp;€</strong><span>Landing + vidéo 350&nbsp;€ · Vitrine + vidéo 550&nbsp;€</span></div>
-                  <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20avec%20une%20vid%C3%A9o%20de%20pr%C3%A9sentation%20UPFLOW.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-bic cta-offre js-wa" data-choix="video" data-offre="video"><span class="wa" aria-hidden="true"></span>Démarrer mon site + vidéo</a>
-              </div>
+              <div class="cc-exemple">
+                <p class="cc-ex-titre">Exemple concret&nbsp;: SHOTBY12</p>
+                <p class="cc-ex-texte">Vidéaste et social media manager. J'ai créé son site, UPFLOW lui a fait sa vidéo de présentation, publiée sur son Instagram.</p>
+                <div class="cc-ex-media">
+                  <a class="cc-ex-site" href="https://shotby12.fr" target="_blank" rel="noopener">
+                    <img src="images/shotby12.webp" alt="Le site de SHOTBY12, créé par AuPropre" width="960" height="720" loading="lazy" decoding="async">
+                    <span>Le site · AuPropre&nbsp;↗</span>
+                  </a>
+                  <a class="cc-ex-video" href="https://www.instagram.com/p/DfH7PokNKKB/" target="_blank" rel="noopener" aria-label="Voir la vidéo de présentation de SHOTBY12 sur Instagram">
+                    <span class="cc-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+                    <span>La vidéo · UPFLOW&nbsp;↗</span>
+                  </a>
+                </div>
               </div>
             </div>
-          </article>
+            <div class="cc-bloc">
+              <p class="cc-titre">Toujours compris&nbsp;:</p>
+              <ul class="cc-inclus">
+                <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-textes"/></svg></span>textes rédigés pour toi</li>
+                <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-logo"/></svg></span>logo si tu n'en as pas</li>
+                <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-design"/></svg></span>design sur mesure</li>
+                <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-domaine"/></svg></span>nom de domaine et mise en ligne</li>
+                <li><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-propriete"/></svg></span>tout t'appartient</li>
+              </ul>
+            </div>
+            <div class="cc-bloc cc-outils">
+              <p class="cc-titre">Ton site peut aussi&nbsp;:</p>
+              <ul class="cc-liste cc-liste-ico">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-reserver"/></svg>Réserver un créneau</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-commander"/></svg>Commander en ligne</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-acompte"/></svg>Payer un acompte ou en ligne</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ic-chat"/></svg>Devis sur WhatsApp</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/33668077746?text=Salut%20%21%20Je%20viens%20du%20site%20AuPropre%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20un%20site%20vitrine%20pour%20mon%20activit%C3%A9.%20On%20en%20parle%20%3F" target="_blank" rel="noopener" class="btn btn-noir cc-cta cc-cta-bas js-wa" data-choix="vitrine"><span class="wa"></span><span data-cta>Démarrer mon site vitrine</span></a>
+          </div>
+        </article>
       </div>
 
       <p class="hors-prix rv"><b>Pas compris dans ces prix&nbsp;:</b> le <a href="#suivi">suivi après la mise en ligne</a> (hébergement, changements, sauvegardes et bilan&nbsp;: 29&nbsp;€/mois, 1er mois offert, sans engagement), l'abonnement d'un outil de réservation ou de commande si tu en choisis un, et les nouvelles pages après la validation, sur devis. Ces prix sont des prix de lancement, valables pour les 10 premiers projets.</p>
@@ -748,7 +742,7 @@
         <details><summary><span class="n">02</span>En combien de temps mon site est en ligne&nbsp;?</summary><p>Compte 1&nbsp;semaine pour une landing page et 2&nbsp;semaines pour un site vitrine (2 et 3&nbsp;semaines avec la vidéo), à partir du moment où j'ai ton questionnaire et tes photos. Tu as ensuite 3 à 5&nbsp;jours pour tester ton site et demander tes changements. Si tu as besoin de plus de temps, pas de souci&nbsp;: la mise en ligne est simplement décalée d'autant.</p></details>
         <details><summary><span class="n">03</span>Et si mon site ne me plaît pas&nbsp;?</summary><p>Je le retravaille avec toi jusqu'à ce qu'il te ressemble. Et si tu préfères arrêter, tu arrêtes&nbsp;: tu ne paies rien. Le site n'est ni mis en ligne ni transféré.</p></details>
         <details><summary><span class="n">04</span>Je dois écrire mes textes ou faire mon logo&nbsp;?</summary><p>Non. Tu remplis un questionnaire de 15&nbsp;minutes et je rédige tous les textes dans ton ton. Ton logo est créé pour toi&nbsp;: un logo simple, avec ton nom et un symbole. Tu relis, tu valides, et j'ajuste si besoin.</p></details>
-        <details><summary><span class="n">05</span>Comment mes clients me contactent&nbsp;?</summary><p>Tu choisis&nbsp;: un bouton WhatsApp, appel ou e-mail avec un message déjà écrit, un formulaire, un outil de réservation ou de commande en ligne (avec acompte ou paiement en ligne par tes clients, si tu veux), choisi avec toi selon ton activité. La mise en place est incluse&nbsp;; l'abonnement éventuel de l'outil est à ton nom. Sur la landing page, c'est un bouton ou un lien vers ton agenda ou ton paiement&nbsp;; sur le site vitrine, c'est intégré à ton site. Une boutique complète avec panier et livraison est sur devis.</p></details>
+        <details><summary><span class="n">05</span>Comment mes clients me contactent&nbsp;?</summary><p>Tu choisis&nbsp;: un bouton WhatsApp, appel ou e-mail avec un message déjà écrit, un formulaire, un outil de réservation ou de commande en ligne (avec acompte ou paiement en ligne par tes clients, si tu veux), choisi avec toi selon ton activité. La mise en place est incluse&nbsp;; l'abonnement éventuel de l'outil est à ton nom. Une boutique complète avec panier et livraison est sur devis.</p></details>
         <details><summary><span class="n">06</span>Et si je ne prends pas le suivi&nbsp;?</summary><p>Aucun problème. Ton site t'appartient&nbsp;: je te transfère le site, ses fichiers et ton nom de domaine, et tu les gères toi-même. Tu peux aussi prendre le suivi plus tard, ou l'arrêter quand tu veux.</p></details>
       </div>
     </div>
@@ -880,6 +874,40 @@
   addEventListener('resize',()=>{caleRail();rendreParcours()});
   rendreParcours();
 
+  // OFFRES : une carte, un sélecteur (landing, vitrine, site + vidéo)
+  (function(){
+    const DESC_V="Ton site, et une vidéo animée (motion design) de 30 secondes qui explique ton offre mieux qu'un long texte. Pour les services qu'il faut faire comprendre.";
+    const D={
+      portfolio:{nom:'Landing page',pour:'ton site en une seule page',desc:"Tout l'essentiel sur une page, pour convaincre vite et être contacté. Idéal pour te lancer ou présenter une offre.",prix:'200 €',sous:'',delai:'En ligne en <b>1 semaine</b>',titre:'Sur ta page :',cta:'Démarrer ma landing page'},
+      vitrine:{nom:'Site vitrine',pour:'ton activité, page par page',desc:'Quand une page ne suffit plus : un site complet pour tout présenter et inspirer confiance dès la première visite.',prix:'400 €',sous:'',delai:'En ligne en <b>2 semaines</b>',titre:'Sur ton site :',cta:'Démarrer mon site vitrine'},
+      video:{nom:'Site + Vidéo',pour:'le site et la vidéo, ensemble',desc:DESC_V,prix:'<small>à partir de</small>350 €',sous:'Landing + vidéo 350 € · Vitrine + vidéo 550 €',delai:'En ligne en <b>2 semaines</b> (landing) ou <b>3 semaines</b> (vitrine)',titre:'Sur ton site :',cta:'Démarrer mon site + vidéo'}
+    };
+    document.querySelectorAll('.config').forEach(c=>{
+      const $=s=>c.querySelector(s),$$=s=>[...c.querySelectorAll(s)];
+      c.querySelector('.choix-offre').hidden=false;
+      function maj(o){
+        const d=D[o];
+        $('[data-nom]').textContent=d.nom;
+        $('[data-pour]').textContent=d.pour;
+        $('[data-desc]').textContent=d.desc;
+        $('[data-prix]').innerHTML=d.prix;
+        const sous=$('[data-prix-sous]');sous.textContent=d.sous;sous.hidden=!d.sous;
+        $('[data-delai]').innerHTML=d.delai;
+        $('[data-titre-site]').textContent=d.titre;
+        $$('[data-liste]').forEach(u=>u.hidden=u.dataset.liste!==o);
+        $('[data-bloc-video]').hidden=o!=='video';
+        const wa=$('.cc-cta-haut').dataset['wa'+o.charAt(0).toUpperCase()+o.slice(1)];
+        $$('.cc-cta').forEach(a=>{
+          a.dataset.choix=o;
+          a.querySelector('[data-cta]').textContent=d.cta;
+          if(wa)a.setAttribute('href',wa);
+        });
+        $$('[data-offre]').forEach(b=>b.setAttribute('aria-checked',b.dataset.offre===o));
+      }
+      $$('[data-offre]').forEach(b=>b.addEventListener('click',()=>maj(b.dataset.offre)));
+      maj('vitrine');
+    });
+  })();
   // CONTACT : panneau de choix, puis WhatsApp avec un message pré-rempli
   const WHATSAPP='33668077746';
   const MESSAGES={
